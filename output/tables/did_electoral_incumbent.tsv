@@ -1,0 +1,9 @@
+model,sample,treatment_var,beta,se,t_stat,p_value,ci_lower,ci_upper,significance,n_obs,n_candidates,n_treated_obs,candidate_fe,year_fe,outcome
+COA Created During Term,All Incumbents,coa_created_during_term,-0.01165,0.019435,-0.599,0.5489,-0.049743,0.026443,,8650,3140,324,Yes,Yes,
+Post-COA,All Incumbents,post_coa,-0.025505,0.027804,-0.917,0.359,-0.080002,0.028991,,8650,3140,1940,Yes,Yes,
+COA Created During Term,City Council,coa_created_during_term,-0.008723,0.021129,-0.413,0.6798,-0.050136,0.03269,,7001,2640,286,Yes,Yes,
+COA Created During Term,Mayor,coa_created_during_term,-0.032974,0.043033,-0.766,0.4437,-0.117318,0.051371,,1649,696,38,Yes,Yes,
+Post-COA,City Council,post_coa,-0.028644,0.029444,-0.973,0.3307,-0.086355,0.029066,,7001,2640,1742,Yes,Yes,
+Post-COA,Mayor,post_coa,-0.010315,0.061016,-0.169,0.8658,-0.129907,0.109277,,1649,696,198,Yes,Yes,
+COA Created During Term → Win,All Incumbents,coa_created_during_term,-0.035527,0.025799,-1.377,0.1686,-0.086093,0.01504,,8650,3140,324,Yes,Yes,win
+Post-COA → Win,All Incumbents,post_coa,-0.013936,0.04008,-0.348,0.7281,-0.092492,0.06462,,8650,3140,1940,Yes,Yes,win
