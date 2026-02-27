@@ -1,0 +1,40 @@
+variable	group	n	mean	sd	median
+log_pop	Adopted COA	78	12.1469	0.9074	12.1113
+log_pop	Never Adopted	284	11.1834	1.2776	11.3744
+pct_black	Adopted COA	76	0.1958	0.1743	0.1455
+pct_black	Never Adopted	284	0.1343	0.1402	0.0849
+pct_hispanic	Adopted COA	53	0.1318	0.1151	0.0943
+pct_hispanic	Never Adopted	205	0.1926	0.2037	0.1189
+south	Adopted COA	78	0.2949	0.4589	0.0
+south	Never Adopted	284	0.3521	0.4785	0.0
+violent_crime_pc	Adopted COA	76	2289.9989	6299.1282	718.2799
+violent_crime_pc	Never Adopted	279	4787.7998	12083.3966	585.1501
+drug_arrests_pc	Adopted COA	66	2163.9635	5080.674	694.5728
+drug_arrests_pc	Never Adopted	242	7022.8711	17926.0219	645.1309
+killings_pc	Adopted COA	78	1.8458	5.9067	0.6436
+killings_pc	Never Adopted	284	5.5232	15.8338	0.5443
+black_arrest_disparity	Adopted COA	66	0.4216	0.2599	0.4661
+black_arrest_disparity	Never Adopted	242	0.3005	0.2242	0.2359
+dem_power	Adopted COA	78	0.715	0.3684	0.9389
+dem_power	Never Adopted	284	0.4283	0.3988	0.375
+council_pct_dem	Adopted COA	70	0.6625	0.278	0.7598
+council_pct_dem	Never Adopted	216	0.5606	0.2718	0.5341
+council_pct_black	Adopted COA	70	0.2065	0.2183	0.1652
+council_pct_black	Never Adopted	217	0.1303	0.1855	0.0625
+mayor_dem	Adopted COA	74	0.7315	0.3521	0.9617
+mayor_dem	Never Adopted	266	0.5193	0.3845	0.5331
+mayor_black	Adopted COA	74	0.1729	0.3041	0.0
+mayor_black	Never Adopted	270	0.0765	0.1942	0.0
+log_pop	Difference	362	0.9635	0.0	***
+pct_black	Difference	360	0.0615	0.0014	***
+pct_hispanic	Difference	258	-0.0608	0.0378	**
+south	Difference	362	-0.0572	0.3458	
+violent_crime_pc	Difference	355	-2497.8009	0.0831	*
+drug_arrests_pc	Difference	308	-4858.9076	0.0303	**
+killings_pc	Difference	362	-3.6774	0.045	**
+black_arrest_disparity	Difference	308	0.1211	0.0002	***
+dem_power	Difference	362	0.2868	0.0	***
+council_pct_dem	Difference	286	0.1019	0.0071	***
+council_pct_black	Difference	287	0.0762	0.0046	***
+mayor_dem	Difference	340	0.2122	0.0	***
+mayor_black	Difference	344	0.0964	0.0011	***
