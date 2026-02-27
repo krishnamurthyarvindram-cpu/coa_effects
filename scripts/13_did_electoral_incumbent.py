@@ -276,125 +276,22 @@ print(f"  Unique cities: {panel['city_id'].nunique()}")
 
 results_list = []
 
-
-def run_ols_fe(data, treatment_var, label, sample_label="All"):
-    """
-    Estimate within-candidate DiD with year FEs using PanelOLS.
-    vote_share_it = alpha_i + gamma_t + beta * Treatment_it + epsilon_it
-    """
-    df = data[["vote_share", treatment_var, "cand_id", "year", "city_id"]].dropna().copy()
-
-    if df[treatment_var].nunique() < 2:
-        print(f"  [{label}] Skipping: no variation in treatment")
-        return None
-
-    # Set panel index
-    df = df.reset_index(drop=True)
-    df["obs_id"] = range(len(df))
-    df = df.set_index(["cand_id", "year"])
-
-    # PanelOLS: entity (candidate) + time (year) FEs
-    mod = PanelOLS(
-        dependent=df["vote_share"],
-        exog=df[[treatment_var]],
-        entity_effects=True,
-        time_effects=True,
-        check_rank=False
-    )
-
-    # Cluster SEs at city level
-    try:
-        res = mod.fit(cov_type="clustered", cluster_entity=False,
-                      clusters=df["city_id"])
-    except Exception:
-        # Fallback: cluster at entity level
-        res = mod.fit(cov_type="clustered", cluster_entity=True)
-
-    beta = res.params[treatment_var]
-    se = res.std_errors[treatment_var]
-    t_stat = res.tstats[treatment_var]
-    p_val = res.pvalues[treatment_var]
-    ci_low, ci_high = beta - 1.96 * se, beta + 1.96 * se
-    n_obs = int(res.nobs)
-    n_cand = df.index.get_level_values(0).nunique()
-    n_treated = int(df[treatment_var].sum())
-
-    print(f"\n  [{label} | {sample_label}]")
-    print(f"    beta  = {beta:.5f}  (SE = {se:.5f})")
-    print(f"    t     = {t_stat:.3f},  p = {p_val:.4f}")
-    print(f"    95% CI: [{ci_low:.5f}, {ci_high:.5f}]")
-    print(f"    N obs = {n_obs:,}, N candidates = {n_cand:,}, N treated = {n_treated:,}")
-
-    stars = ""
-    if p_val < 0.01:
-        stars = "***"
-    elif p_val < 0.05:
-        stars = "**"
-    elif p_val < 0.10:
-        stars = "*"
-
-    result = {
-        "model": label,
-        "sample": sample_label,
-        "treatment_var": treatment_var,
-        "beta": round(beta, 6),
-        "se": round(se, 6),
-        "t_stat": round(t_stat, 3),
-        "p_value": round(p_val, 4),
-        "ci_lower": round(ci_low, 6),
-        "ci_upper": round(ci_high, 6),
-        "significance": stars,
-        "n_obs": n_obs,
-        "n_candidates": n_cand,
-        "n_treated_obs": n_treated,
-        "candidate_fe": "Yes",
-        "year_fe": "Yes",
-    }
-    results_list.append(result)
-    return res
-
-
-print("\n" + "=" * 70)
-print("MODEL ESTIMATES")
-print("=" * 70)
-
-# ── Model 1: Main treatment – COA created during incumbent's term ─────────
-print("\n── Model 1: COA Created During Term ──")
-run_ols_fe(panel, "coa_created_during_term",
-           "COA Created During Term", "All Incumbents")
-
-# ── Model 2: Post-COA indicator (broader) ─────────────────────────────────
-print("\n── Model 2: Post-COA (COA Exists at Election) ──")
-run_ols_fe(panel, "post_coa",
-           "Post-COA", "All Incumbents")
-
-# ── Model 3: By office type ──────────────────────────────────────────────
-print("\n── Model 3: By Office Type ──")
-for office in ["City Council", "Mayor"]:
-    sub = panel[panel["office_consolidated"] == office]
-    if len(sub) > 50:
-        run_ols_fe(sub, "coa_created_during_term",
-                   "COA Created During Term", office)
-
-# ── Model 4: COA created during term, by office (post-COA) ───────────────
-print("\n── Model 4: Post-COA by Office Type ──")
-for office in ["City Council", "Mayor"]:
-    sub = panel[panel["office_consolidated"] == office]
-    if len(sub) > 50:
-        run_ols_fe(sub, "post_coa",
-                   "Post-COA", office)
-
-# ── Model 5: Winners vs. all (did creating COA help win?) ────────────────
-print("\n── Model 5: Win indicator as outcome ──")
 panel["win"] = (panel["winner"] == "win").astype(int)
 
 
-def run_ols_fe_outcome(data, treatment_var, outcome_var, label, sample_label="All"):
-    """Run PanelOLS with a flexible outcome."""
+def run_panel_did(data, treatment_var, outcome_var, label, sample_label="All"):
+    """
+    Estimate within-candidate DiD with year FEs using PanelOLS.
+    Y_it = alpha_i + gamma_t + beta * Treatment_it + epsilon_it
+    Clustered SEs at city level.
+    """
     df = data[[outcome_var, treatment_var, "cand_id", "year", "city_id"]].dropna().copy()
 
     if df[treatment_var].nunique() < 2:
-        print(f"  [{label}] Skipping: no variation in treatment")
+        print(f"  [{label} | {sample_label}] Skipping: no variation in treatment")
+        return None
+    if len(df) < 30:
+        print(f"  [{label} | {sample_label}] Skipping: too few obs ({len(df)})")
         return None
 
     df = df.reset_index(drop=True)
@@ -423,7 +320,7 @@ def run_ols_fe_outcome(data, treatment_var, outcome_var, label, sample_label="Al
     n_cand = df.index.get_level_values(0).nunique()
     n_treated = int(df[treatment_var].sum())
 
-    print(f"\n  [{label} | {sample_label}]")
+    print(f"\n  [{label} | {sample_label} | Y={outcome_var}]")
     print(f"    beta  = {beta:.5f}  (SE = {se:.5f})")
     print(f"    t     = {t_stat:.3f},  p = {p_val:.4f}")
     print(f"    95% CI: [{ci_low:.5f}, {ci_high:.5f}]")
@@ -437,11 +334,11 @@ def run_ols_fe_outcome(data, treatment_var, outcome_var, label, sample_label="Al
     elif p_val < 0.10:
         stars = "*"
 
-    result = {
+    results_list.append({
         "model": label,
         "sample": sample_label,
-        "treatment_var": treatment_var,
         "outcome": outcome_var,
+        "treatment_var": treatment_var,
         "beta": round(beta, 6),
         "se": round(se, 6),
         "t_stat": round(t_stat, 3),
@@ -454,16 +351,73 @@ def run_ols_fe_outcome(data, treatment_var, outcome_var, label, sample_label="Al
         "n_treated_obs": n_treated,
         "candidate_fe": "Yes",
         "year_fe": "Yes",
-    }
-    results_list.append(result)
+    })
     return res
 
 
-run_ols_fe_outcome(panel, "coa_created_during_term", "win",
-                   "COA Created During Term → Win", "All Incumbents")
+print("\n" + "=" * 70)
+print("MODEL ESTIMATES")
+print("=" * 70)
 
-run_ols_fe_outcome(panel, "post_coa", "win",
-                   "Post-COA → Win", "All Incumbents")
+# ── Panel A: Baseline models (both outcomes × both treatments) ────────────
+print("\n── Panel A: Baseline Models ──")
+for outcome in ["vote_share", "win"]:
+    for trt in ["coa_created_during_term", "post_coa"]:
+        trt_label = "COA Created During Term" if "during" in trt else "Post-COA"
+        run_panel_did(panel, trt, outcome, trt_label, "All Incumbents")
+
+# ── Panel B: By office type ──────────────────────────────────────────────
+print("\n── Panel B: By Office Type ──")
+for office in ["City Council", "Mayor"]:
+    sub = panel[panel["office_consolidated"] == office]
+    for outcome in ["vote_share", "win"]:
+        for trt in ["coa_created_during_term", "post_coa"]:
+            trt_label = "COA Created During Term" if "during" in trt else "Post-COA"
+            run_panel_did(sub, trt, outcome, trt_label, office)
+
+# ── Panel C: Heterogeneity by candidate race ─────────────────────────────
+print("\n── Panel C: Heterogeneity by Candidate Race ──")
+
+# Race groups: Black, Hispanic, White/Caucasian (Asian too small for FE)
+race_groups = {
+    "Black": panel[panel["race_est"] == "black"],
+    "Hispanic": panel[panel["race_est"] == "hispanic"],
+    "White": panel[panel["race_est"] == "caucasian"],
+}
+
+for race_label, race_sub in race_groups.items():
+    # Need 2+ obs per candidate for FE
+    rc = race_sub.groupby("cand_id").size()
+    race_panel = race_sub[race_sub["cand_id"].isin(rc[rc >= 2].index)]
+    for outcome in ["vote_share", "win"]:
+        for trt in ["coa_created_during_term", "post_coa"]:
+            trt_label = "COA Created During Term" if "during" in trt else "Post-COA"
+            run_panel_did(race_panel, trt, outcome, trt_label, f"Race: {race_label}")
+
+# Non-white (pooled minorities)
+nonwhite = panel[panel["race_est"].isin(["black", "hispanic", "asian", "other"])]
+rc_nw = nonwhite.groupby("cand_id").size()
+nonwhite_panel = nonwhite[nonwhite["cand_id"].isin(rc_nw[rc_nw >= 2].index)]
+for outcome in ["vote_share", "win"]:
+    for trt in ["coa_created_during_term", "post_coa"]:
+        trt_label = "COA Created During Term" if "during" in trt else "Post-COA"
+        run_panel_did(nonwhite_panel, trt, outcome, trt_label, "Race: Non-White")
+
+# ── Panel D: Heterogeneity by candidate party ────────────────────────────
+print("\n── Panel D: Heterogeneity by Candidate Party ──")
+
+party_groups = {
+    "Democrat": panel[panel["pid_est"] == "D"],
+    "Republican": panel[panel["pid_est"] == "R"],
+}
+
+for party_label, party_sub in party_groups.items():
+    pc = party_sub.groupby("cand_id").size()
+    party_panel = party_sub[party_sub["cand_id"].isin(pc[pc >= 2].index)]
+    for outcome in ["vote_share", "win"]:
+        for trt in ["coa_created_during_term", "post_coa"]:
+            trt_label = "COA Created During Term" if "during" in trt else "Post-COA"
+            run_panel_did(party_panel, trt, outcome, trt_label, f"Party: {party_label}")
 
 # ── 9. Summary statistics ────────────────────────────────────────────────────
 
@@ -479,6 +433,10 @@ print(f"  Unique cities:        {panel['city_id'].nunique():,}")
 print(f"  Year range:           {panel['year'].min()} – {panel['year'].max()}")
 print(f"\n  Office breakdown:")
 print(panel["office_consolidated"].value_counts().to_string())
+print(f"\n  Race breakdown:")
+print(panel["race_est"].value_counts(dropna=False).to_string())
+print(f"\n  Party breakdown:")
+print(panel["pid_est"].value_counts(dropna=False).to_string())
 
 # Treatment summary
 print(f"\n  Treatment (COA created during term):")
@@ -503,6 +461,22 @@ print(f"    Treated:  {t_win:.4f}")
 print(f"    Control:  {c_win:.4f}")
 print(f"    Diff:     {t_win - c_win:.4f}")
 
+# Treatment by race
+print(f"\n  Treatment by race (COA created during term):")
+for race in ["black", "hispanic", "caucasian", "asian"]:
+    rsub = panel[panel["race_est"] == race]
+    n_trt = (rsub["coa_created_during_term"] == 1).sum()
+    n_all = len(rsub)
+    print(f"    {race:12s}: {n_trt:4d} treated / {n_all:5d} total")
+
+# Treatment by party
+print(f"\n  Treatment by party (COA created during term):")
+for party in ["D", "R"]:
+    psub = panel[panel["pid_est"] == party]
+    n_trt = (psub["coa_created_during_term"] == 1).sum()
+    n_all = len(psub)
+    print(f"    {party:12s}: {n_trt:4d} treated / {n_all:5d} total")
+
 # ── 10. Save results ─────────────────────────────────────────────────────────
 
 results_df = pd.DataFrame(results_list)
@@ -522,9 +496,18 @@ print(results_df[existing_cols].to_string(index=False))
 # ── 11. Save summary stats table ─────────────────────────────────────────────
 
 summary_rows = []
-for grp_name, grp_data in [("All", panel),
-                            ("City Council", panel[panel["office_consolidated"] == "City Council"]),
-                            ("Mayor", panel[panel["office_consolidated"] == "Mayor"])]:
+subgroups = [
+    ("All", panel),
+    ("City Council", panel[panel["office_consolidated"] == "City Council"]),
+    ("Mayor", panel[panel["office_consolidated"] == "Mayor"]),
+    ("Race: Black", panel[panel["race_est"] == "black"]),
+    ("Race: Hispanic", panel[panel["race_est"] == "hispanic"]),
+    ("Race: White", panel[panel["race_est"] == "caucasian"]),
+    ("Race: Non-White", panel[panel["race_est"].isin(["black", "hispanic", "asian", "other"])]),
+    ("Party: Democrat", panel[panel["pid_est"] == "D"]),
+    ("Party: Republican", panel[panel["pid_est"] == "R"]),
+]
+for grp_name, grp_data in subgroups:
     for trt_name, trt_val in [("Control", 0), ("Treated", 1)]:
         sub = grp_data[grp_data["coa_created_during_term"] == trt_val]
         if len(sub) == 0:
