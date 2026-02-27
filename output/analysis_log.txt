@@ -1,0 +1,1428 @@
+=== ANALYSIS LOG ===
+Generated: 2026-02-27 00:58:10.230413
+
+Step 0: Exploring all raw data files
+
+
+========== STEP 1: Clean COA Treatment Data ========== 
+Raw COA data: 336 rows x 15 cols 
+Columns: ORI, City #, Name, State, Population, STATE_ABB, oversight-board (y/n), oversight-powers, oversight-charter-found (y/n), Link, Year created, Independently Investigate (y/n), Independently Discipline Officers (y/n), Created Via Election, Selection Method of Board Members 
+Column mapping applied: 
+  Name -> city_raw 
+  State -> state_raw 
+  STATE_ABB -> state_abb 
+  Year created -> year_created 
+  oversight-board (y/n) -> has_oversight_board 
+  Independently Investigate (y/n) -> can_investigate 
+  Independently Discipline Officers (y/n) -> can_discipline 
+
+Year created values (raw):  
+  Unique: , 1895, 1911, 1939, 1969, 1974, 1975, 1982, 1984, 1987, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999... 
+Year created NAs after conversion: 213 
+Non-NA year range: 1895 - 2025 
+Cities without valid creation year: 213 
+  These cities: Phoenix city, San Antonio city, Jacksonville city, Fort Worth city, Columbus city, Indianapolis city, El Paso city, Tucson city, Miami city, Oakland city 
+
+Oversight board distribution: 
+
+Treated cities (with valid creation year): 123 
+Year distribution of COA creation: 
+  1895: 1 
+  1911: 1 
+  1939: 1 
+  1969: 1 
+  1974: 1 
+  1975: 1 
+  1982: 1 
+  1984: 3 
+  1987: 1 
+  1990: 1 
+  1991: 3 
+  1992: 2 
+  1993: 5 
+  1994: 3 
+  1995: 2 
+  1996: 1 
+  1997: 1 
+  1998: 2 
+  1999: 5 
+  2000: 1 
+  2002: 3 
+  2003: 3 
+  2004: 2 
+  2005: 1 
+  2006: 2 
+  2007: 3 
+  2008: 1 
+  2009: 1 
+  2010: 5 
+  2011: 1 
+  2013: 3 
+  2014: 2 
+  2015: 4 
+  2016: 1 
+  2017: 3 
+  2018: 5 
+  2019: 4 
+  2020: 13 
+  2021: 14 
+  2022: 7 
+  2023: 3 
+  2024: 3 
+  2025: 2 
+
+Final cleaned COA data: 335 unique city-state pairs 
+Treated (treatment_year > 0): 122 
+Never-treated (treatment_year == 0): 213 
+
+State distribution of treated cities: 
+  ca: 20 
+  co: 6 
+  fl: 6 
+  il: 5 
+  nc: 5 
+  va: 5 
+  ct: 4 
+  mo: 4 
+  ny: 4 
+  tn: 4 
+  wa: 4 
+  al: 3 
+  az: 3 
+  ga: 3 
+  mi: 3 
+
+COA power breakdown (treated cities): 
+  Can investigate: 41 
+  Can discipline: 13 
+  Has board: 121 
+Saved cleaned COA data to cleaned_data/coa_treatment.rds 
+Step 1 complete.
+ 
+
+========== STEP 4: Clean Police Killings Data ========== 
+Raw police killings: 31498 rows x 35 cols 
+Columns: Unique ID, Name, Age, Gender, Race, Race with imputations, Imputation probability, URL of image (PLS NO HOTLINKS), Date of injury resulting in death (month/day/year), Location of injury (address), Location of death (city), State, Location of death (zip code), Location of death (county), Full Address, Latitude, Longitude, Agency or agencies involved, Highest level of force, UID Temporary, Name Temporary, Armed/Unarmed, Alleged weapon, Aggressive physical movement, Fleeing/Not fleeing, Description Temp, URL Temp, Brief description, Dispositions/Exclusions INTERNAL USE, NOT FOR ANALYSIS, Intended use of force (Developing), Supporting document link, ...32, ...33, Unique ID formula, Unique identifier (redundant) 
+Date column: Date of injury resulting in death (month/day/year) 
+City column: Location of death (city) 
+State column: State 
+Race column: Race 
+Race imputed column: Race with imputations 
+Year range: 1999 - 2021 
+Total killings: 31498 
+
+Race distribution: 
+  European-American/White: 14730 
+  African-American/Black: 8545 
+  Hispanic/Latino: 5111 
+  Race unspecified: 1289 
+  NA: 862 
+  Asian/Pacific Islander: 576 
+  Native American/Alaskan: 323 
+  Middle Eastern: 53 
+  African-American/Black African-American/Black Not imputed: 4 
+  HIspanic/Latino: 2 
+  Christopher Anthony Alexander: 1 
+  european-American/White: 1 
+  NA: NA 
+
+Aggregated police killings: 
+  Unique city-state-year observations: 19478 
+  Unique cities: 8053 
+  Year range: 2000 - 2021 
+  Total killings in data: 31462 
+  Mean killings per city-year: 1.62 
+Saved cleaned police killings to cleaned_data/police_killings.rds 
+Step 4 complete.
+ 
+
+========== STEP 6-7: Merge All Datasets ========== 
+Loading pre-built panel (data_panel_post1990.rds)... 
+Panel dimensions: 12436 x 1738 
+Year range: 1990 - 2021 
+Unique cities: 384 
+Unique agency IDs: 398 
+Keeping 71 columns from panel 
+Slim panel: 12436 x 71 
+
+--- Merging COA Treatment Data --- 
+COA data: 335 rows 
+Exact match: 7839 of 12436 panel rows 
+Unmatched: 4597 
+
+Fuzzy matches found (JW distance < 0.1): 
+  west valley (ut) -> west valleycity (dist=0.0889) 
+  lexington fayette county (ky) -> lexington fayette urban county (dist=0.0944) 
+
+After COA merge: 
+  Total panel rows: 12436 
+  Treated cities (treatment_year > 0): 103 
+  Control cities (treatment_year == 0): 295 
+
+Treated COA cities NOT found in panel: 21 
+  WARNING: arlington, va 
+  WARNING: athens clarke county unified government balance, ga 
+  WARNING: boisecity, id 
+  WARNING: burbank, ca 
+  WARNING: cambridge, ma 
+  WARNING: columbia, md 
+  WARNING: jerseycity, nj 
+  WARNING: kansascity, ks 
+  WARNING: kansascity, mo 
+  WARNING: lexington fayette urban county, ky 
+  WARNING: lincoln, nb 
+  WARNING: louisville jefferson county metro government balance, ky 
+  WARNING: nashville davidson metropolitan government balance, tn 
+  WARNING: oklahomacity, ok 
+  WARNING: omaha, nb 
+  WARNING: salt lakecity, ut 
+  WARNING: south fulton, ga 
+  WARNING: spokane valley, wa 
+  WARNING: springfield, ms 
+  WARNING: urban honolulu, hi 
+  WARNING: west valleycity, ut 
+
+=== Panel ↔ COA Treatment === 
+Left rows: 12436 | Right rows: 335 
+Merged rows: 100.8125 
+Match rate (of left): 0.8% 
+
+--- Merging Police Killings --- 
+Police killings data: 19478 rows 
+After police killings merge: 
+  Panel rows: 12436 
+  City-years with killings > 0: 4326 
+  Total killings in panel: 13054 
+
+=== Panel ↔ Police Killings === 
+Left rows: 12436 | Right rows: 19478 
+Merged rows: 4326 
+Match rate (of left): 34.8% 
+
+--- Merging Additional Demographics --- 
+Demographics data: 1609203 rows 
+After demographics merge: 
+  Panel rows: 12436 
+  Demographics matched: 8773 
+  Demographics missing: 3663 
+
+--- Saving Merge Diagnostics --- 
+Saved merge diagnostics to output/tables/merge_diagnostics.csv 
+
+Final merged panel: 12436 rows x 89 cols 
+Saved to merged_data/panel_merged.rds 
+Step 7 complete.
+ 
+
+========== STEP 7b: Fix COA Merge Issues ========== 
+Fixed COA city names 
+Fuzzy matches (JW < 0.15): 
+  oklahoma -> oklahoma city (ok, d=0.1282) 
+  salt lake -> salt lake city (ut, d=0.119) 
+
+After fixed COA merge: 
+  Treated cities in panel: 108 
+  Control cities in panel: 290 
+Still unmatched treated COA cities: 16 
+  arlington, va 
+  athens, ga 
+  burbank, ca 
+  cambridge, ma 
+  columbia, md 
+  jersey city, nj 
+  kansas city, ks 
+  kansas city, mo 
+  lexington, ky 
+  nashville, tn 
+  oklahoma city, ok 
+  salt lake city, ut 
+  south fulton, ga 
+  spokane valley, wa 
+  springfield, ms 
+  honolulu, hi 
+
+Treatment year distribution in final panel: 
+  1895: 1 
+  1911: 1 
+  1969: 1 
+  1974: 1 
+  1975: 1 
+  1982: 1 
+  1984: 2 
+  1987: 1 
+  1990: 1 
+  1991: 3 
+  1992: 2 
+  1993: 5 
+  1994: 3 
+  1995: 2 
+  1996: 1 
+  1997: 1 
+  1998: 2 
+  1999: 5 
+  2000: 1 
+  2002: 3 
+  2003: 3 
+  2004: 2 
+  2005: 1 
+  2006: 1 
+  2007: 2 
+  2008: 1 
+  2009: 1 
+  2010: 5 
+  2011: 1 
+  2013: 2 
+  2014: 2 
+  2015: 4 
+  2016: 1 
+  2017: 3 
+  2018: 4 
+  2019: 3 
+  2020: 12 
+  2021: 10 
+  2022: 5 
+  2023: 3 
+  2024: 3 
+  2025: 1 
+
+Final panel: 12436 x 88 
+Step 7b complete.
+ 
+
+========== STEP 7d: Final Merge with Manual Fixes ========== 
+Panel has 398 unique city-state pairs 
+
+COA treated cities and their names: 
+
+Exact matches: 0 of 123 treated cities 
+Unmatched treated COA cities: 123 
+  new york city (ny) 
+  los angeles city (ca) 
+  chicago city (il) 
+  houston city (tx) 
+  philadelphia city (pa) 
+  san diego city (ca) 
+  dallas city (tx) 
+  san jose city (ca) 
+  austin city (tx) 
+  charlotte city (nc) 
+  san francisco city (ca) 
+  seattle city (wa) 
+  denver city (co) 
+  nashville davidson metropolitan government (balance) (tn) 
+  oklahomacity (ok) 
+  washington city (dc) 
+  boston city (ma) 
+  portland city (or) 
+  las vegas city (nv) 
+  detroit city (mi) 
+  memphis city (tn) 
+  louisville/jefferson county metro government (balance) (ky) 
+  baltimore city (md) 
+  milwaukee city (wi) 
+  albuquerque city (nm) 
+  fresno city (ca) 
+  sacramento city (ca) 
+  kansascity (mo) 
+  mesa city (az) 
+  atlanta city (ga) 
+  omaha city (ne) 
+  colorado springs city (co) 
+  raleigh city (nc) 
+  long beach city (ca) 
+  virginia beach city (va) 
+  aurora city (co) 
+  cleveland city (oh) 
+  urban honolulu (hi) 
+  anaheim city (ca) 
+  lexington fayette urban county (ky) 
+  riverside city (ca) 
+  santa ana city (ca) 
+  orlando city (fl) 
+  newark city (nj) 
+  pittsburgh city (pa) 
+  st. louis city (mo) 
+  lincoln city (ne) 
+  jerseycity (nj) 
+  durham city (nc) 
+  buffalo city (ny) 
+
+After suffix removal, still unmatched: 19 
+  NO MATCH: 'nashville davidson metropolitan government (balance)' (tn) best='nashville davidson county' d=0.255 
+  Fuzzy: 'oklahomacity' -> 'oklahoma city' (ok, d=0.0256) 
+  NO MATCH: 'louisville/jefferson county metro government (balance)' (ky) best='louisville' d=0.2716 
+  Fuzzy: 'kansascity' -> 'kansas city' (mo, d=0.0303) 
+  NO CANDIDATES: 'urban honolulu' (hi) 
+  Fuzzy: 'lexington fayette urban county' -> 'lexington fayette county' (ky, d=0.0944) 
+  Fuzzy: 'jerseycity' -> 'jersey city' (nj, d=0.0303) 
+  NO MATCH: 'arlington' (va) best='roanoke' d=0.4114 
+  Fuzzy: 'boisecity' -> 'boise city' (id, d=0.0333) 
+  Fuzzy: 'salt lakecity' -> 'salt lake city' (ut, d=0.0238) 
+  Fuzzy: 'kansascity' -> 'kansas city' (ks, d=0.0303) 
+  NO MATCH: 'springfield' (ms) best='jackson' d=0.5108 
+  Fuzzy: 'west valleycity' -> 'west valley city' (ut, d=0.0208) 
+  Fuzzy: 'athens clarke county unified government (balance)' -> 'athens clarke county' (ga, d=0.1973) 
+  NO MATCH: 'cambridge' (ma) best='fall river' d=0.3852 
+  NO MATCH: 'south fulton' (ga) best='augusta richmond county' d=0.4118 
+  NO MATCH: 'columbia' (md) best='baltimore' d=0.5417 
+  NO MATCH: 'burbank' (ca) best='orange' d=0.3571 
+  Fuzzy: 'spokane valley' -> 'spokane' (wa, d=0.1667) 
+
+=== FINAL MERGE RESULT === 
+Treated cities in panel: 112 
+Control cities in panel: 286 
+Total panel rows: 12436 
+Final unmatched treated COA cities: 9 
+  arlington (va) 
+  burbank (ca) 
+  cambridge (ma) 
+  columbia (md) 
+  louisville/jefferson county metro government (balance) (ky) 
+  nashville davidson metropolitan government (balance) (tn) 
+  south fulton (ga) 
+  springfield (ms) 
+  urban honolulu (hi) 
+
+Treatment year distribution: 
+
+Police killings merged: 4130 city-years with killings 
+Demographics merged: 8773 rows with time-varying data 
+
+Final merged panel saved: 12436 x 88 
+Step 7 FINAL complete.
+ 
+
+========== STEP 7e: Manual Fixes for Nashville/Louisville ========== 
+Fixed Nashville: treatment_year=2019 
+Fixed Louisville: treatment_year=2003 
+After manual fixes: 
+  Treated cities: 114 
+  Control cities: 284 
+Saved treatment timing histogram 
+Saved updated panel 
+Step 7e complete.
+ 
+
+========== STEP 8: Construct Analysis Variables ========== 
+Loaded panel: 12436 x 88 
+Treatment variables constructed: 
+  Treated units: 3569 
+  Post-treatment obs: 1429 
+  Relative time range: -35 to 125 
+Population: 0 NAs out of 12436 
+Violent clearance rate: 11750 non-NA values 
+Property clearance rate: 11755 non-NA values 
+Income columns available:  
+NOTE: No median income variable available. Will use demographics only. 
+
+--- Sample Restrictions --- 
+Before restrictions: 12436 rows 
+months_reported distribution: 
+Dropped for months_reported < 3: 0 
+Dropped for < 5 years in panel: 0 
+Flagged large population jumps (>30%): 420 
+
+Analysis sample: 12436 rows 
+  Unique agencies: 398 
+  Treated: 114 
+  Control: 284 
+  Year range: 1990 - 2021 
+Treated units with treatment in panel range: 102 
+Saved analysis panel to merged_data/analysis_panel.rds 
+
+--- Summary Statistics --- 
+Saved summary statistics to output/tables/summary_stats.csv 
+Saved pre-trend means to output/tables/pretrends_means.csv 
+Saved pre-trend plots 
+Step 8 complete.
+ 
+
+========== STEP 9: PanelMatch Estimation ========== 
+Loaded analysis panel: 12436 x 119 
+Treatment transitions check: 
+  treat=0: 11007 
+  treat=1: 1429 
+PanelMatch panel: 10446 rows, 398 units 
+Treated units with treatment in range: 97 
+  violent_crime_pc: 9869 non-NA (1227 in treated post) 
+  violent_clearance_rate: 9866 non-NA (1227 in treated post) 
+  property_clearance_rate: 9871 non-NA (1228 in treated post) 
+  drug_arrests_pc: 8025 non-NA (995 in treated post) 
+  discretionary_arrests_pc: 8025 non-NA (995 in treated post) 
+  police_killings_pc: 10446 non-NA (1343 in treated post) 
+  black_share_violent_arrests: 8022 non-NA (994 in treated post) 
+  black_share_drug_arrests: 7997 non-NA (991 in treated post) 
+
+Valid outcomes for PanelMatch: violent_crime_pc, violent_clearance_rate, property_clearance_rate, drug_arrests_pc, discretionary_arrests_pc, police_killings_pc, black_share_violent_arrests, black_share_drug_arrests 
+
+--- Outcome: violent_crime_pc --- 
+  BW=3 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=3 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+
+--- Outcome: violent_clearance_rate --- 
+  BW=3 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=3 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+
+--- Outcome: property_clearance_rate --- 
+  BW=3 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=3 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+
+--- Outcome: drug_arrests_pc --- 
+  BW=3 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=3 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+
+--- Outcome: discretionary_arrests_pc --- 
+  BW=3 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=3 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+
+--- Outcome: police_killings_pc --- 
+  BW=3 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=3 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+
+--- Outcome: black_share_violent_arrests --- 
+  BW=3 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=3 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+
+--- Outcome: black_share_drug_arrests --- 
+  BW=3 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=3 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=4 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=none 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+  BW=5 lag=4 match=5 covs=with_covs 
+    ERROR: unused arguments (time.id = "year", unit.id = "unit_id", treatment = "treat", data = pm_bw, outcome.var = outcome) 
+
+WARNING: No annualized results to save 
+WARNING: No pooled results to save 
+Step 9 complete.
+ 
+
+========== STEP 9: PanelMatch Estimation (v3 API) ========== 
+Loaded: 12436 x 119 
+PM panel: 10446 rows, 398 units 
+Valid outcomes: violent_crime_pc, violent_clearance_rate, property_clearance_rate, drug_arrests_pc, discretionary_arrests_pc, police_killings_pc, black_share_violent_arrests, black_share_drug_arrests 
+
+--- Outcome: violent_crime_pc --- 
+  BW=3 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=3 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=4 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=4 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=5 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=5 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+
+--- Outcome: violent_clearance_rate --- 
+  BW=3 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=3 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=4 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=4 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=5 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=5 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+
+--- Outcome: property_clearance_rate --- 
+  BW=3 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=3 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=4 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=4 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=5 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=5 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+
+--- Outcome: drug_arrests_pc --- 
+  BW=3 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=3 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=4 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=4 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=5 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=5 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+
+--- Outcome: discretionary_arrests_pc --- 
+  BW=3 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=3 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=4 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=4 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=5 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=5 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+
+--- Outcome: police_killings_pc --- 
+  BW=3 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=3 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=4 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=4 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=5 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=5 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+
+--- Outcome: black_share_violent_arrests --- 
+  BW=3 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=3 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=4 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=4 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=5 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=5 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+
+--- Outcome: black_share_drug_arrests --- 
+  BW=3 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=3 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=4 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=4 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+  BW=5 covs=none 
+    ERROR: attempt to set an attribute on NULL 
+  BW=5 covs=with_covs 
+    ERROR: $ operator is invalid for atomic vectors 
+
+No annualized results 
+No pooled results 
+Step 9 complete.
+ 
+
+========== STEP 9: PanelMatch Estimation ========== 
+PM panel: 8358 rows, 398 units 
+
+--- Outcome: violent_crime_pc --- 
+  BW=3 
+    No covs: Pooled ATT=914.4033 SE=312.6999 
+    With covs: Pooled ATT=625.7255 SE=747.6355 
+  BW=4 
+    No covs: Pooled ATT=1132.6596 SE=404.4785 
+    With covs: Pooled ATT=724.9687 SE=869.6459 
+  BW=5 
+    No covs: Pooled ATT=1292.7292 SE=432.1541 
+    With covs: Pooled ATT=789.913 SE=860.6233 
+
+--- Outcome: violent_clearance_rate --- 
+  BW=3 
+    No covs: Pooled ATT=-0.0132 SE=0.0131 
+    With covs: Pooled ATT=-0.0113 SE=0.0156 
+  BW=4 
+    No covs: Pooled ATT=-0.0175 SE=0.0154 
+    With covs: Pooled ATT=-0.009 SE=0.0188 
+  BW=5 
+    No covs: Pooled ATT=-0.018 SE=0.0174 
+    With covs: Pooled ATT=-0.0083 SE=0.0187 
+
+--- Outcome: property_clearance_rate --- 
+  BW=3 
+    No covs: Pooled ATT=-0.0064 SE=0.0074 
+    With covs: Pooled ATT=-0.0104 SE=0.0091 
+  BW=4 
+    No covs: Pooled ATT=-0.0105 SE=0.0083 
+    With covs: Pooled ATT=-0.0124 SE=0.0105 
+  BW=5 
+    No covs: Pooled ATT=-0.0146 SE=0.0098 
+    With covs: Pooled ATT=-0.0151 SE=0.0113 
+
+--- Outcome: drug_arrests_pc --- 
+  BW=3 
+    No covs: Pooled ATT=986.7727 SE=501.7462 
+    With covs: Pooled ATT=-75.0286 SE=85.3978 
+  BW=4 
+    No covs: Pooled ATT=1201.1493 SE=679.6721 
+    With covs: Pooled ATT=-119.5595 SE=99.8642 
+  BW=5 
+    No covs: Pooled ATT=1402.6817 SE=786.9004 
+    With covs: Pooled ATT=-135.511 SE=105.9788 
+
+--- Outcome: discretionary_arrests_pc --- 
+  BW=3 
+    No covs: Pooled ATT=3885.2255 SE=2000.3724 
+    With covs: Pooled ATT=-324.1241 SE=246.5365 
+  BW=4 
+    No covs: Pooled ATT=4789.5489 SE=2329.1674 
+    With covs: Pooled ATT=-422.7762 SE=294.8025 
+  BW=5 
+    No covs: Pooled ATT=5569.2128 SE=3093.4389 
+    With covs: Pooled ATT=-482.4004 SE=310.967 
+
+--- Outcome: police_killings_pc --- 
+  BW=3 
+    No covs: Pooled ATT=0.7519 SE=0.4218 
+    With covs: Pooled ATT=-0.1222 SE=0.1919 
+  BW=4 
+    No covs: Pooled ATT=0.8299 SE=0.5177 
+    With covs: Pooled ATT=-0.1061 SE=0.2048 
+  BW=5 
+    No covs: Pooled ATT=0.9806 SE=0.5235 
+    With covs: Pooled ATT=-0.1459 SE=0.1929 
+
+--- Outcome: black_share_violent_arrests --- 
+  BW=3 
+    No covs: Pooled ATT=9e-04 SE=0.0052 
+    With covs: Pooled ATT=6e-04 SE=0.0068 
+  BW=4 
+    No covs: Pooled ATT=0 SE=0.0056 
+    With covs: Pooled ATT=-1e-04 SE=0.0061 
+  BW=5 
+    No covs: Pooled ATT=-3e-04 SE=0.0069 
+    With covs: Pooled ATT=5e-04 SE=0.0071 
+
+--- Outcome: black_share_drug_arrests --- 
+  BW=3 
+    No covs: Pooled ATT=-0.0114 SE=0.0123 
+    With covs: Pooled ATT=-0.0038 SE=0.0127 
+  BW=4 
+    No covs: Pooled ATT=-0.0081 SE=0.0125 
+    With covs: Pooled ATT=4e-04 SE=0.0134 
+  BW=5 
+    No covs: Pooled ATT=-0.0083 SE=0.0145 
+    With covs: Pooled ATT=-4e-04 SE=0.0153 
+
+Saved 240 annualized results 
+
+Saved 48 pooled results 
+Step 9 complete.
+ 
+
+========== STEP 10: CSDID Estimation ========== 
+CSDID panel: 10348 rows, 398 units 
+Treatment cohorts:  
+  g=0: 309 units 
+  g=1895: 1 units 
+  g=1911: 1 units 
+  g=1939: 1 units 
+  g=1969: 1 units 
+  g=1974: 1 units 
+  g=1975: 1 units 
+  g=1982: 1 units 
+  g=1984: 2 units 
+  g=1987: 1 units 
+  g=1990: 1 units 
+  g=1991: 3 units 
+  g=1992: 2 units 
+  g=1993: 5 units 
+  g=1994: 3 units 
+  g=1995: 2 units 
+  g=1996: 1 units 
+  g=1997: 1 units 
+  g=1998: 2 units 
+  g=1999: 5 units 
+  g=2000: 1 units 
+  g=2002: 3 units 
+  g=2003: 3 units 
+  g=2004: 2 units 
+  g=2005: 1 units 
+  g=2006: 2 units 
+  g=2007: 2 units 
+  g=2009: 1 units 
+  g=2010: 5 units 
+  g=2011: 1 units 
+  g=2013: 3 units 
+  g=2014: 2 units 
+  g=2015: 4 units 
+  g=2016: 1 units 
+  g=2017: 3 units 
+  g=2018: 4 units 
+  g=2019: 4 units 
+  g=2020: 12 units 
+
+--- Outcome: violent_crime_pc --- 
+  BW=3 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=4 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=5 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+
+--- Outcome: violent_clearance_rate --- 
+  BW=3 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=4 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=5 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+
+--- Outcome: property_clearance_rate --- 
+  BW=3 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=4 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=5 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+
+--- Outcome: drug_arrests_pc --- 
+  BW=3 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=4 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=5 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+
+--- Outcome: discretionary_arrests_pc --- 
+  BW=3 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=4 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=5 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+
+--- Outcome: police_killings_pc --- 
+  BW=3 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=4 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=5 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+
+--- Outcome: black_share_violent_arrests --- 
+  BW=3 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=4 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=5 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+
+--- Outcome: black_share_drug_arrests --- 
+  BW=3 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=4 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+  BW=5 
+    att_gt error (no covs): All observations dropped while converting data to balanced panel. Consider setting `panel = FALSE` and/or revisiting 'idname'. 
+Step 10 complete.
+ 
+
+========== STEP 10: CSDID Estimation (fixed) ========== 
+CSDID panel: 9646 rows, 371 units 
+Treated cohorts in range: 21 
+Treated units: 62 
+Never-treated units: 309 
+
+--- Outcome: violent_crime_pc --- 
+  att_gt succeeded (no covs) 
+  BW=3 
+    aggte dynamic error: invalid first argument 
+  BW=4 
+    aggte dynamic error: invalid first argument 
+  BW=5 
+    aggte dynamic error: invalid first argument 
+  Covariates ERROR: An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+
+--- Outcome: violent_clearance_rate --- 
+  att_gt succeeded (no covs) 
+  BW=3 
+    aggte dynamic error: invalid first argument 
+  BW=4 
+    aggte dynamic error: invalid first argument 
+  BW=5 
+    aggte dynamic error: invalid first argument 
+  Covariates ERROR: An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+
+--- Outcome: property_clearance_rate --- 
+  att_gt succeeded (no covs) 
+  BW=3 
+    aggte dynamic error: invalid first argument 
+  BW=4 
+    aggte dynamic error: invalid first argument 
+  BW=5 
+    aggte dynamic error: invalid first argument 
+  Covariates ERROR: An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+
+--- Outcome: drug_arrests_pc --- 
+
+========== STEP 10: CSDID Estimation ========== 
+NOTE: Using manual aggregation due to aggte() bug in did v2.3.0 
+CSDID panel: 7602 rows, 362 units 
+Treated: 53 
+Control: 309 
+
+--- Outcome: violent_crime_pc --- 
+  att_gt succeeded (none): 340 group-time ATTs 
+    BW=3 none pre-trends: ok 
+    BW=3 none: Pooled ATT=978.1972 SE=147.6059 
+    BW=4 none pre-trends: ok 
+    BW=4 none: Pooled ATT=1163.1535 SE=133.6866 
+    BW=5 none pre-trends: ok 
+    BW=5 none: Pooled ATT=1359.1501 SE=123.3641 
+  att_gt succeeded (with_covs): 340 group-time ATTs 
+    BW=3 with_covs pre-trends: ok 
+    BW=3 with_covs: Pooled ATT=-486.2911 SE=261.0207 
+    BW=4 with_covs pre-trends: ok 
+    BW=4 with_covs: Pooled ATT=-496.7642 SE=239.866 
+    BW=5 with_covs pre-trends: ok 
+    BW=5 with_covs: Pooled ATT=-518.7006 SE=226.4869 
+
+--- Outcome: violent_clearance_rate --- 
+  att_gt succeeded (none): 340 group-time ATTs 
+    BW=3 none pre-trends: ok 
+    BW=3 none: Pooled ATT=0.0019 SE=0.0098 
+    BW=4 none pre-trends: ok 
+    BW=4 none: Pooled ATT=9e-04 SE=0.009 
+    BW=5 none pre-trends: ok 
+    BW=5 none: Pooled ATT=0.0018 SE=0.0085 
+  att_gt succeeded (with_covs): 340 group-time ATTs 
+    BW=3 with_covs pre-trends: ok 
+    BW=3 with_covs: Pooled ATT=-0.0035 SE=0.0104 
+    BW=4 with_covs pre-trends: ok 
+    BW=4 with_covs: Pooled ATT=-0.0048 SE=0.0094 
+    BW=5 with_covs pre-trends: ok 
+    BW=5 with_covs: Pooled ATT=-0.0038 SE=0.0089 
+
+--- Outcome: property_clearance_rate --- 
+  att_gt succeeded (none): 340 group-time ATTs 
+    BW=3 none pre-trends: ok 
+    BW=3 none: Pooled ATT=-0.0062 SE=0.0049 
+    BW=4 none pre-trends: ok 
+    BW=4 none: Pooled ATT=-0.0082 SE=0.0045 
+    BW=5 none pre-trends: ok 
+    BW=5 none: Pooled ATT=-0.0104 SE=0.0042 
+  att_gt succeeded (with_covs): 340 group-time ATTs 
+    BW=3 with_covs pre-trends: ok 
+    BW=3 with_covs: Pooled ATT=-0.0061 SE=0.0047 
+    BW=4 with_covs pre-trends: ok 
+    BW=4 with_covs: Pooled ATT=-0.0082 SE=0.0044 
+    BW=5 with_covs pre-trends: ok 
+    BW=5 with_covs: Pooled ATT=-0.0107 SE=0.0043 
+
+--- Outcome: drug_arrests_pc --- 
+  att_gt succeeded (none): 320 group-time ATTs 
+    BW=3 none pre-trends: ok 
+    BW=3 none: Pooled ATT=1084.2244 SE=233.506 
+    BW=4 none pre-trends: ok 
+    BW=4 none: Pooled ATT=1350.682 SE=212.4339 
+    BW=5 none pre-trends: ok 
+    BW=5 none: Pooled ATT=1607.5926 SE=195.9475 
+  att_gt succeeded (with_covs): 320 group-time ATTs 
+    BW=3 with_covs pre-trends: ok 
+    BW=3 with_covs: Pooled ATT=-266.9325 SE=480.3861 
+    BW=4 with_covs pre-trends: ok 
+    BW=4 with_covs: Pooled ATT=-166.2523 SE=442.506 
+    BW=5 with_covs pre-trends: ok 
+    BW=5 with_covs: Pooled ATT=-181.8454 SE=414.6702 
+
+--- Outcome: discretionary_arrests_pc --- 
+  att_gt succeeded (none): 320 group-time ATTs 
+    BW=3 none pre-trends: ok 
+    BW=3 none: Pooled ATT=4574.5791 SE=748.5463 
+    BW=4 none pre-trends: ok 
+    BW=4 none: Pooled ATT=5658.4131 SE=676.845 
+    BW=5 none pre-trends: ok 
+    BW=5 none: Pooled ATT=6678.1196 SE=621.6474 
+  att_gt succeeded (with_covs): 320 group-time ATTs 
+    BW=3 with_covs pre-trends: ok 
+    BW=3 with_covs: Pooled ATT=-4002.2728 SE=926.0997 
+    BW=4 with_covs pre-trends: ok 
+    BW=4 with_covs: Pooled ATT=-4435.6735 SE=853.1715 
+    BW=5 with_covs pre-trends: ok 
+    BW=5 with_covs: Pooled ATT=-5064.8378 SE=794.355 
+
+--- Outcome: police_killings_pc --- 
+  att_gt succeeded (none): 340 group-time ATTs 
+    BW=3 none pre-trends: ok 
+    BW=3 none: Pooled ATT=0.5944 SE=0.2816 
+    BW=4 none pre-trends: ok 
+    BW=4 none: Pooled ATT=0.7324 SE=0.2564 
+    BW=5 none pre-trends: ok 
+    BW=5 none: Pooled ATT=0.8683 SE=0.2391 
+  att_gt succeeded (with_covs): 340 group-time ATTs 
+    BW=3 with_covs pre-trends: ok 
+    BW=3 with_covs: Pooled ATT=0.3624 SE=0.9069 
+    BW=4 with_covs pre-trends: ok 
+    BW=4 with_covs: Pooled ATT=0.3453 SE=0.7917 
+    BW=5 with_covs pre-trends: ok 
+    BW=5 with_covs: Pooled ATT=0.5016 SE=0.7436 
+
+--- Outcome: black_share_violent_arrests --- 
+  att_gt succeeded (none): 320 group-time ATTs 
+    BW=3 none pre-trends: ok 
+    BW=3 none: Pooled ATT=0.0197 SE=0.0224 
+    BW=4 none pre-trends: ok 
+    BW=4 none: Pooled ATT=0.0139 SE=0.0207 
+    BW=5 none pre-trends: ok 
+    BW=5 none: Pooled ATT=0.0185 SE=0.0202 
+  att_gt succeeded (with_covs): 320 group-time ATTs 
+    BW=3 with_covs pre-trends: ok 
+    BW=3 with_covs: Pooled ATT=0.021 SE=0.0233 
+    BW=4 with_covs pre-trends: ok 
+    BW=4 with_covs: Pooled ATT=0.0157 SE=0.0214 
+    BW=5 with_covs pre-trends: ok 
+    BW=5 with_covs: Pooled ATT=0.0205 SE=0.0199 
+
+--- Outcome: black_share_drug_arrests --- 
+  att_gt succeeded (none): 320 group-time ATTs 
+    BW=3 none pre-trends: ok 
+    BW=3 none: Pooled ATT=0.0213 SE=0.0234 
+    BW=4 none pre-trends: ok 
+    BW=4 none: Pooled ATT=0.0175 SE=0.0215 
+    BW=5 none pre-trends: ok 
+    BW=5 none: Pooled ATT=0.0224 SE=0.0202 
+  att_gt succeeded (with_covs): 320 group-time ATTs 
+    BW=3 with_covs pre-trends: ok 
+    BW=3 with_covs: Pooled ATT=0.0229 SE=0.025 
+    BW=4 with_covs pre-trends: ok 
+    BW=4 with_covs: Pooled ATT=0.0198 SE=0.0227 
+    BW=5 with_covs pre-trends: ok 
+    BW=5 with_covs: Pooled ATT=0.0253 SE=0.0208 
+
+Saved 480 CSDID annualized results 
+Saved 48 CSDID pooled results 
+Saved CSDID cohort results 
+Step 10 complete.
+ 
+
+========== STEP 11: Heterogeneity Analysis ========== 
+Heterogeneity panel: 7602 rows, 362 units 
+Median population cutoff: 107730 
+Median % Black cutoff: 0.0992 
+
+====== Subgroup: Investigative Power: Yes ====== 
+  Treated units in subgroup: 14 
+    violent_crime_pc bw=3: ATT=781.8641 SE=166.5386 
+    violent_crime_pc bw=4: ATT=951.5546 SE=147.5542 
+    violent_crime_pc bw=5: ATT=1128.789 SE=139.7248 
+    violent_clearance_rate bw=3: ATT=-0.0039 SE=0.0052 
+    violent_clearance_rate bw=4: ATT=-0.0066 SE=0.0046 
+    violent_clearance_rate bw=5: ATT=-0.0121 SE=0.004 
+    property_clearance_rate bw=3: ATT=-0.0031 SE=0.0015 
+    property_clearance_rate bw=4: ATT=-0.0045 SE=0.0014 
+    property_clearance_rate bw=5: ATT=-0.007 SE=0.0012 
+    ERROR (drug_arrests_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    police_killings_pc bw=3: ATT=1.3163 SE=0.3212 
+    police_killings_pc bw=4: ATT=1.4494 SE=0.2905 
+    police_killings_pc bw=5: ATT=1.5025 SE=0.2807 
+    ERROR (black_share_violent_arrests bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_violent_arrests bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_violent_arrests bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+
+====== Subgroup: Investigative Power: No ====== 
+  Treated units in subgroup: 39 
+    ERROR (violent_crime_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_crime_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_crime_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_clearance_rate bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_clearance_rate bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_clearance_rate bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (property_clearance_rate bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (property_clearance_rate bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (property_clearance_rate bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    police_killings_pc bw=3: ATT=0.6109 SE=0.2849 
+    police_killings_pc bw=4: ATT=0.7415 SE=0.2655 
+    police_killings_pc bw=5: ATT=0.9024 SE=0.2481 
+    ERROR (black_share_violent_arrests bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_violent_arrests bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_violent_arrests bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+
+====== Subgroup: Disciplinary Power: Yes ====== 
+  Treated units in subgroup: 5 
+    violent_crime_pc bw=3: ATT=1011.1151 SE=323.9434 
+    violent_crime_pc bw=4: ATT=1341.3892 SE=282.0927 
+    violent_crime_pc bw=5: ATT=1633.5888 SE=280.823 
+    violent_clearance_rate bw=3: ATT=0.0131 SE=0.0036 
+    violent_clearance_rate bw=4: ATT=0.0059 SE=0.0034 
+    violent_clearance_rate bw=5: ATT=0.004 SE=0.0032 
+    property_clearance_rate bw=3: ATT=0.0035 SE=0.0018 
+    property_clearance_rate bw=4: ATT=0.0037 SE=0.0017 
+    property_clearance_rate bw=5: ATT=0.0026 SE=0.0015 
+    drug_arrests_pc bw=3: ATT=1788.1094 SE=628.1672 
+    drug_arrests_pc bw=4: ATT=2409.2733 SE=579.5644 
+    drug_arrests_pc bw=5: ATT=2910.9293 SE=539.0584 
+    discretionary_arrests_pc bw=3: ATT=6803.4435 SE=1893.0919 
+    discretionary_arrests_pc bw=4: ATT=9102.0395 SE=1806.98 
+    discretionary_arrests_pc bw=5: ATT=10861.9552 SE=1528.5593 
+    police_killings_pc bw=3: ATT=0.6318 SE=0.564 
+    police_killings_pc bw=4: ATT=0.8306 SE=0.5333 
+    police_killings_pc bw=5: ATT=1.0223 SE=0.509 
+    black_share_violent_arrests bw=3: ATT=0.0114 SE=0.0059 
+    black_share_violent_arrests bw=4: ATT=0.0094 SE=0.0058 
+    black_share_violent_arrests bw=5: ATT=0.0099 SE=0.0053 
+    black_share_drug_arrests bw=3: ATT=0.0323 SE=0.0067 
+    black_share_drug_arrests bw=4: ATT=0.0362 SE=0.0062 
+    black_share_drug_arrests bw=5: ATT=0.0407 SE=0.0058 
+
+====== Subgroup: Disciplinary Power: No ====== 
+  Treated units in subgroup: 48 
+    ERROR (violent_crime_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_crime_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_crime_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_clearance_rate bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_clearance_rate bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_clearance_rate bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (property_clearance_rate bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (property_clearance_rate bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (property_clearance_rate bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    drug_arrests_pc bw=3: ATT=923.3663 SE=250.4497 
+    drug_arrests_pc bw=4: ATT=1164.9055 SE=212.9863 
+    drug_arrests_pc bw=5: ATT=1394.1557 SE=199.2984 
+    discretionary_arrests_pc bw=3: ATT=4052.5749 SE=716.9293 
+    discretionary_arrests_pc bw=4: ATT=5050.3016 SE=685.7952 
+    discretionary_arrests_pc bw=5: ATT=6005.5485 SE=610.0388 
+    police_killings_pc bw=3: ATT=0.5489 SE=0.2709 
+    police_killings_pc bw=4: ATT=0.6874 SE=0.2491 
+    police_killings_pc bw=5: ATT=0.8201 SE=0.2318 
+    black_share_violent_arrests bw=3: ATT=0.0226 SE=0.0262 
+    black_share_violent_arrests bw=4: ATT=0.0166 SE=0.0246 
+    black_share_violent_arrests bw=5: ATT=0.0215 SE=0.0215 
+    black_share_drug_arrests bw=3: ATT=0.0201 SE=0.0264 
+    black_share_drug_arrests bw=4: ATT=0.0154 SE=0.0233 
+    black_share_drug_arrests bw=5: ATT=0.0202 SE=0.0219 
+
+====== Subgroup: Large City (above median pop) ====== 
+  Treated units in subgroup: 48 
+    violent_crime_pc bw=3: ATT=984.8581 SE=154.8607 
+    violent_crime_pc bw=4: ATT=1173.924 SE=139.7877 
+    violent_crime_pc bw=5: ATT=1379.4982 SE=131.6262 
+    violent_clearance_rate bw=3: ATT=0.0015 SE=0.0108 
+    violent_clearance_rate bw=4: ATT=0.0044 SE=0.0099 
+    violent_clearance_rate bw=5: ATT=0.0057 SE=0.0094 
+    property_clearance_rate bw=3: ATT=-0.002 SE=0.0049 
+    property_clearance_rate bw=4: ATT=-0.0032 SE=0.0045 
+    property_clearance_rate bw=5: ATT=-0.0045 SE=0.0046 
+    drug_arrests_pc bw=3: ATT=1112.1411 SE=253.7309 
+    drug_arrests_pc bw=4: ATT=1393.726 SE=227.7968 
+    drug_arrests_pc bw=5: ATT=1671.4208 SE=212.5502 
+    discretionary_arrests_pc bw=3: ATT=4670.5709 SE=792.7422 
+    discretionary_arrests_pc bw=4: ATT=5805.5912 SE=742.2689 
+    discretionary_arrests_pc bw=5: ATT=6884.717 SE=660.8454 
+    police_killings_pc bw=3: ATT=0.5334 SE=0.2915 
+    police_killings_pc bw=4: ATT=0.6708 SE=0.2577 
+    police_killings_pc bw=5: ATT=0.8093 SE=0.2344 
+    black_share_violent_arrests bw=3: ATT=0.0215 SE=0.0288 
+    black_share_violent_arrests bw=4: ATT=0.0152 SE=0.0278 
+    black_share_violent_arrests bw=5: ATT=0.0238 SE=0.0265 
+    black_share_drug_arrests bw=3: ATT=0.0273 SE=0.0276 
+    black_share_drug_arrests bw=4: ATT=0.0218 SE=0.0269 
+    black_share_drug_arrests bw=5: ATT=0.0286 SE=0.0243 
+
+====== Subgroup: Small City (below median pop) ====== 
+  Treated units in subgroup: 5 
+    violent_crime_pc bw=3: ATT=843.3133 SE=291.9917 
+    violent_crime_pc bw=4: ATT=1115.7609 SE=293.3683 
+    violent_crime_pc bw=5: ATT=1289.7426 SE=253.0551 
+    violent_clearance_rate bw=3: ATT=-0.0022 SE=0.0079 
+    violent_clearance_rate bw=4: ATT=-0.0139 SE=0.0094 
+    violent_clearance_rate bw=5: ATT=-0.0137 SE=0.0073 
+    property_clearance_rate bw=3: ATT=-0.0329 SE=0.0044 
+    property_clearance_rate bw=4: ATT=-0.0398 SE=0.004 
+    property_clearance_rate bw=5: ATT=-0.0478 SE=0.0034 
+    drug_arrests_pc bw=3: ATT=845.0755 SE=465.9612 
+    drug_arrests_pc bw=4: ATT=1238.8757 SE=405.7819 
+    drug_arrests_pc bw=5: ATT=1473.2749 SE=383.4309 
+    discretionary_arrests_pc bw=3: ATT=3833.8228 SE=1498.4516 
+    discretionary_arrests_pc bw=4: ATT=5185.5846 SE=1220.9635 
+    discretionary_arrests_pc bw=5: ATT=6087.9304 SE=1107.1182 
+    police_killings_pc bw=3: ATT=0.5051 SE=0.6397 
+    police_killings_pc bw=4: ATT=0.7367 SE=0.5228 
+    police_killings_pc bw=5: ATT=0.9947 SE=0.5095 
+    black_share_violent_arrests bw=3: ATT=0.0044 SE=0.0058 
+    black_share_violent_arrests bw=4: ATT=0.0037 SE=0.0052 
+    black_share_violent_arrests bw=5: ATT=0.0013 SE=0.0045 
+    black_share_drug_arrests bw=3: ATT=-0.0235 SE=0.0056 
+    black_share_drug_arrests bw=4: ATT=-0.0135 SE=0.0053 
+    black_share_drug_arrests bw=5: ATT=-0.0084 SE=0.0051 
+
+====== Subgroup: High % Black (above median) ====== 
+  Treated units in subgroup: 34 
+    ERROR (violent_crime_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_crime_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_crime_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_clearance_rate bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_clearance_rate bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (violent_clearance_rate bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (property_clearance_rate bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (property_clearance_rate bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (property_clearance_rate bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    police_killings_pc bw=3: ATT=0.4295 SE=0.2788 
+    police_killings_pc bw=4: ATT=0.5678 SE=0.2495 
+    police_killings_pc bw=5: ATT=0.7179 SE=0.2304 
+    ERROR (black_share_violent_arrests bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_violent_arrests bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_violent_arrests bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+
+====== Subgroup: Low % Black (below median) ====== 
+  Treated units in subgroup: 19 
+    violent_crime_pc bw=3: ATT=908.5056 SE=178.2667 
+    violent_crime_pc bw=4: ATT=1085.5775 SE=170.1779 
+    violent_crime_pc bw=5: ATT=1283.9965 SE=161.1735 
+    violent_clearance_rate bw=3: ATT=0.0115 SE=0.0106 
+    violent_clearance_rate bw=4: ATT=0.0154 SE=0.0101 
+    violent_clearance_rate bw=5: ATT=0.021 SE=0.0092 
+    property_clearance_rate bw=3: ATT=-0.0034 SE=0.0044 
+    property_clearance_rate bw=4: ATT=-0.0066 SE=0.0042 
+    property_clearance_rate bw=5: ATT=-0.0086 SE=0.0041 
+    drug_arrests_pc bw=3: ATT=949.8116 SE=289.5576 
+    drug_arrests_pc bw=4: ATT=1190.8198 SE=274.5765 
+    drug_arrests_pc bw=5: ATT=1481.9655 SE=240.5074 
+    discretionary_arrests_pc bw=3: ATT=4248.486 SE=922.2278 
+    discretionary_arrests_pc bw=4: ATT=5229.0552 SE=800.9931 
+    discretionary_arrests_pc bw=5: ATT=6357.8384 SE=736.2056 
+    police_killings_pc bw=3: ATT=0.7436 SE=0.3393 
+    police_killings_pc bw=4: ATT=0.8041 SE=0.3127 
+    police_killings_pc bw=5: ATT=0.9 SE=0.2862 
+    black_share_violent_arrests bw=3: ATT=-0.0049 SE=0.0133 
+    black_share_violent_arrests bw=4: ATT=-0.0092 SE=0.0122 
+    black_share_violent_arrests bw=5: ATT=-0.0112 SE=0.0103 
+    black_share_drug_arrests bw=3: ATT=0.0083 SE=0.0174 
+    black_share_drug_arrests bw=4: ATT=0.0048 SE=0.0159 
+    black_share_drug_arrests bw=5: ATT=0.002 SE=0.0149 
+
+====== Subgroup: South ====== 
+  Treated units in subgroup: 15 
+    violent_crime_pc bw=3: ATT=1174.7654 SE=241.6469 
+    violent_crime_pc bw=4: ATT=1328.1623 SE=234.6629 
+    violent_crime_pc bw=5: ATT=1510.2661 SE=199.9232 
+    violent_clearance_rate bw=3: ATT=0.0037 SE=0.0091 
+    violent_clearance_rate bw=4: ATT=0.0071 SE=0.0085 
+    violent_clearance_rate bw=5: ATT=0.0088 SE=0.008 
+    property_clearance_rate bw=3: ATT=0.001 SE=0.0056 
+    property_clearance_rate bw=4: ATT=0.0015 SE=0.0051 
+    property_clearance_rate bw=5: ATT=0.0015 SE=0.0046 
+    ERROR (drug_arrests_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    police_killings_pc bw=3: ATT=-0.191 SE=0.422 
+    police_killings_pc bw=4: ATT=-0.1364 SE=0.3759 
+    police_killings_pc bw=5: ATT=-4e-04 SE=0.3424 
+    ERROR (black_share_violent_arrests bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_violent_arrests bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_violent_arrests bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+
+====== Subgroup: Non-South ====== 
+  Treated units in subgroup: 38 
+    violent_crime_pc bw=3: ATT=986.6432 SE=156.0522 
+    violent_crime_pc bw=4: ATT=1191.4022 SE=141.0474 
+    violent_crime_pc bw=5: ATT=1401.6832 SE=131.8443 
+    violent_clearance_rate bw=3: ATT=0.0091 SE=0.0109 
+    violent_clearance_rate bw=4: ATT=0.0078 SE=0.01 
+    violent_clearance_rate bw=5: ATT=0.0084 SE=0.0097 
+    property_clearance_rate bw=3: ATT=-0.0087 SE=0.0055 
+    property_clearance_rate bw=4: ATT=-0.0111 SE=0.0051 
+    property_clearance_rate bw=5: ATT=-0.0139 SE=0.0047 
+    ERROR (drug_arrests_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (drug_arrests_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (discretionary_arrests_pc bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    police_killings_pc bw=3: ATT=0.7548 SE=0.282 
+    police_killings_pc bw=4: ATT=0.8814 SE=0.2645 
+    police_killings_pc bw=5: ATT=1.0198 SE=0.2372 
+    ERROR (black_share_violent_arrests bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_violent_arrests bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_violent_arrests bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=3): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=4): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+    ERROR (black_share_drug_arrests bw=5): An unexpected error occurred, normally associated with a singular matrix due to not enough control units. Try changing faster_mode=FALSE. 
+
+Saved 1683 heterogeneity results 
+Step 11 complete.
+ 
+
+========== STEP 12: Final Output Checklist & Summary ========== 
+
+--- Table Checklist --- 
+  [X] merge_diagnostics.csv (179 bytes) 
+  [X] summary_stats.csv (1480 bytes) 
+  [X] pretrends_means.csv (2200 bytes) 
+  [X] panelmatch_annualized.csv (27170 bytes) 
+  [X] panelmatch_pooled.csv (5411 bytes) 
+  [X] csdid_annualized.csv (59894 bytes) 
+  [X] csdid_pooled.csv (5980 bytes) 
+  [X] csdid_by_cohort.csv (13207 bytes) 
+  [X] heterogeneity_results.csv (268029 bytes) 
+
+--- Figure Checklist --- 
+  [X] treatment_timing_histogram.png 
+  [X] eventstudy_panelmatch_violent_crime_pc_bw3.png 
+  [X] eventstudy_csdid_violent_crime_pc_bw3.png 
+  [X] eventstudy_panelmatch_violent_crime_pc_bw4.png 
+  [X] eventstudy_csdid_violent_crime_pc_bw4.png 
+  [X] eventstudy_panelmatch_violent_crime_pc_bw5.png 
+  [X] eventstudy_csdid_violent_crime_pc_bw5.png 
+  [X] eventstudy_panelmatch_violent_clearance_rate_bw3.png 
+  [X] eventstudy_csdid_violent_clearance_rate_bw3.png 
+  [X] eventstudy_panelmatch_violent_clearance_rate_bw4.png 
+  [X] eventstudy_csdid_violent_clearance_rate_bw4.png 
+  [X] eventstudy_panelmatch_violent_clearance_rate_bw5.png 
+  [X] eventstudy_csdid_violent_clearance_rate_bw5.png 
+  [X] eventstudy_panelmatch_property_clearance_rate_bw3.png 
+  [X] eventstudy_csdid_property_clearance_rate_bw3.png 
+  [X] eventstudy_panelmatch_property_clearance_rate_bw4.png 
+  [X] eventstudy_csdid_property_clearance_rate_bw4.png 
+  [X] eventstudy_panelmatch_property_clearance_rate_bw5.png 
+  [X] eventstudy_csdid_property_clearance_rate_bw5.png 
+  [X] eventstudy_panelmatch_drug_arrests_pc_bw3.png 
+  [X] eventstudy_csdid_drug_arrests_pc_bw3.png 
+  [X] eventstudy_panelmatch_drug_arrests_pc_bw4.png 
+  [X] eventstudy_csdid_drug_arrests_pc_bw4.png 
+  [X] eventstudy_panelmatch_drug_arrests_pc_bw5.png 
+  [X] eventstudy_csdid_drug_arrests_pc_bw5.png 
+  [X] eventstudy_panelmatch_discretionary_arrests_pc_bw3.png 
+  [X] eventstudy_csdid_discretionary_arrests_pc_bw3.png 
+  [X] eventstudy_panelmatch_discretionary_arrests_pc_bw4.png 
+  [X] eventstudy_csdid_discretionary_arrests_pc_bw4.png 
+  [X] eventstudy_panelmatch_discretionary_arrests_pc_bw5.png 
+  [X] eventstudy_csdid_discretionary_arrests_pc_bw5.png 
+  [X] eventstudy_panelmatch_police_killings_pc_bw3.png 
+  [X] eventstudy_csdid_police_killings_pc_bw3.png 
+  [X] eventstudy_panelmatch_police_killings_pc_bw4.png 
+  [X] eventstudy_csdid_police_killings_pc_bw4.png 
+  [X] eventstudy_panelmatch_police_killings_pc_bw5.png 
+  [X] eventstudy_csdid_police_killings_pc_bw5.png 
+  [X] eventstudy_panelmatch_black_share_violent_arrests_bw3.png 
+  [X] eventstudy_csdid_black_share_violent_arrests_bw3.png 
+  [X] eventstudy_panelmatch_black_share_violent_arrests_bw4.png 
+  [X] eventstudy_csdid_black_share_violent_arrests_bw4.png 
+  [X] eventstudy_panelmatch_black_share_violent_arrests_bw5.png 
+  [X] eventstudy_csdid_black_share_violent_arrests_bw5.png 
+  [X] eventstudy_panelmatch_black_share_drug_arrests_bw3.png 
+  [X] eventstudy_csdid_black_share_drug_arrests_bw3.png 
+  [X] eventstudy_panelmatch_black_share_drug_arrests_bw4.png 
+  [X] eventstudy_csdid_black_share_drug_arrests_bw4.png 
+  [X] eventstudy_panelmatch_black_share_drug_arrests_bw5.png 
+  [X] eventstudy_csdid_black_share_drug_arrests_bw5.png 
+
+--- Building RESULTS_SUMMARY.md --- 
+Saved RESULTS_SUMMARY.md (321 lines) 
+
+Step 12 complete. 
+
+========== PIPELINE COMPLETE ========== 

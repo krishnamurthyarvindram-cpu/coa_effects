@@ -1,0 +1,16 @@
+# Extracted raw data folders (reproducible from zip files)
+raw_data/arrests_csv_1974_2024_year/
+raw_data/offenses_known_csv_1960_2024_month/
+raw_data/police-residency-replication/
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Claude internal
+.claude/
