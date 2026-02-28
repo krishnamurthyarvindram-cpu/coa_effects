@@ -1,0 +1,145 @@
+part	model	model_type	variable	coef	se	p_value	significance	n_obs	n_y1	sample	outcome	treatment_var
+A	Demographics + Crime	Logit	log_pop	0.650185	0.421081	0.1226		67	18			
+A	Demographics + Crime	Logit	pct_black	9.07069	4.384777	0.0386	**	67	18			
+A	Demographics + Crime	Logit	pct_hispanic	0.149045	3.363783	0.9647		67	18			
+A	Demographics + Crime	Logit	south	-1.425738	0.851838	0.0942	*	67	18			
+A	Demographics + Crime	Logit	violent_crime_pc	-6e-06	3.6e-05	0.8572		67	18			
+A	Demographics + Crime	Logit	drug_arrests_pc	1.5e-05	4.4e-05	0.7265		67	18			
+A	Demographics + Crime	Logit	police_killings_pc	-0.31883	0.854635	0.7091		67	18			
+A	Demographics + Crime	Logit	black_share_violent_arrests	-4.261461	3.252967	0.1902		67	18			
+A	Demographics + Politics	Logit	log_pop	0.548891	0.476219	0.2491		53	15			
+A	Demographics + Politics	Logit	pct_black	-0.398164	6.562311	0.9516		53	15			
+A	Demographics + Politics	Logit	pct_hispanic	3.159899	3.721561	0.3958		53	15			
+A	Demographics + Politics	Logit	south	-1.222697	1.07767	0.2566		53	15			
+A	Demographics + Politics	Logit	dem_power	-3.192506	2.379555	0.1797		53	15			
+A	Demographics + Politics	Logit	council_pct_dem	3.868666	2.577967	0.1334		53	15			
+A	Demographics + Politics	Logit	council_pct_black	0.039987	5.2307	0.9939		53	15			
+A	Demographics + Politics	Logit	mayor_dem	0.866377	2.331257	0.7102		53	15			
+A	Demographics + Politics	Logit	mayor_black	2.438876	2.075963	0.2401		53	15			
+A	Full Model	Logit	log_pop	0.659231	0.656087	0.315		50	14			
+A	Full Model	Logit	pct_black	6.844514	10.436396	0.5119		50	14			
+A	Full Model	Logit	pct_hispanic	3.264369	4.674074	0.4849		50	14			
+A	Full Model	Logit	south	-0.237926	1.407309	0.8657		50	14			
+A	Full Model	Logit	violent_crime_pc	0.000116	7.2e-05	0.1063		50	14			
+A	Full Model	Logit	police_killings_pc	-0.479815	0.40048	0.2309		50	14			
+A	Full Model	Logit	black_share_violent_arrests	-10.392821	5.747764	0.0706	*	50	14			
+A	Full Model	Logit	dem_power	1.422136	4.482367	0.751		50	14			
+A	Full Model	Logit	council_pct_dem	7.691899	4.034925	0.0566	*	50	14			
+A	Full Model	Logit	council_pct_black	5.461994	6.410382	0.3942		50	14			
+A	Full Model	Logit	mayor_dem	-4.145485	4.488245	0.3557		50	14			
+A	Full Model	Logit	mayor_black	1.989355	2.567961	0.4385		50	14			
+A	Full Model (LPM)	LPM	log_pop	0.096971	0.09334	0.2989		50	14			
+A	Full Model (LPM)	LPM	pct_black	0.890256	1.422501	0.5314		50	14			
+A	Full Model (LPM)	LPM	pct_hispanic	0.279737	0.689765	0.6851		50	14			
+A	Full Model (LPM)	LPM	south	-0.166171	0.167865	0.3222		50	14			
+A	Full Model (LPM)	LPM	violent_crime_pc	1.1e-05	9e-06	0.2261		50	14			
+A	Full Model (LPM)	LPM	police_killings_pc	-0.041116	0.017539	0.0191	**	50	14			
+A	Full Model (LPM)	LPM	black_share_violent_arrests	-1.054531	0.589519	0.0736	*	50	14			
+A	Full Model (LPM)	LPM	dem_power	0.070669	0.655407	0.9141		50	14			
+A	Full Model (LPM)	LPM	council_pct_dem	0.657528	0.291903	0.0243	**	50	14			
+A	Full Model (LPM)	LPM	council_pct_black	0.577345	0.887909	0.5155		50	14			
+A	Full Model (LPM)	LPM	mayor_dem	-0.51451	0.642621	0.4233		50	14			
+A	Full Model (LPM)	LPM	mayor_black	0.29234	0.392918	0.4569		50	14			
+B	Strong COA During Term	PanelOLS	strong_coa_during_term	-0.015817	0.02587	0.541		8650	172	All Incumbents	vote_share	strong_coa_during_term
+B	Weak COA During Term	PanelOLS	weak_coa_during_term	-0.007832	0.029616	0.7914		8650	147	All Incumbents	vote_share	weak_coa_during_term
+B	Strong COA During Term	PanelOLS	strong_coa_during_term	-0.037999	0.031314	0.225		8650	172	All Incumbents	win	strong_coa_during_term
+B	Weak COA During Term	PanelOLS	weak_coa_during_term	-0.039854	0.042209	0.3451		8650	147	All Incumbents	win	weak_coa_during_term
+B	Post Strong COA	PanelOLS	post_strong_coa	-0.034014	0.024222	0.1603		8650	1159	All Incumbents	vote_share	post_strong_coa
+B	Post Weak COA	PanelOLS	post_weak_coa	-0.016593	0.050122	0.7406		8650	776	All Incumbents	vote_share	post_weak_coa
+B	Post Strong COA	PanelOLS	post_strong_coa	-0.003863	0.04787	0.9357		8650	1159	All Incumbents	win	post_strong_coa
+B	Post Weak COA	PanelOLS	post_weak_coa	-0.033296	0.064216	0.6041		8650	776	All Incumbents	win	post_weak_coa
+B	Strong COA During Term	PanelOLS	strong_coa_during_term	-0.009687	0.02789	0.7284		7001	163	City Council	vote_share	strong_coa_during_term
+B	Weak COA During Term	PanelOLS	weak_coa_during_term	-0.009624	0.034238	0.7787		7001	119	City Council	vote_share	weak_coa_during_term
+B	Strong COA During Term	PanelOLS	strong_coa_during_term	-0.01864	0.025497	0.4648		7001	163	City Council	win	strong_coa_during_term
+B	Weak COA During Term	PanelOLS	weak_coa_during_term	-0.044287	0.051092	0.3861		7001	119	City Council	win	weak_coa_during_term
+B	Strong COA During Term	PanelOLS	strong_coa_during_term	-0.147732	0.126777	0.2442		1649	9	Mayor	vote_share	strong_coa_during_term
+B	Weak COA During Term	PanelOLS	weak_coa_during_term	-0.004945	0.040359	0.9025		1649	28	Mayor	vote_share	weak_coa_during_term
+B	Strong COA During Term	PanelOLS	strong_coa_during_term	-0.185877	0.139638	0.1835		1649	9	Mayor	win	strong_coa_during_term
+B	Weak COA During Term	PanelOLS	weak_coa_during_term	0.034493	0.074767	0.6447		1649	28	Mayor	win	weak_coa_during_term
+B	Strong Coa During Term	PanelOLS	strong_coa_during_term	0.031157	0.041408	0.452		1450	57	Race: Black	vote_share	strong_coa_during_term
+B	Weak Coa During Term	PanelOLS	weak_coa_during_term	0.080107	0.048396	0.0982	*	1450	33	Race: Black	vote_share	weak_coa_during_term
+B	Post Strong Coa	PanelOLS	post_strong_coa	-0.003379	0.040276	0.9332		1450	367	Race: Black	vote_share	post_strong_coa
+B	Post Weak Coa	PanelOLS	post_weak_coa	0.057675	0.036123	0.1107		1450	180	Race: Black	vote_share	post_weak_coa
+B	Strong Coa During Term	PanelOLS	strong_coa_during_term	0.041428	0.045566	0.3635		1450	57	Race: Black	win	strong_coa_during_term
+B	Weak Coa During Term	PanelOLS	weak_coa_during_term	0.107759	0.088455	0.2235		1450	33	Race: Black	win	weak_coa_during_term
+B	Post Strong Coa	PanelOLS	post_strong_coa	0.110534	0.068437	0.1066		1450	367	Race: Black	win	post_strong_coa
+B	Post Weak Coa	PanelOLS	post_weak_coa	0.117549	0.090906	0.1963		1450	180	Race: Black	win	post_weak_coa
+B	Strong Coa During Term	PanelOLS	strong_coa_during_term	-0.041729	0.020891	0.0458	**	6310	93	Race: White	vote_share	strong_coa_during_term
+B	Weak Coa During Term	PanelOLS	weak_coa_during_term	-0.036449	0.038241	0.3406		6310	100	Race: White	vote_share	weak_coa_during_term
+B	Post Strong Coa	PanelOLS	post_strong_coa	-0.057073	0.027618	0.0388	**	6310	650	Race: White	vote_share	post_strong_coa
+B	Post Weak Coa	PanelOLS	post_weak_coa	-0.035405	0.06898	0.6078		6310	549	Race: White	vote_share	post_weak_coa
+B	Strong Coa During Term	PanelOLS	strong_coa_during_term	-0.089525	0.037407	0.0167	**	6310	93	Race: White	win	strong_coa_during_term
+B	Weak Coa During Term	PanelOLS	weak_coa_during_term	-0.078462	0.054009	0.1464		6310	100	Race: White	win	weak_coa_during_term
+B	Post Strong Coa	PanelOLS	post_strong_coa	-0.093571	0.061226	0.1265		6310	650	Race: White	win	post_strong_coa
+B	Post Weak Coa	PanelOLS	post_weak_coa	-0.067003	0.08166	0.412		6310	549	Race: White	win	post_weak_coa
+B	Strong COA During Term	PanelOLS	strong_coa_during_term	-0.020571	0.027932	0.4615		5666	154	Party: Democrat	vote_share	strong_coa_during_term
+B	Weak COA During Term	PanelOLS	weak_coa_during_term	-0.00077	0.027881	0.978		5666	91	Party: Democrat	vote_share	weak_coa_during_term
+B	Strong COA During Term	PanelOLS	strong_coa_during_term	-0.034834	0.032212	0.2796		5666	154	Party: Democrat	win	strong_coa_during_term
+B	Weak COA During Term	PanelOLS	weak_coa_during_term	-0.016478	0.043071	0.7021		5666	91	Party: Democrat	win	weak_coa_during_term
+B	Strong COA During Term	PanelOLS	strong_coa_during_term	-0.017408	0.061225	0.7762		2493	14	Party: Republican	vote_share	strong_coa_during_term
+B	Weak COA During Term	PanelOLS	weak_coa_during_term	-0.002987	0.061369	0.9612		2493	50	Party: Republican	vote_share	weak_coa_during_term
+B	Strong COA During Term	PanelOLS	strong_coa_during_term	-0.10899	0.122527	0.3739		2493	14	Party: Republican	win	strong_coa_during_term
+B	Weak COA During Term	PanelOLS	weak_coa_during_term	-0.032205	0.074655	0.6663		2493	50	Party: Republican	win	weak_coa_during_term
+C	Any COA (post)	PanelOLS	post	1578.964559	1328.226963	0.2346		8061	1091	All Cities	violent_crime_pc	post
+C	Any COA (post)	PanelOLS	post	0.003446	0.015388	0.8228		8058	1091	All Cities	violent_clearance_rate	post
+C	Any COA (post)	PanelOLS	post	-0.014077	0.007686	0.067	*	8061	1092	All Cities	property_clearance_rate	post
+C	Any COA (post)	PanelOLS	post	2233.383835	1468.425407	0.1283		6551	884	All Cities	drug_arrests_pc	post
+C	Any COA (post)	PanelOLS	post	8975.847735	6267.53515	0.1522		6551	884	All Cities	discretionary_arrests_pc	post
+C	Any COA (post)	PanelOLS	post	1.287321	1.201267	0.2839		8358	1163	All Cities	police_killings_pc	post
+C	Any COA (post)	PanelOLS	post	2592.065723	2505.451849	0.3009		6551	884	All Cities	violent_arrests_pc	post
+C	Any COA (post)	PanelOLS	post	-0.01509	0.004428	0.0007	***	6549	883	All Cities	black_share_violent_arrests	post
+C	Any COA (post)	PanelOLS	post	-0.028277	0.011152	0.0113	**	6531	880	All Cities	black_share_drug_arrests	post
+C	Strong COA (post)	PanelOLS	post_strong	3597.599058	708.617401	0.0	***	6592	500	All Cities	violent_crime_pc	post_strong
+C	Strong COA (post)	PanelOLS	post_strong	-0.045403	0.016768	0.0068	***	6589	500	All Cities	violent_clearance_rate	post_strong
+C	Strong COA (post)	PanelOLS	post_strong	-0.022345	0.00825	0.0068	***	6592	501	All Cities	property_clearance_rate	post_strong
+C	Strong COA (post)	PanelOLS	post_strong	4733.336383	1016.670489	0.0	***	5433	470	All Cities	drug_arrests_pc	post_strong
+C	Strong COA (post)	PanelOLS	post_strong	20426.517104	3761.289596	0.0	***	5433	470	All Cities	discretionary_arrests_pc	post_strong
+C	Strong COA (post)	PanelOLS	post_strong	3.086392	0.64745	0.0	***	6804	525	All Cities	police_killings_pc	post_strong
+C	Strong COA (post)	PanelOLS	post_strong	7358.58775	1311.007917	0.0	***	5433	470	All Cities	violent_arrests_pc	post_strong
+C	Strong COA (post)	PanelOLS	post_strong	-0.017521	0.006124	0.0042	***	5432	470	All Cities	black_share_violent_arrests	post_strong
+C	Strong COA (post)	PanelOLS	post_strong	-0.028023	0.021357	0.1895		5417	470	All Cities	black_share_drug_arrests	post_strong
+C	Weak COA (post)	PanelOLS	post_weak	1241.600295	1758.105669	0.4801		7251	591	All Cities	violent_crime_pc	post_weak
+C	Weak COA (post)	PanelOLS	post_weak	0.021814	0.018418	0.2363		7248	591	All Cities	violent_clearance_rate	post_weak
+C	Weak COA (post)	PanelOLS	post_weak	-0.011703	0.009899	0.2372		7250	591	All Cities	property_clearance_rate	post_weak
+C	Weak COA (post)	PanelOLS	post_weak	1837.459718	1934.67844	0.3423		5823	414	All Cities	drug_arrests_pc	post_weak
+C	Weak COA (post)	PanelOLS	post_weak	6910.0651	8343.451922	0.4076		5823	414	All Cities	discretionary_arrests_pc	post_weak
+C	Weak COA (post)	PanelOLS	post_weak	0.96762	1.58643	0.5419		7518	638	All Cities	police_killings_pc	post_weak
+C	Weak COA (post)	PanelOLS	post_weak	1541.211381	3366.705141	0.6471		5823	414	All Cities	violent_arrests_pc	post_weak
+C	Weak COA (post)	PanelOLS	post_weak	-0.016568	0.005361	0.002	***	5821	413	All Cities	black_share_violent_arrests	post_weak
+C	Weak COA (post)	PanelOLS	post_weak	-0.034406	0.01279	0.0072	***	5803	410	All Cities	black_share_drug_arrests	post_weak
+C	Joint: Strong COA	PanelOLS (joint)	post_strong	3409.190424	640.732967	0.0	***	8061	500	All Cities	violent_crime_pc	post_strong
+C	Joint: Weak COA	PanelOLS (joint)	post_weak	888.416876	1736.955463	0.609		8061	591	All Cities	violent_crime_pc	post_weak
+C	Joint: Strong COA	PanelOLS (joint)	post_strong	-0.046463	0.016551	0.005	***	8058	500	All Cities	violent_clearance_rate	post_strong
+C	Joint: Weak COA	PanelOLS (joint)	post_weak	0.022277	0.018393	0.2259		8058	591	All Cities	violent_clearance_rate	post_weak
+C	Joint: Strong COA	PanelOLS (joint)	post_strong	-0.023502	0.008109	0.0038	***	8061	501	All Cities	property_clearance_rate	post_strong
+C	Joint: Weak COA	PanelOLS (joint)	post_weak	-0.010521	0.009844	0.2852		8061	591	All Cities	property_clearance_rate	post_weak
+C	Joint: Strong COA	PanelOLS (joint)	post_strong	4308.371885	899.475146	0.0	***	6551	470	All Cities	drug_arrests_pc	post_strong
+C	Joint: Weak COA	PanelOLS (joint)	post_weak	1366.312324	1896.652093	0.4713		6551	414	All Cities	drug_arrests_pc	post_weak
+C	Joint: Strong COA	PanelOLS (joint)	post_strong	18682.628088	3332.828474	0.0	***	6551	470	All Cities	discretionary_arrests_pc	post_strong
+C	Joint: Weak COA	PanelOLS (joint)	post_weak	4919.692946	8220.139618	0.5495		6551	414	All Cities	discretionary_arrests_pc	post_weak
+C	Joint: Strong COA	PanelOLS (joint)	post_strong	2.890544	0.57692	0.0	***	8358	525	All Cities	police_killings_pc	post_strong
+C	Joint: Weak COA	PanelOLS (joint)	post_weak	0.689124	1.571522	0.661		8358	638	All Cities	police_killings_pc	post_weak
+C	Joint: Strong COA	PanelOLS (joint)	post_strong	6856.073692	1180.664855	0.0	***	6551	470	All Cities	violent_arrests_pc	post_strong
+C	Joint: Weak COA	PanelOLS (joint)	post_weak	810.272409	3330.779169	0.8078		6551	414	All Cities	violent_arrests_pc	post_weak
+C	Joint: Strong COA	PanelOLS (joint)	post_strong	-0.016831	0.006058	0.0055	***	6549	470	All Cities	black_share_violent_arrests	post_strong
+C	Joint: Weak COA	PanelOLS (joint)	post_weak	-0.014356	0.005353	0.0073	***	6549	413	All Cities	black_share_violent_arrests	post_weak
+C	Joint: Strong COA	PanelOLS (joint)	post_strong	-0.028076	0.021242	0.1863		6531	470	All Cities	black_share_drug_arrests	post_strong
+C	Joint: Weak COA	PanelOLS (joint)	post_weak	-0.028362	0.012819	0.027	**	6531	410	All Cities	black_share_drug_arrests	post_weak
+C	Investigate Power	PanelOLS	post_investigate	3557.214068	700.024632	0.0	***	6529	441	All Cities	violent_crime_pc	post_investigate
+C	Investigate Power	PanelOLS	post_investigate	-0.049034	0.017458	0.005	***	6526	441	All Cities	violent_clearance_rate	post_investigate
+C	Investigate Power	PanelOLS	post_investigate	-0.023447	0.008766	0.0075	***	6529	442	All Cities	property_clearance_rate	post_investigate
+C	Investigate Power	PanelOLS	post_investigate	4661.981617	1024.43438	0.0	***	5372	413	All Cities	drug_arrests_pc	post_investigate
+C	Investigate Power	PanelOLS	post_investigate	20092.7411	3694.634342	0.0	***	5372	413	All Cities	discretionary_arrests_pc	post_investigate
+C	Investigate Power	PanelOLS	post_investigate	3.222122	0.661945	0.0	***	6741	466	All Cities	police_killings_pc	post_investigate
+C	Investigate Power	PanelOLS	post_investigate	7233.325891	1295.59461	0.0	***	5372	413	All Cities	violent_arrests_pc	post_investigate
+C	Investigate Power	PanelOLS	post_investigate	-0.021157	0.005411	0.0001	***	5371	413	All Cities	black_share_violent_arrests	post_investigate
+C	Investigate Power	PanelOLS	post_investigate	-0.032653	0.022956	0.155		5356	413	All Cities	black_share_drug_arrests	post_investigate
+C	Discipline Power	PanelOLS	post_discipline	4219.728864	918.941335	0.0	***	5992	144	All Cities	violent_crime_pc	post_discipline
+C	Discipline Power	PanelOLS	post_discipline	-0.017912	0.015299	0.2417		5989	144	All Cities	violent_clearance_rate	post_discipline
+C	Discipline Power	PanelOLS	post_discipline	-0.01844	0.010519	0.0797	*	5991	144	All Cities	property_clearance_rate	post_discipline
+C	Discipline Power	PanelOLS	post_discipline	5910.767298	1301.850606	0.0	***	4868	116	All Cities	drug_arrests_pc	post_discipline
+C	Discipline Power	PanelOLS	post_discipline	25198.18725	5203.727833	0.0	***	4868	116	All Cities	discretionary_arrests_pc	post_discipline
+C	Discipline Power	PanelOLS	post_discipline	2.998854	0.730559	0.0	***	6174	144	All Cities	police_killings_pc	post_discipline
+C	Discipline Power	PanelOLS	post_discipline	8954.821799	1815.039939	0.0	***	4868	116	All Cities	violent_arrests_pc	post_discipline
+C	Discipline Power	PanelOLS	post_discipline	-0.006216	0.011196	0.5788		4867	116	All Cities	black_share_violent_arrests	post_discipline
+C	Discipline Power	PanelOLS	post_discipline	0.020959	0.00986	0.0336	**	4852	116	All Cities	black_share_drug_arrests	post_discipline
