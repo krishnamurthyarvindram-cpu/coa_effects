@@ -1,0 +1,160 @@
+section	model	outcome	variable	coef	se	pval	n	note
+A_cross_section	LPM_ever_adopted	ever_adopted	log_police_protests_pre	0.123301	0.030827	0.0001	283	log(police protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	log_pop	0.198049	0.040355	0.0	283	log(police protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	pct_black	0.018395	0.147035	0.9004	283	log(police protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	pct_hispanic	-0.399689	0.094972	0.0	283	log(police protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	log_all_protests_pre	0.083426	0.024391	0.0006	283	log(all protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	log_pop	0.210436	0.041882	0.0	283	log(all protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	pct_black	0.055415	0.146971	0.7061	283	log(all protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	pct_hispanic	-0.352253	0.10245	0.0006	283	log(all protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	log_msa_police_pre	-0.029805	0.020733	0.1506	283	log(MSA police protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	log_pop	0.302604	0.030086	0.0	283	log(MSA police protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	pct_black	0.062675	0.155731	0.6873	283	log(MSA police protests 2017-19)
+A_cross_section	LPM_ever_adopted	ever_adopted	pct_hispanic	-0.426132	0.094519	0.0	283	log(MSA police protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	log_police_protests_pre	-0.006702	0.023876	0.7789	283	log(police protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	log_pop	0.026667	0.028975	0.3574	283	log(police protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	pct_black	0.081624	0.122963	0.5068	283	log(police protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	pct_hispanic	-0.144417	0.062652	0.0212	283	log(police protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	log_all_protests_pre	-0.003085	0.018393	0.8668	283	log(all protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	log_pop	0.024479	0.027745	0.3776	283	log(all protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	pct_black	0.079432	0.123077	0.5187	283	log(all protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	pct_hispanic	-0.14535	0.068299	0.0333	283	log(all protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	log_msa_police_pre	-0.032401	0.018543	0.0806	283	log(MSA police protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	log_pop	0.026782	0.016144	0.0971	283	log(MSA police protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	pct_black	0.075726	0.120872	0.531	283	log(MSA police protests 2017-19)
+A_cross_section	LPM_adopted_post2019	adopted_post2019	pct_hispanic	-0.119259	0.05308	0.0247	283	log(MSA police protests 2017-19)
+A_cross_section	Logit_margeff	ever_adopted	log_police_protests_pre	0.126937	0.037026	0.0006	283	marginal effect at mean
+A_cross_section	Logit_margeff	ever_adopted	log_pop	0.232574	0.053022	0.0	283	marginal effect at mean
+A_cross_section	Logit_margeff	ever_adopted	pct_black	-0.044439	0.177627	0.8024	283	marginal effect at mean
+A_cross_section	Logit_margeff	ever_adopted	pct_hispanic	-0.669734	0.190193	0.0004	283	marginal effect at mean
+A_hazard	hazard_LPM	adopted_this_year	lag_log_police_protests	0.043063	0.019797	0.0296	689	lag log(city police protests)
+A_hazard	hazard_LPM	adopted_this_year	log_population	0.01021	0.01229	0.4061	689	lag log(city police protests)
+A_hazard	hazard_LPM	adopted_this_year	pct_black	0.0144	0.027018	0.5941	689	lag log(city police protests)
+A_hazard	hazard_LPM	adopted_this_year	pct_hispanic	-0.030275	0.01634	0.0639	689	lag log(city police protests)
+A_hazard	hazard_LPM	adopted_this_year	lag_log_msa_police	-0.000333	0.003533	0.925	689	lag log(MSA police protests)
+A_hazard	hazard_LPM	adopted_this_year	log_population	0.024938	0.010682	0.0196	689	lag log(MSA police protests)
+A_hazard	hazard_LPM	adopted_this_year	pct_black	0.025109	0.028906	0.385	689	lag log(MSA police protests)
+A_hazard	hazard_LPM	adopted_this_year	pct_hispanic	-0.033312	0.016172	0.0394	689	lag log(MSA police protests)
+A_hazard	hazard_interaction	adopted_this_year	lag_log_police_protests	0.023283	0.02068	0.2602	689	protests × post-2020
+A_hazard	hazard_interaction	adopted_this_year	post_2020	-0.017657	0.02102	0.4009	689	protests × post-2020
+A_hazard	hazard_interaction	adopted_this_year	lag_police_x_post2020	0.065567	0.04531	0.1479	689	protests × post-2020
+A_hazard	hazard_interaction	adopted_this_year	log_population	0.010589	0.012175	0.3845	689	protests × post-2020
+A_hazard	hazard_interaction	adopted_this_year	pct_black	0.011578	0.027825	0.6773	689	protests × post-2020
+A_hazard	hazard_interaction	adopted_this_year	pct_hispanic	-0.031264	0.016596	0.0596	689	protests × post-2020
+B_event_study	raw_means	mean_police_protests	rt=-4	1.791667	0.0	0.0	24	descriptive mean by relative time
+B_event_study	raw_means	mean_all_protests	rt=-4	15.5	0.0	0.0	24	descriptive mean by relative time
+B_event_study	raw_means	mean_msa_police_protests	rt=-4	27.458333	0.0	0.0	24	descriptive mean by relative time
+B_event_study	raw_means	mean_police_protests	rt=-3	2.939394	0.0	0.0	33	descriptive mean by relative time
+B_event_study	raw_means	mean_all_protests	rt=-3	21.909091	0.0	0.0	33	descriptive mean by relative time
+B_event_study	raw_means	mean_msa_police_protests	rt=-3	30.727273	0.0	0.0	33	descriptive mean by relative time
+B_event_study	raw_means	mean_police_protests	rt=-2	7.529412	0.0	0.0	34	descriptive mean by relative time
+B_event_study	raw_means	mean_all_protests	rt=-2	28.764706	0.0	0.0	34	descriptive mean by relative time
+B_event_study	raw_means	mean_msa_police_protests	rt=-2	41.911765	0.0	0.0	34	descriptive mean by relative time
+B_event_study	raw_means	mean_police_protests	rt=-1	16.588235	0.0	0.0	34	descriptive mean by relative time
+B_event_study	raw_means	mean_all_protests	rt=-1	37.558824	0.0	0.0	34	descriptive mean by relative time
+B_event_study	raw_means	mean_msa_police_protests	rt=-1	80.823529	0.0	0.0	34	descriptive mean by relative time
+B_event_study	raw_means	mean_police_protests	rt=0	10.387097	0.0	0.0	31	descriptive mean by relative time
+B_event_study	raw_means	mean_all_protests	rt=0	40.580645	0.0	0.0	31	descriptive mean by relative time
+B_event_study	raw_means	mean_msa_police_protests	rt=0	115.16129	0.0	0.0	31	descriptive mean by relative time
+B_event_study	raw_means	mean_police_protests	rt=1	9.0	0.0	0.0	14	descriptive mean by relative time
+B_event_study	raw_means	mean_all_protests	rt=1	52.5	0.0	0.0	14	descriptive mean by relative time
+B_event_study	raw_means	mean_msa_police_protests	rt=1	32.142857	0.0	0.0	14	descriptive mean by relative time
+B_event_study	raw_means	mean_police_protests	rt=2	8.615385	0.0	0.0	13	descriptive mean by relative time
+B_event_study	raw_means	mean_all_protests	rt=2	49.615385	0.0	0.0	13	descriptive mean by relative time
+B_event_study	raw_means	mean_msa_police_protests	rt=2	72.692308	0.0	0.0	13	descriptive mean by relative time
+B_event_study	raw_means	mean_police_protests	rt=3	39.727273	0.0	0.0	11	descriptive mean by relative time
+B_event_study	raw_means	mean_all_protests	rt=3	93.181818	0.0	0.0	11	descriptive mean by relative time
+B_event_study	raw_means	mean_msa_police_protests	rt=3	70.818182	0.0	0.0	11	descriptive mean by relative time
+B_event_study	raw_means	mean_police_protests	rt=4	12.181818	0.0	0.0	11	descriptive mean by relative time
+B_event_study	raw_means	mean_all_protests	rt=4	49.909091	0.0	0.0	11	descriptive mean by relative time
+B_event_study	raw_means	mean_msa_police_protests	rt=4	154.818182	0.0	0.0	11	descriptive mean by relative time
+B_event_study	FE_regression	police_protests	rt_-4	-3.509972	4.024453	0.3831	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	police_protests	rt_-3	-2.057661	2.988545	0.4911	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	police_protests	rt_-2	1.305188	1.298693	0.3149	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	police_protests	rt_0	-4.707725	3.696186	0.2028	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	police_protests	rt_1	-6.274482	5.087041	0.2174	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	police_protests	rt_2	-7.610723	5.550357	0.1703	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	police_protests	rt_3	21.714182	15.40276	0.1586	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	police_protests	rt_4	1.853813	2.20167	0.3998	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	log_police_protests	rt_-4	-0.13368	0.107115	0.212	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	log_police_protests	rt_-3	-0.055783	0.095916	0.5608	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	log_police_protests	rt_-2	0.096174	0.077203	0.2129	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	log_police_protests	rt_0	0.016702	0.105646	0.8744	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	log_police_protests	rt_1	-0.159439	0.152923	0.2971	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	log_police_protests	rt_2	-0.10749	0.145531	0.4601	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	log_police_protests	rt_3	0.238826	0.120712	0.0479	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	log_police_protests	rt_4	8e-06	0.168376	1.0	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	msa_police_protests	rt_-4	-16.182638	24.391978	0.507	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	msa_police_protests	rt_-3	-6.108896	19.499891	0.7541	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	msa_police_protests	rt_-2	3.603376	18.971678	0.8494	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	msa_police_protests	rt_0	18.907884	24.435214	0.4391	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	msa_police_protests	rt_1	-56.099662	25.601823	0.0284	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	msa_police_protests	rt_2	-13.212801	36.378715	0.7165	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	msa_police_protests	rt_3	-4.79827	37.275511	0.8976	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	msa_police_protests	rt_4	107.089349	86.60923	0.2163	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	all_protests	rt_-4	-3.556768	4.684264	0.4477	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	all_protests	rt_-3	-1.718716	3.452525	0.6186	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	all_protests	rt_-2	4.004174	2.077299	0.0539	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	all_protests	rt_0	-11.657034	6.804364	0.0867	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	all_protests	rt_1	-6.354038	6.714649	0.344	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	all_protests	rt_2	-12.098377	7.805617	0.1212	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	all_protests	rt_3	22.793935	15.221771	0.1343	1690	city-demeaned, year FE, cluster city
+B_event_study	FE_regression	all_protests	rt_4	6.884693	8.643372	0.4257	1690	city-demeaned, year FE, cluster city
+B_did	FE_post_coa	police_protests	post_coa	1.306117	1.067135	0.221	1132	city FE + year FE + controls
+B_did	FE_post_coa	log_police_protests	post_coa	-0.000965	0.025992	0.9704	1132	city FE + year FE + controls
+B_did	FE_post_coa	msa_police_protests	post_coa	0.317013	2.715079	0.9071	1132	city FE + year FE + controls
+B_did	FE_post_coa	police_protests_pc	post_coa	0.968201	0.59692	0.1048	1132	city FE + year FE + controls
+C_trends_national	descriptive	gtrend_defund_the_police	mean	3.926627	6.621363	0.0	1690	national yearly average
+C_trends_national	descriptive	gtrend_police_accountability	mean	11.567653	6.831022	0.0	1690	national yearly average
+C_trends_national	descriptive	gtrend_police_brutality	mean	10.72998	5.408847	0.0	1690	national yearly average
+C_trends_national	descriptive	gtrend_police_killings	mean	6.697732	5.405458	0.0	1690	national yearly average
+C_trends_national	descriptive	gtrend_police_reform	mean	4.556509	5.700674	0.0	1690	national yearly average
+C_trends_dma	cross_section_LPM	ever_adopted	dma_defund_the_police	0.029716	0.008569	0.0005	70	DMA search interest -> COA adoption
+C_trends_dma	cross_section_LPM	ever_adopted	dma_police_accountability	0.010971	0.005066	0.0303	70	DMA search interest -> COA adoption
+C_trends_dma	cross_section_LPM	ever_adopted	dma_police_brutality	0.015455	0.005513	0.0051	70	DMA search interest -> COA adoption
+C_trends_dma	cross_section_LPM	ever_adopted	dma_police_killings	0.008849	0.002225	0.0001	70	DMA search interest -> COA adoption
+C_trends_dma	cross_section_LPM	ever_adopted	dma_police_reform	0.012715	0.003573	0.0004	70	DMA search interest -> COA adoption
+C_trends_hazard	hazard_trends	adopted_this_year	lag_gtrend_defund_the_police	0.0	0.0	0.0187	689	lagged national lag_gtrend_defund_the_police
+C_trends_hazard	hazard_trends	adopted_this_year	log_population	0.024958	0.010711	0.0198	689	lagged national lag_gtrend_defund_the_police
+C_trends_hazard	hazard_trends	adopted_this_year	pct_black	0.025291	0.028863	0.3809	689	lagged national lag_gtrend_defund_the_police
+C_trends_hazard	hazard_trends	adopted_this_year	pct_hispanic	-0.033517	0.016522	0.0425	689	lagged national lag_gtrend_defund_the_police
+C_trends_hazard	hazard_trends	adopted_this_year	lag_gtrend_police_accountability	-0.035302	0.015722	0.0247	689	lagged national lag_gtrend_police_accountability
+C_trends_hazard	hazard_trends	adopted_this_year	log_population	0.024958	0.010711	0.0198	689	lagged national lag_gtrend_police_accountability
+C_trends_hazard	hazard_trends	adopted_this_year	pct_black	0.025291	0.028863	0.3809	689	lagged national lag_gtrend_police_accountability
+C_trends_hazard	hazard_trends	adopted_this_year	pct_hispanic	-0.033517	0.016522	0.0425	689	lagged national lag_gtrend_police_accountability
+D_combined	full_LPM_adopted_post2019	adopted_post2019	log_police_protests_pre	-0.020028	0.028266	0.4786	220	full cross-section model
+D_combined	full_LPM_adopted_post2019	adopted_post2019	log_pop	0.047147	0.03544	0.1834	220	full cross-section model
+D_combined	full_LPM_adopted_post2019	adopted_post2019	pct_black	0.093968	0.151898	0.5362	220	full cross-section model
+D_combined	full_LPM_adopted_post2019	adopted_post2019	pct_hispanic	-0.203616	0.071184	0.0042	220	full cross-section model
+D_combined	full_LPM_adopted_post2019	adopted_post2019	violent_crime_pc	-2e-05	4.7e-05	0.6642	220	full cross-section model
+D_combined	full_LPM_adopted_post2019	adopted_post2019	drug_arrests_pc	4e-06	1e-05	0.6992	220	full cross-section model
+D_combined	full_LPM_ever_adopted	ever_adopted	log_police_protests_pre	0.126473	0.036548	0.0005	220	full cross-section model
+D_combined	full_LPM_ever_adopted	ever_adopted	log_pop	0.208528	0.047698	0.0	220	full cross-section model
+D_combined	full_LPM_ever_adopted	ever_adopted	pct_black	-0.133664	0.176537	0.449	220	full cross-section model
+D_combined	full_LPM_ever_adopted	ever_adopted	pct_hispanic	-0.464285	0.108991	0.0	220	full cross-section model
+D_combined	full_LPM_ever_adopted	ever_adopted	violent_crime_pc	0.000113	5.4e-05	0.0367	220	full cross-section model
+D_combined	full_LPM_ever_adopted	ever_adopted	drug_arrests_pc	-2.2e-05	1.1e-05	0.0425	220	full cross-section model
+D_combined	protest_2020_effect	adopted_post2019	log_police_protests_2020	0.004545	0.027812	0.8702	283	2020 protest spike + pre-period protests
+D_combined	protest_2020_effect	adopted_post2019	log_police_protests_pre	-0.010791	0.033347	0.7462	283	2020 protest spike + pre-period protests
+E_descriptives	mean_Treated	n_police_protests	mean	17.313646	78.962116	0.0	491	
+E_descriptives	mean_Treated	n_protests	mean	61.586558	158.893374	0.0	491	
+E_descriptives	mean_Treated	msa_n_police_protests	mean	55.378819	170.043665	0.0	491	
+E_descriptives	mean_Control	n_police_protests	mean	2.29608	6.738119	0.0	1199	
+E_descriptives	mean_Control	n_protests	mean	10.632193	20.612183	0.0	1199	
+E_descriptives	mean_Control	msa_n_police_protests	mean	47.398666	130.376434	0.0	1199	
+E_national_trends	yearly_counts	total_protests	2017	10850.0	0.0	0.0	10850	
+E_national_trends	yearly_counts	police_protests	2017	618.0	0.0	0.0	618	
+E_national_trends	yearly_counts	total_protests	2018	21514.0	0.0	0.0	21514	
+E_national_trends	yearly_counts	police_protests	2018	1604.0	0.0	0.0	1604	
+E_national_trends	yearly_counts	total_protests	2019	11413.0	0.0	0.0	11413	
+E_national_trends	yearly_counts	police_protests	2019	997.0	0.0	0.0	997	
+E_national_trends	yearly_counts	total_protests	2020	28292.0	0.0	0.0	28292	
+E_national_trends	yearly_counts	police_protests	2020	14633.0	0.0	0.0	14633	
+E_national_trends	yearly_counts	total_protests	2021	29379.0	0.0	0.0	29379	
+E_national_trends	yearly_counts	police_protests	2021	6298.0	0.0	0.0	6298	
+E_national_trends	yearly_counts	total_protests	2022	37645.0	0.0	0.0	37645	
+E_national_trends	yearly_counts	police_protests	2022	6340.0	0.0	0.0	6340	
+E_national_trends	yearly_counts	total_protests	2023	32327.0	0.0	0.0	32327	
+E_national_trends	yearly_counts	police_protests	2023	5599.0	0.0	0.0	5599	
+E_national_trends	yearly_counts	total_protests	2024	40340.0	0.0	0.0	40340	
+E_national_trends	yearly_counts	police_protests	2024	4859.0	0.0	0.0	4859	
