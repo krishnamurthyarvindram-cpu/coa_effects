@@ -1,0 +1,94 @@
+panel	model	model_type	variable	coef	se	p_value	significance	n_obs	n_adopt
+A. Cross-Section	Demographics Only	LOGIT	log_pop	1.338848	0.257587	0.0	***	258	53
+A. Cross-Section	Demographics Only	LOGIT	pct_black	1.530948	1.183951	0.196		258	53
+A. Cross-Section	Demographics Only	LOGIT	pct_hispanic	-2.912534	1.340931	0.0299	**	258	53
+A. Cross-Section	Demographics Only	LOGIT	south	-0.790645	0.405415	0.0512	*	258	53
+A. Cross-Section	Demographics + Crime	LOGIT	log_pop	1.739175	0.341147	0.0	***	205	42
+A. Cross-Section	Demographics + Crime	LOGIT	pct_black	0.31655	2.781546	0.9094		205	42
+A. Cross-Section	Demographics + Crime	LOGIT	pct_hispanic	-4.453325	1.907623	0.0196	**	205	42
+A. Cross-Section	Demographics + Crime	LOGIT	south	-0.831222	0.507357	0.1014		205	42
+A. Cross-Section	Demographics + Crime	LOGIT	violent_crime_pc	6.3e-05	3.8e-05	0.1008		205	42
+A. Cross-Section	Demographics + Crime	LOGIT	drug_arrests_pc	2e-06	4.1e-05	0.9562		205	42
+A. Cross-Section	Demographics + Crime	LOGIT	killings_pc	-0.005812	0.053971	0.9142		205	42
+A. Cross-Section	Demographics + Crime	LOGIT	black_arrest_disparity	0.58761	2.034233	0.7727		205	42
+A. Cross-Section	Demographics + Politics	LOGIT	log_pop	1.113019	0.27941	0.0001	***	193	47
+A. Cross-Section	Demographics + Politics	LOGIT	pct_black	0.657439	2.6156	0.8015		193	47
+A. Cross-Section	Demographics + Politics	LOGIT	pct_hispanic	-2.746715	1.427684	0.0544	*	193	47
+A. Cross-Section	Demographics + Politics	LOGIT	south	-0.640344	0.486834	0.1884		193	47
+A. Cross-Section	Demographics + Politics	LOGIT	dem_power	-1.335096	1.806439	0.4599		193	47
+A. Cross-Section	Demographics + Politics	LOGIT	council_pct_dem	0.124231	1.013167	0.9024		193	47
+A. Cross-Section	Demographics + Politics	LOGIT	council_pct_black	-0.567135	1.974085	0.7739		193	47
+A. Cross-Section	Demographics + Politics	LOGIT	mayor_dem	2.026855	1.976258	0.3051		193	47
+A. Cross-Section	Demographics + Politics	LOGIT	mayor_black	0.737589	0.941346	0.4333		193	47
+A. Cross-Section	Full Model	LOGIT	log_pop	1.47941	0.384137	0.0001	***	155	38
+A. Cross-Section	Full Model	LOGIT	pct_black	1.276169	3.882554	0.7424		155	38
+A. Cross-Section	Full Model	LOGIT	pct_hispanic	-4.186849	1.981632	0.0346	**	155	38
+A. Cross-Section	Full Model	LOGIT	south	-0.691848	0.600284	0.2491		155	38
+A. Cross-Section	Full Model	LOGIT	violent_crime_pc	4.8e-05	4.8e-05	0.3215		155	38
+A. Cross-Section	Full Model	LOGIT	drug_arrests_pc	1.7e-05	6.1e-05	0.7789		155	38
+A. Cross-Section	Full Model	LOGIT	killings_pc	-0.006639	0.054371	0.9028		155	38
+A. Cross-Section	Full Model	LOGIT	black_arrest_disparity	-1.085342	2.237793	0.6277		155	38
+A. Cross-Section	Full Model	LOGIT	dem_power	-0.052713	2.304307	0.9817		155	38
+A. Cross-Section	Full Model	LOGIT	council_pct_dem	-0.29054	1.144423	0.7996		155	38
+A. Cross-Section	Full Model	LOGIT	council_pct_black	-0.557942	2.537304	0.826		155	38
+A. Cross-Section	Full Model	LOGIT	mayor_dem	1.105337	2.442373	0.6509		155	38
+A. Cross-Section	Full Model	LOGIT	mayor_black	1.053915	1.125358	0.349		155	38
+A. Cross-Section	Full Model (LPM)	LPM	log_pop	0.16293	0.050713	0.0013	***	155	38
+A. Cross-Section	Full Model (LPM)	LPM	pct_black	0.228447	0.760563	0.7639		155	38
+A. Cross-Section	Full Model (LPM)	LPM	pct_hispanic	-0.359501	0.201695	0.0747	*	155	38
+A. Cross-Section	Full Model (LPM)	LPM	south	-0.072655	0.090073	0.4199		155	38
+A. Cross-Section	Full Model (LPM)	LPM	violent_crime_pc	4e-06	4e-06	0.3591		155	38
+A. Cross-Section	Full Model (LPM)	LPM	drug_arrests_pc	2e-06	6e-06	0.7113		155	38
+A. Cross-Section	Full Model (LPM)	LPM	killings_pc	0.002528	0.003908	0.5177		155	38
+A. Cross-Section	Full Model (LPM)	LPM	black_arrest_disparity	-0.069942	0.426556	0.8698		155	38
+A. Cross-Section	Full Model (LPM)	LPM	dem_power	0.026394	0.317588	0.9338		155	38
+A. Cross-Section	Full Model (LPM)	LPM	council_pct_dem	-0.017074	0.181284	0.925		155	38
+A. Cross-Section	Full Model (LPM)	LPM	council_pct_black	-0.261776	0.388705	0.5007		155	38
+A. Cross-Section	Full Model (LPM)	LPM	mayor_dem	0.123056	0.307002	0.6885		155	38
+A. Cross-Section	Full Model (LPM)	LPM	mayor_black	0.220837	0.194787	0.2569		155	38
+B. Panel Hazard	Demographics Only	LPM+YearFE	log_pop	0.003802	0.000787	0.0	***	5134	38
+B. Panel Hazard	Demographics Only	LPM+YearFE	pct_black	0.011404	0.008562	0.1829		5134	38
+B. Panel Hazard	Demographics Only	LPM+YearFE	pct_hispanic	-0.003833	0.004958	0.4395		5134	38
+B. Panel Hazard	Demographics Only	LPM+YearFE	south	-0.005533	0.002535	0.0291	**	5134	38
+B. Panel Hazard	Demographics + Crime	LPM+YearFE	log_pop	0.006097	0.001676	0.0003	***	3750	28
+B. Panel Hazard	Demographics + Crime	LPM+YearFE	pct_black	-0.015031	0.022972	0.5129		3750	28
+B. Panel Hazard	Demographics + Crime	LPM+YearFE	pct_hispanic	-0.001263	0.006733	0.8512		3750	28
+B. Panel Hazard	Demographics + Crime	LPM+YearFE	south	-0.006569	0.002898	0.0234	**	3750	28
+B. Panel Hazard	Demographics + Crime	LPM+YearFE	violent_crime_pc	0.0	0.0	0.0625	*	3750	28
+B. Panel Hazard	Demographics + Crime	LPM+YearFE	drug_arrests_pc	0.0	0.0	0.0823	*	3750	28
+B. Panel Hazard	Demographics + Crime	LPM+YearFE	killings_pc	2.5e-05	1.3e-05	0.0562	*	3750	28
+B. Panel Hazard	Demographics + Crime	LPM+YearFE	black_arrest_disparity	0.014656	0.016944	0.387		3750	28
+B. Panel Hazard	Demographics + Politics	LPM+YearFE	log_pop	0.012988	0.003327	0.0001	***	3126	34
+B. Panel Hazard	Demographics + Politics	LPM+YearFE	pct_black	-0.000725	0.016217	0.9644		3126	34
+B. Panel Hazard	Demographics + Politics	LPM+YearFE	pct_hispanic	-0.015222	0.008332	0.0677	*	3126	34
+B. Panel Hazard	Demographics + Politics	LPM+YearFE	south	-0.004861	0.00443	0.2725		3126	34
+B. Panel Hazard	Demographics + Politics	LPM+YearFE	dem_power	-0.001055	0.008872	0.9053		3126	34
+B. Panel Hazard	Demographics + Politics	LPM+YearFE	council_pct_dem	0.009076	0.006574	0.1674		3126	34
+B. Panel Hazard	Demographics + Politics	LPM+YearFE	council_pct_black	-0.003329	0.008529	0.6963		3126	34
+B. Panel Hazard	Demographics + Politics	LPM+YearFE	mayor_dem	-0.001353	0.009471	0.8864		3126	34
+B. Panel Hazard	Demographics + Politics	LPM+YearFE	mayor_black	0.002902	0.007292	0.6906		3126	34
+B. Panel Hazard	Full Model	LPM+YearFE	log_pop	0.023049	0.005778	0.0001	***	2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	pct_black	-0.001206	0.032018	0.9699		2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	pct_hispanic	-0.026468	0.013308	0.0467	**	2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	south	-0.008389	0.005865	0.1526		2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	violent_crime_pc	3e-06	2e-06	0.0663	*	2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	drug_arrests_pc	2e-06	1e-06	0.224		2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	killings_pc	-5.4e-05	8.1e-05	0.5048		2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	black_arrest_disparity	-0.003479	0.023171	0.8807		2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	dem_power	0.007026	0.008766	0.4228		2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	council_pct_dem	0.013033	0.008793	0.1383		2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	council_pct_black	-0.00785	0.009523	0.4098		2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	mayor_dem	-0.013487	0.010059	0.18		2272	26
+B. Panel Hazard	Full Model	LPM+YearFE	mayor_black	0.003249	0.008218	0.6926		2272	26
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	log_pop	0.02088	0.005425	0.0001	***	2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	pct_black	0.003928	0.033863	0.9076		2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	pct_hispanic	-0.026571	0.011223	0.0179	**	2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	south	-0.007271	0.005063	0.151		2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	L_violent_crime_pc	3e-06	2e-06	0.0294	**	2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	L_drug_arrests_pc	0.0	1e-06	0.9348		2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	L_killings_pc	4.9e-05	0.000149	0.7425		2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	L_black_arrest_disparity	-0.008135	0.022066	0.7124		2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	L_council_pct_dem	0.009693	0.008746	0.2678		2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	L_council_pct_black	-0.010676	0.015666	0.4956		2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	L_mayor_dem	-0.001456	0.006269	0.8164		2123	22
+B. Panel Hazard	Full Model (Lagged)	LPM+YearFE	L_mayor_black	-0.003026	0.007154	0.6723		2123	22

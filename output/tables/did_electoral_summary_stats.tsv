@@ -1,0 +1,19 @@
+sample	group	n_obs	n_candidates	n_cities	mean_vote_share	sd_vote_share	win_rate	mean_year
+All	Control	8326	3140	537	0.6302	0.2895	0.9102	2009.4
+All	Treated	324	324	64	0.7154	0.2449	0.9043	2008.7
+City Council	Control	6715	2635	403	0.6127	0.3036	0.915	2009.8
+City Council	Treated	286	286	48	0.7172	0.2518	0.9091	2008.7
+Mayor	Control	1611	690	412	0.7032	0.2063	0.8901	2007.8
+Mayor	Treated	38	38	36	0.7018	0.1877	0.8684	2008.7
+Race: Black	Control	1358	529	156	0.6734	0.2767	0.9094	2009.5
+Race: Black	Treated	92	92	27	0.7529	0.2192	0.9565	2009.1
+Race: Hispanic	Control	690	280	129	0.6165	0.2792	0.8971	2010.1
+Race: Hispanic	Treated	31	31	16	0.63	0.3011	0.9032	2009.1
+Race: White	Control	6115	2267	515	0.6235	0.2925	0.9117	2009.2
+Race: White	Treated	195	195	57	0.7165	0.2419	0.8821	2008.1
+Race: Non-White	Control	2209	872	249	0.6486	0.2803	0.9058	2009.8
+Race: Non-White	Treated	129	129	33	0.7138	0.2504	0.938	2009.5
+Party: Democrat	Control	5435	2031	407	0.6542	0.2871	0.9229	2009.6
+Party: Democrat	Treated	251	251	52	0.7298	0.241	0.9124	2008.7
+Party: Republican	Control	2446	953	360	0.5918	0.2857	0.8868	2009.1
+Party: Republican	Treated	66	66	34	0.6726	0.2499	0.9091	2008.4
