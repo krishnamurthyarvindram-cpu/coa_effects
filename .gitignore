@@ -12,5 +12,11 @@ raw_data/police-residency-replication/
 .DS_Store
 Thumbs.db
 
+# Downloaded protest/trends data (reproducible from Harvard Dataverse and APIs)
+raw_data/ccc_compiled_*.tsv
+raw_data/countlove_protests*.csv
+raw_data/cbsa_delineation_*.xls
+raw_data/ccc_monthly/
+
 # Claude internal
 .claude/
