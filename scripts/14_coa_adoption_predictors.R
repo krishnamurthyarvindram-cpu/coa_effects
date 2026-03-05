@@ -9,6 +9,8 @@
 #      composition by race and party)
 #   3. Crime statistics (violent crime rate, drug arrest rate, clearances)
 #   4. Police violence (police killings per capita, racial disparities)
+#   5. Protest activity (total protests, police/BLM protests — from CCC)
+#   6. Google Trends (search interest for police reform/oversight terms)
 #
 # Models:
 #   A. Cross-sectional logit/LPM: Ever-adopt COA by 2025 (city-level)
@@ -16,6 +18,7 @@
 #      conditional on not yet having adopted
 #   C. Summary statistics and balance tables by adoption status
 #
+# Prerequisites: Run 05a_source_protests.R and 05b_source_google_trends.R
 # Required packages: data.table, fixest, ggplot2, sandwich
 ##############################################################################
 
@@ -163,6 +166,87 @@ panel[, dem_power := as.numeric(dem_in_power)]
 south_states <- c("al", "ar", "fl", "ga", "ky", "la", "ms", "nc", "sc", "tn", "tx", "va", "wv")
 panel[, south := as.integer(st_clean %in% south_states)]
 
+# ── 4b. Merge Protest Data (from 05a_source_protests.R) ─────────────────────
+wlog("\n--- Merging Protest Data ---")
+
+protests_path <- file.path(base_dir, "merged_data/protests_city_year.rds")
+if (file.exists(protests_path)) {
+  protests <- as.data.table(readRDS(protests_path))
+  wlog("Protest data loaded: ", nrow(protests), " city-year obs")
+
+  if (nrow(protests) > 0 && "city_lower" %in% names(protests)) {
+    # Standardize merge keys
+    protests[, city_lower := tolower(trimws(city_lower))]
+    protests[, state_clean := tolower(trimws(state_clean))]
+
+    # Merge protests onto panel using city_lower (panel's geo_clean) + state
+    panel_pre_n <- nrow(panel)
+    panel <- merge(panel, protests,
+                   by.x = c("geo_clean", "st_clean", "year"),
+                   by.y = c("city_lower", "state_clean", "year"),
+                   all.x = TRUE)
+
+    # Fill missing protest years with 0 (no protests = 0 protests, not NA)
+    protest_vars <- c("n_protests_total", "n_protests_police",
+                      "protest_participants_total", "protest_participants_police",
+                      "log_protests_total", "log_protests_police")
+    for (pv in intersect(protest_vars, names(panel))) {
+      panel[is.na(get(pv)) & year >= 2017, (pv) := 0]
+    }
+
+    n_matched <- sum(!is.na(panel$n_protests_total) & panel$n_protests_total > 0)
+    wlog("  Protest data matched: ", format(n_matched, big.mark = ","),
+         " city-years with > 0 protests")
+    wlog("  Coverage: years ", min(protests$year, na.rm = TRUE), "-",
+         max(protests$year, na.rm = TRUE))
+  } else {
+    wlog("  Protest data is empty. Protest variables will be NA.")
+  }
+} else {
+  wlog("  Protest data not found. Run 05a_source_protests.R first.")
+  wlog("  Protest variables will be NA.")
+}
+
+# Ensure protest vars exist (as NA if not merged)
+for (pv in c("n_protests_total", "n_protests_police", "log_protests_total",
+             "log_protests_police")) {
+  if (!pv %in% names(panel)) panel[, (pv) := NA_real_]
+}
+
+# ── 4c. Merge Google Trends Data (from 05b_source_google_trends.R) ───────────
+wlog("\n--- Merging Google Trends Data ---")
+
+gt_path <- file.path(base_dir, "merged_data/google_trends_city_year.rds")
+if (file.exists(gt_path)) {
+  gt_data <- as.data.table(readRDS(gt_path))
+  wlog("Google Trends data loaded: ", nrow(gt_data), " city-year obs")
+
+  if (nrow(gt_data) > 0 && "city_lower" %in% names(gt_data)) {
+    # Identify GT columns to merge (exclude merge keys)
+    gt_merge_cols <- grep("^gt_", names(gt_data), value = TRUE)
+    gt_merge_dt <- unique(gt_data[, c("city_lower", "year", gt_merge_cols), with = FALSE])
+
+    panel <- merge(panel, gt_merge_dt,
+                   by.x = c("geo_clean", "year"),
+                   by.y = c("city_lower", "year"),
+                   all.x = TRUE)
+
+    n_gt <- sum(!is.na(panel[[gt_merge_cols[1]]]))
+    wlog("  Google Trends matched: ", format(n_gt, big.mark = ","), " city-years")
+    wlog("  GT columns added: ", paste(gt_merge_cols, collapse = ", "))
+  } else {
+    wlog("  Google Trends data is empty.")
+  }
+} else {
+  wlog("  Google Trends data not found. Run 05b_source_google_trends.R first.")
+  wlog("  GT variables will be NA.")
+}
+
+# Ensure key GT vars exist
+for (gv in c("gt_national_index", "gt_local_index", "gt_interaction")) {
+  if (!gv %in% names(panel)) panel[, (gv) := NA_real_]
+}
+
 # ══════════════════════════════════════════════════════════════════════════════
 # PART A: Cross-Sectional Analysis — What predicts ever adopting a COA?
 # ══════════════════════════════════════════════════════════════════════════════
@@ -189,7 +273,9 @@ predictor_vars <- c("log_pop", "pct_black", "pct_hispanic", "south",
                      "killings_pc", "black_arrest_disparity",
                      "dem_power",
                      "council_pct_black", "council_pct_dem", "council_pct_female",
-                     "mayor_black", "mayor_dem", "mayor_female")
+                     "mayor_black", "mayor_dem", "mayor_female",
+                     "log_protests_total", "log_protests_police",
+                     "gt_national_index", "gt_local_index")
 
 # Only keep vars that exist
 predictor_vars <- predictor_vars[predictor_vars %in% names(pre_data)]
@@ -312,18 +398,33 @@ pol_vars <- c(demo_vars, intersect(c("dem_power", "council_pct_dem", "council_pc
                                     names(city_cross)))
 run_cross_model(city_cross, pol_vars, "Demographics + Politics")
 
-# Model A4: Kitchen Sink
-wlog("\n── A4: Full Model ──")
+# Model A4: Protest Activity
+wlog("\n── A4: Demographics + Protest Activity ──")
+protest_vars <- c(demo_vars, intersect(c("log_protests_total", "log_protests_police",
+                                          "killings_pc"),
+                                        names(city_cross)))
+run_cross_model(city_cross, protest_vars, "Demographics + Protests")
+
+# Model A5: Google Trends
+wlog("\n── A5: Demographics + Google Trends ──")
+gt_vars <- c(demo_vars, intersect(c("gt_national_index", "gt_local_index",
+                                      "killings_pc"),
+                                    names(city_cross)))
+run_cross_model(city_cross, gt_vars, "Demographics + Google Trends")
+
+# Model A6: Kitchen Sink (all predictors)
+wlog("\n── A6: Full Model ──")
 full_vars <- c("log_pop", "pct_black", "pct_hispanic", "south",
                "violent_crime_pc", "drug_arrests_pc",
                "killings_pc", "black_arrest_disparity",
                "dem_power", "council_pct_dem", "council_pct_black",
-               "mayor_dem", "mayor_black")
+               "mayor_dem", "mayor_black",
+               "log_protests_police", "gt_local_index")
 full_vars <- full_vars[full_vars %in% names(city_cross)]
 run_cross_model(city_cross, full_vars, "Full Model")
 
-# Model A5: LPM for robustness
-wlog("\n── A5: LPM — Full Model ──")
+# Model A7: LPM for robustness
+wlog("\n── A7: LPM — Full Model ──")
 run_cross_model(city_cross, full_vars, "Full Model (LPM)", model_type = "lpm")
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -429,21 +530,33 @@ hazard_pol_vars <- c(demo_vars, "dem_power", "council_pct_dem",
                      "council_pct_black", "mayor_dem", "mayor_black")
 run_hazard_model(hazard_panel, hazard_pol_vars, "Demographics + Politics")
 
-# Model B4: Full Model
-wlog("\n── B4: Full Model ──")
+# Model B4: Protest Activity
+wlog("\n── B4: Demographics + Protest Activity ──")
+hazard_protest_vars <- c(demo_vars, "log_protests_total", "log_protests_police", "killings_pc")
+run_hazard_model(hazard_panel, hazard_protest_vars, "Demographics + Protests")
+
+# Model B5: Google Trends
+wlog("\n── B5: Demographics + Google Trends ──")
+hazard_gt_vars <- c(demo_vars, "gt_national_index", "gt_local_index", "killings_pc")
+run_hazard_model(hazard_panel, hazard_gt_vars, "Demographics + Google Trends")
+
+# Model B6: Full Model (all predictors)
+wlog("\n── B6: Full Model ──")
 hazard_full_vars <- c("log_pop", "pct_black", "pct_hispanic", "south",
                       "violent_crime_pc", "drug_arrests_pc",
                       "killings_pc", "black_arrest_disparity",
                       "dem_power", "council_pct_dem", "council_pct_black",
-                      "mayor_dem", "mayor_black")
+                      "mayor_dem", "mayor_black",
+                      "log_protests_police", "gt_local_index")
 run_hazard_model(hazard_panel, hazard_full_vars, "Full Model")
 
-# Model B5: Full Model with Lagged Predictors (t-1) to avoid simultaneity
-wlog("\n── B5: Full Model with Lagged Predictors ──")
+# Model B7: Full Model with Lagged Predictors (t-1) to avoid simultaneity
+wlog("\n── B7: Full Model with Lagged Predictors ──")
 
 lag_vars <- c("violent_crime_pc", "drug_arrests_pc", "killings_pc",
               "black_arrest_disparity", "council_pct_dem", "council_pct_black",
-              "mayor_dem", "mayor_black")
+              "mayor_dem", "mayor_black",
+              "log_protests_police", "gt_local_index")
 lag_vars <- lag_vars[lag_vars %in% names(hazard_panel)]
 
 setorder(hazard_panel, agency_id, year)
@@ -467,7 +580,9 @@ summary_vars <- c("log_pop", "pct_black", "pct_hispanic", "south",
                   "violent_crime_pc", "drug_arrests_pc",
                   "killings_pc", "black_arrest_disparity",
                   "dem_power", "council_pct_dem", "council_pct_black",
-                  "mayor_dem", "mayor_black")
+                  "mayor_dem", "mayor_black",
+                  "log_protests_total", "log_protests_police",
+                  "gt_national_index", "gt_local_index")
 summary_vars <- summary_vars[summary_vars %in% names(city_cross)]
 
 summary_rows <- list()
@@ -606,6 +721,7 @@ wlog("  - output/figures/coa_adoption_coefplot_cross_section.png")
 wlog("  - output/figures/coa_adoption_coefplot_hazard.png")
 wlog("  - output/coa_adoption_predictors_log.txt")
 
-wlog("\nNote: Protest activity and Google Trends data are not currently")
-wlog("available in this dataset. To add them, source external data and")
-wlog("merge by city-year before running this script.")
+wlog("\nNote: Protest data requires CCC download (see 05a_source_protests.R).")
+wlog("Google Trends data requires gtrendsR + API access (see 05b_source_google_trends.R).")
+wlog("If these data files are missing, protest/GT variables will be NA and")
+wlog("models using them will run on reduced samples or be skipped.")
