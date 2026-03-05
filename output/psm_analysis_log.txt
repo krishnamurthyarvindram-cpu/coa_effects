@@ -1,0 +1,9 @@
+======================================================================
+STEP 16: Propensity Score Matching + DiD Analysis
+======================================================================
+
+Loading panel from /home/user/coa_effects/merged_data/analysis_panel.rds
+ERROR loading RDS: The file contains an unrecognized object
+Trying CSV fallback...
+FATAL: No data file available. Ensure analysis_panel.rds is not a git-lfs pointer.
+Run this script on a machine with the actual data files.
