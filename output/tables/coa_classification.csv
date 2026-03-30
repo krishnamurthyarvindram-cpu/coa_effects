@@ -1,0 +1,124 @@
+city,state,year_created,member_selection,independent_investigation,subpoena_power,independent_discipline,recommend_discipline,funding_structure,public_meetings
+Akron city,OH,2023,"Appointed (Mayor, confirmed by Council)",Y,Y,N,Y,City-funded,Y (implied)
+Albuquerque city,NM,2014,Appointed (Mayor & Council),Y,Y,N,Y,Dedicated budget,Y
+Alexandria city,VA,2021,Appointed (Council),Y,N,N,Y,Dedicated budget,Y
+Anaheim city,CA,2018,Not specified,N,N,N,Y,City-funded,Y
+Ann Arbor city,MI,2018,Appointed,N,Y,N,Y,Not specified,Y
+Arlington,VA,2021,Appointed,N,N,N,Y,Not specified,Not specified
+Athens-Clarke County unified government (balance),GA,2021,Appointed (Mayor),N,N,N,Y,City-funded,Y (implied)
+Atlanta city,GA,2007,Elected,Y,Y,N,Y,Not specified,Y
+Aurora city,CO,2015,Appointed,N,N,N,Y,Volunteer/Unfunded,Y (implied)
+Aurora city,IL,2020,"Appointed (Mayor, confirmed by Council)",N,Y,N,Y,City-funded,Y
+Austin city,TX,2002,Appointed (Council),Y,N,N,Y,City-funded,Not specified
+Baltimore city,MD,1999,Appointed,Y,Y,N,Y,Not specified,Y
+Berkeley city,CA,2020,Appointed (Mayor & Council),Y,Y,N,Y,City-funded,Y
+Billings city,MT,2021,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Volunteer/Unfunded,Y (implied)
+Birmingham city,AL,2021,Not specified,Y,Y,N,Y,Volunteer/Unfunded,Y
+Boisecity,ID,2021,Not specified,N,N,N,Y,City-funded,Not specified
+Boston city,MA,2007,Appointed,N,N,N,Y,Not specified,Not specified
+Boulder city,CO,2023,Appointed,N,N,N,Y,Volunteer/Unfunded,Y (implied)
+Burbank city,CA,2007,Appointed (Council),Y,N,N,Y,City-funded,Y (implied)
+Cambridge city,MA,1984,Appointed (Mayor & Council),N,Y,N,Y,City-funded,Y (implied)
+Carlsbad city,CA,2022,Appointed,N,N,N,Not specified,Not specified,Not specified
+Cedar Rapids city,IA,2021,Appointed (Mayor),N,N,N,Y,Not specified,Y (implied)
+Chandler city,AZ,2000,Elected,N,N,N,Y,City-funded,Y (implied)
+Charlotte city,NC,1997,"Appointed (Mayor, confirmed by Council)",N,N,N,Y (advisory capacity),Volunteer/Unfunded,Y (implied)
+Chattanooga city,TN,2020,Appointed (Council),N,Y,N,Y,Volunteer/Unfunded,Y (implied)
+Chesapeake city,VA,2010,Not specified,N,N,N,Not specified,Not specified,Y (implied)
+Chicago city,IL,2017,Elected,Y,N,Y,Y,Not specified,Y
+Cleveland city,OH,1984,Elected,Y,Y,N,Y,Not specified,Y
+Colorado Springs city,CO,2020,Elected,N,N,N,Y,City-funded,Y (implied)
+Columbia,MD,2022,Appointed,N,Y,Y,Y,City-funded,Y (implied)
+Columbia city,MO,2009,Appointed,N,N,N,Not specified,Not specified,Not specified
+Dallas city,TX,1987,"Appointed (Mayor, confirmed by Council)",Y,Y,N,Y,City-funded,Y (implied)
+Denver city,CO,2004,Elected,N,N,N,Y,City-funded,Y
+Detroit city,MI,1974,Elected,Y,Y,Y,Not specified,Volunteer/Unfunded,Y
+Durham city,NC,2003,Appointed,N,N,N,Not specified,City-funded,Y (implied)
+Elgin city,IL,2024,Appointed (Council),N,N,N,Y,City-funded,Y
+Eugene city,OR,2006,Appointed (Council),Y,Y,Y,Y,Volunteer/Unfunded,Y
+Fayetteville city,NC,2021,Appointed (Council),N,N,N,Y,Volunteer/Unfunded,Y
+Fort Collins city,CO,1998,Appointed,N,N,N,Y,Not specified,Not specified
+Fort Lauderdale city,FL,1994,Appointed,N,N,N,Not specified,Volunteer/Unfunded,Not specified
+Fremont city,CA,1994,Appointed,N,N,N,Y (advisory capacity),Not specified,Not specified
+Fresno city,CA,2017,Not specified,N,N,N,Y,Not specified,Not specified
+Gainesville city,FL,2010,Appointed (Council),N,N,N,Y,City-funded,Y (implied)
+Grand Rapids city,MI,2019,Not specified,Y,N,N,Not specified,Not specified,Not specified
+Green Bay city,WI,1895,Appointed (Mayor),N,N,Y,Not specified,Not specified,Not specified
+Hartford city,CT,2020,Appointed (Mayor & Council),Y,Y,Y,Y,Not specified,Y
+Houston city,TX,2011,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,City-funded,Not specified
+Huntsville city,AL,2010,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Not specified,Y
+Jackson city,MS,2021,Appointed,N,N,N,Y,City-funded,Not specified
+Jerseycity,NJ,2021,Not specified,Y,N,N,Y,City-funded,Y (implied)
+Kansascity,KS,2006,Appointed (Mayor),N,N,N,Y (advisory capacity),Not specified,Not specified
+Kansascity,MO,1939,Elected,Y,N,N,Not specified,Volunteer/Unfunded,Not specified
+Knoxville city,TN,1998,Not specified,N,N,N,Y,Volunteer/Unfunded,Y
+Lakeland city,FL,2020,Appointed,N,Y,N,Y (advisory capacity),Not specified,Not specified
+Lakewood city,CO,2025,Appointed,N,Y,N,Not specified,Not specified,Y (implied)
+Las Vegas city,NV,1999,Not specified,Y,N,N,Not specified,City-funded,Not specified
+Lexington-Fayette urban county,KY,2021,Appointed,Not specified,N,N,Y,Not specified,Not specified
+Lincoln city,NB,1975,Appointed (Mayor),Y,N,N,Y,Not specified,Y (implied)
+Little Rock city,AR,2019,Elected,N,N,N,Y,Not specified,Y (implied)
+Long Beach city,CA,1990,"Appointed (Mayor, confirmed by Council)",Y,Y,N,Y,City-funded,Y (implied)
+Los Angeles city,CA,1995,Appointed,Y,N,N,Y,City-funded,Y
+Louisville/Jefferson County metro government (balance),KY,2003,Not specified,N,N,N,Y,Dedicated budget,Not specified
+Madison city,WI,2020,Not specified,Limited (review/audit),N,N,Y,Not specified,Y (implied)
+Memphis city,TN,1994,Not specified,Y,Y,N,Y,City-funded,Y
+Mesa city,AZ,2020,Appointed (Council),Y,Y,N,Y,City-funded,Y (implied)
+Milwaukee city,WI,1911,"Appointed (Mayor, confirmed by Council)",N,N,Y,Y,City-funded,Y
+Mobile city,AL,2015,Appointed (Mayor),N,N,N,Y (advisory capacity),Not specified,Y (implied)
+Modesto city,CA,2021,Not specified,N,N,N,Y,Not specified,Y (implied)
+Nashville-Davidson metropolitan government (balance),TN,2019,Elected,Y,N,N,Y,Not specified,Y (implied)
+New Haven city,CT,2021,Appointed (Mayor),N,N,N,Y,City-funded,Y (implied)
+New York city,NY,1993,"Appointed (Mayor, confirmed by Council)",Y,Y,Y,Y,City-funded,Y
+Newark city,NJ,2016,Appointed,Y,N,N,Y,City-funded,Y
+Oklahomacity,OK,1992,Elected,N,N,N,Y,City-funded,Y
+Olathe city,KS,1995,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Not specified,Not specified
+Omaha city,NB,2014,Appointed (Mayor),N,N,Y,Y,Not specified,Y
+Orlando city,FL,1992,Appointed,N,N,N,Y,Not specified,Not specified
+Overland Park city,KS,2017(?),Not specified,N,N,N,Y (advisory capacity),Not specified,Y
+Oxnard city,CA,2010,Elected,N,N,N,Y,Not specified,Y (implied)
+Pasadena city,CA,2020,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,City-funded,Y (implied)
+Philadelphia city,PA,1993,Appointed,Y,Y,N,Y,City-funded,Y
+Pittsburgh city,PA,1996,Elected,Y,Y,N,Y,Not specified,Y
+Pomona city,CA,2023,Appointed (Council),Y,N,N,Y,Not specified,Y (implied)
+Portland city,OR,2010,Not specified,N,N,N,Y,Not specified,Y
+Providence city,RI,2002,"Appointed (Mayor, confirmed by Council)",Y,Y,Y,Y,City-funded,Y (implied)
+Provo city,UT,2015,Appointed,N,Y,N,Y (advisory capacity),City-funded,Y (implied)
+Raleigh city,NC,2020,Not specified,Not specified,N,N,Y (advisory capacity),Not specified,Y
+Richmond city,CA,1984,Appointed,Y,N,N,Y,City-funded,Not specified
+Richmond city,VA,2022,Not specified,N,N,N,Y,Not specified,Not specified
+Riverside city,CA,2018,Not specified,Y,Y,N,Y,Not specified,Not specified
+Rochester city,MN,2024,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Not specified,Y
+Rochester city,NY,2019,Elected,Y,N,Y,Y,City-funded,Y (implied)
+Rockford city,IL,2022,Appointed,N,N,N,Not specified,City-funded,Y
+Sacramento city,CA,2021,Not specified,Limited (review/audit),Y,N,Y,City-funded,Y (implied)
+Salem city,OR,2002,Appointed (Council),N,N,N,Y,Not specified,Y (implied)
+Salt Lakecity,UT,2003,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,City-funded,Not specified
+San Diego city,CA,1991,Appointed,Y,N,N,Y,City-funded,Y (implied)
+San Francisco city,CA,1982,Appointed (Mayor),Y,N,N,Y (advisory capacity),Volunteer/Unfunded,Y
+San Jose city,CA,1993,Appointed (Council),N,N,N,Y,Not specified,Not specified
+Santa Ana city,CA,2022,Elected,Y,Y,N,Y,City-funded,Y (implied)
+Seattle city,WA,2017,Appointed (Mayor & Council),Y,N,N,Y,Dedicated budget,Y
+South Bend city,IN,2020,Appointed (Council),N,Y,N,Y,City-funded,Y
+South Fulton city,GA,2025,Appointed (Mayor & Council),N,N,N,Not specified,Not specified,Not specified
+Spokane Valley city,WA,2013,Appointed (Mayor & Council),Y,N,N,Y,Not specified,Not specified
+Spokane city,WA,2008,Elected,Y,N,N,Y,City-funded,Y (implied)
+Springfield city,IL,2005,Appointed,N,N,N,Y,Not specified,Not specified
+Springfield city,MO,1999,Appointed (Council),N,N,N,Y,City-funded,Y (implied)
+Springfield city,MS,2022,Appointed (Mayor & Council),Y,N,Y,Y,City-funded,Y
+St. Louis city,MO,2015,Not specified,Y,N,N,Y,Not specified,Not specified
+St. Petersburg city,FL,1991,Appointed (Mayor),N,N,N,Y,City-funded,Y (implied)
+Stamford city,CT,1969,Appointed (Mayor),Y,N,Y,Y,Not specified,Y (implied)
+Syracuse city,NY,1993,Appointed (Mayor),Y,Y,N,Y,Not specified,Y (implied)
+Tacoma city,WA,2013,Appointed,N,N,N,Y,City-funded,Y
+Tallahassee city,FL,2020,Appointed,N,N,N,Y,Not specified,Y (implied)
+Tempe city,AZ,1999,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Not specified,Not specified
+Toledo city,OH,1991,Appointed,N,N,N,Y (advisory capacity),Volunteer/Unfunded,Y
+Urban Honolulu,HI,2018,Elected,Y,N,Y,Y (advisory capacity),City-funded,Y (implied)
+Vallejo city,CA,2024,Appointed,Y,N,N,Y,Not specified,Y (implied)
+Virginia Beach city,VA,2022,Appointed (Council),N,Y,N,Y,Volunteer/Unfunded,Y (implied)
+Washington city,DC,1999,Not specified,N,N,N,Y,City-funded,Y (implied)
+Waterbury city,CT,2004,"Appointed (Mayor, confirmed by Council)",N,N,Y,Y,City-funded,Y (implied)
+West Valleycity,UT,2013,Appointed (Council),N,N,N,Y,City-funded,Y
+Wichita city,KS,,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Not specified,Y (implied)
+Winston-Salem city,NC,1993,Elected,N,N,N,Y,City-funded,Y
