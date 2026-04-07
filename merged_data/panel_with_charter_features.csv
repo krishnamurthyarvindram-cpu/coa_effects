@@ -1,0 +1,124 @@
+city,state,year_created,member_selection,independent_investigation,subpoena_power,independent_discipline,recommend_discipline,funding_structure,public_meetings,city_std,state_clean,has_sunset,voluntary_cooperation,mandatory_cooperation,has_budget_language,has_union_exclusion,text_length,filename,authority_level,board_weakness_index,board_weakness_index_broad,authority_score,year_num,decade
+Akron city,OH,2023,"Appointed (Mayor, confirmed by Council)",Y,Y,N,Y,City-funded,Y (implied),akron,OH,False,True,True,True,True,3853.0,Akron_city_OH.pdf,investigative,2,0,1,2023.0,2020
+Albuquerque city,NM,2014,Appointed (Mayor & Council),Y,Y,N,Y,Dedicated budget,Y,albuquerque,NM,False,False,True,True,True,39972.0,Albuquerque_city_NM.pdf,investigative,1,-1,1,2014.0,2010
+Alexandria city,VA,2021,Appointed (Council),Y,N,N,Y,Dedicated budget,Y,alexandria,VA,False,False,True,True,True,27268.0,Alexandria_city_VA.pdf,investigative,1,-1,1,2021.0,2020
+Anaheim city,CA,2018,Not specified,N,N,N,Y,City-funded,Y,anaheim,CA,False,False,False,True,False,4011.0,Anaheim_city_CA.pdf,review_only,0,-1,0,2018.0,2010
+Ann Arbor city,MI,2018,Appointed,N,Y,N,Y,Not specified,Y,ann arbor,MI,False,False,True,False,False,3566.0,Ann_Arbor_city_MI.pdf,review_only,0,-2,0,2018.0,2010
+Arlington,VA,2021,Appointed,N,N,N,Y,Not specified,Not specified,arlington,VA,False,False,False,False,False,943.0,Arlington_VA.pdf,review_only,0,-1,0,2021.0,2020
+Athens-Clarke County unified government (balance),GA,2021,Appointed (Mayor),N,N,N,Y,City-funded,Y (implied),athens-clarke county,GA,,,,,,,,review_only,0,-1,0,2021.0,2020
+Atlanta city,GA,2007,Elected,Y,Y,N,Y,Not specified,Y,atlanta,GA,False,False,False,False,False,1129.0,Atlanta_city_GA.pdf,investigative,0,-1,1,2007.0,2000
+Aurora city,CO,2015,Appointed,N,N,N,Y,Volunteer/Unfunded,Y (implied),aurora,CO,False,False,False,False,False,45834.0,Aurora_city_CO.pdf,review_only,0,-1,0,2015.0,2010
+Aurora city,IL,2020,"Appointed (Mayor, confirmed by Council)",N,Y,N,Y,City-funded,Y,aurora,IL,False,False,True,False,True,3694.0,Aurora_city_IL.pdf,review_only,1,-1,0,2020.0,2020
+Austin city,TX,2002,Appointed (Council),Y,N,N,Y,City-funded,Not specified,austin,TX,False,False,False,False,False,1540.0,Austin_city_TX.pdf,investigative,0,-1,1,2002.0,2000
+Baltimore city,MD,1999,Appointed,Y,Y,N,Y,Not specified,Y,baltimore,MD,False,False,False,False,False,2438.0,Baltimore_city_MD.pdf,investigative,0,-1,1,1999.0,1990
+Berkeley city,CA,2020,Appointed (Mayor & Council),Y,Y,N,Y,City-funded,Y,berkeley,CA,True,True,True,True,True,44510.0,Berkeley_city_CA.pdf,investigative,3,1,1,2020.0,2020
+Billings city,MT,2021,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Volunteer/Unfunded,Y (implied),billings,MT,False,False,False,False,False,5041.0,Billings_city_MT.pdf,review_only,0,-1,0,2021.0,2020
+Birmingham city,AL,2021,Not specified,Y,Y,N,Y,Volunteer/Unfunded,Y,birmingham,AL,False,True,False,False,False,4223.0,Birmingham_city_AL.pdf,investigative,1,0,1,2021.0,2020
+Boisecity,ID,2021,Not specified,N,N,N,Y,City-funded,Not specified,boise,ID,False,False,False,False,False,2252.0,Boisecity_ID.pdf,review_only,0,-1,0,2021.0,2020
+Boston city,MA,2007,Appointed,N,N,N,Y,Not specified,Not specified,boston,MA,False,False,False,False,False,5346.0,Boston_city_MA.pdf,review_only,0,-1,0,2007.0,2000
+Boulder city,CO,2023,Appointed,N,N,N,Y,Volunteer/Unfunded,Y (implied),boulder,CO,False,False,False,False,False,5869.0,Boulder_city_CO.pdf,review_only,0,-1,0,2023.0,2020
+Burbank city,CA,2007,Appointed (Council),Y,N,N,Y,City-funded,Y (implied),burbank,CA,False,False,False,False,False,4859.0,Burbank_city_CA.pdf,investigative,0,-1,1,2007.0,2000
+Cambridge city,MA,1984,Appointed (Mayor & Council),N,Y,N,Y,City-funded,Y (implied),cambridge,MA,False,False,False,False,False,3626.0,Cambridge_city_MA.pdf,review_only,0,-1,0,1984.0,1980
+Carlsbad city,CA,2022,Appointed,N,N,N,Not specified,Not specified,Not specified,carlsbad,CA,False,False,False,False,False,131.0,Carlsbad_city_CA.pdf,review_only,0,-1,0,2022.0,2020
+Cedar Rapids city,IA,2021,Appointed (Mayor),N,N,N,Y,Not specified,Y (implied),cedar rapids,IA,False,False,False,False,False,4611.0,Cedar_Rapids_city_IA.pdf,review_only,0,-1,0,2021.0,2020
+Chandler city,AZ,2000,Elected,N,N,N,Y,City-funded,Y (implied),chandler,AZ,False,False,False,True,False,12578.0,Chandler_city_AZ.pdf,review_only,0,-1,0,2000.0,2000
+Charlotte city,NC,1997,"Appointed (Mayor, confirmed by Council)",N,N,N,Y (advisory capacity),Volunteer/Unfunded,Y (implied),charlotte,NC,False,False,False,False,False,1044.0,Charlotte_city_NC.pdf,review_only,0,-1,0,1997.0,1990
+Chattanooga city,TN,2020,Appointed (Council),N,Y,N,Y,Volunteer/Unfunded,Y (implied),chattanooga,TN,False,False,True,False,False,3415.0,Chattanooga_city_TN.pdf,review_only,0,-2,0,2020.0,2020
+Chesapeake city,VA,2010,Not specified,N,N,N,Not specified,Not specified,Y (implied),chesapeake,VA,False,False,False,False,False,3707.0,Chesapeake_city_VA.pdf,review_only,0,-1,0,2010.0,2010
+Chicago city,IL,2017,Elected,Y,N,Y,Y,Not specified,Y,chicago,IL,False,False,False,False,False,581.0,Chicago_city_IL.pdf,disciplinary,0,-1,2,2017.0,2010
+Cleveland city,OH,1984,Elected,Y,Y,N,Y,Not specified,Y,cleveland,OH,False,False,False,False,False,5717.0,Cleveland_city_OH.pdf,investigative,0,-1,1,1984.0,1980
+Colorado Springs city,CO,2020,Elected,N,N,N,Y,City-funded,Y (implied),colorado springs,CO,False,False,False,True,False,19393.0,Colorado_Springs_city_CO.pdf,review_only,0,-1,0,2020.0,2020
+Columbia,MD,2022,Appointed,N,Y,Y,Y,City-funded,Y (implied),columbia,MD,True,False,True,True,True,32466.0,Columbia_MD.pdf,disciplinary,2,0,2,2022.0,2020
+Columbia city,MO,2009,Appointed,N,N,N,Not specified,Not specified,Not specified,columbia,MO,False,False,False,False,False,21.0,Columbia_city_MO.pdf,review_only,0,-1,0,2009.0,2000
+Dallas city,TX,1987,"Appointed (Mayor, confirmed by Council)",Y,Y,N,Y,City-funded,Y (implied),dallas,TX,False,True,True,True,False,37817.0,Dallas_city_TX.pdf,investigative,1,-1,1,1987.0,1980
+Denver city,CO,2004,Elected,N,N,N,Y,City-funded,Y,denver,CO,False,True,False,True,False,35055.0,Denver_city_CO.pdf,review_only,1,0,0,2004.0,2000
+Detroit city,MI,1974,Elected,Y,Y,Y,Not specified,Volunteer/Unfunded,Y,detroit,MI,False,False,False,False,False,11087.0,Detroit_city_MI.pdf,disciplinary,0,-1,2,1974.0,1970
+Durham city,NC,2003,Appointed,N,N,N,Not specified,City-funded,Y (implied),durham,NC,False,False,False,False,False,4302.0,Durham_city_NC.pdf,review_only,0,-1,0,2003.0,2000
+Elgin city,IL,2024,Appointed (Council),N,N,N,Y,City-funded,Y,elgin,IL,True,False,True,False,False,17352.0,Elgin_city_IL.pdf,review_only,1,-1,0,2024.0,2020
+Eugene city,OR,2006,Appointed (Council),Y,Y,Y,Y,Volunteer/Unfunded,Y,eugene,OR,True,True,True,True,False,62246.0,Eugene_city_OR.pdf,disciplinary,2,0,2,2006.0,2000
+Fayetteville city,NC,2021,Appointed (Council),N,N,N,Y,Volunteer/Unfunded,Y,fayetteville,NC,False,False,False,False,False,8492.0,Fayetteville_city_NC.pdf,review_only,0,-1,0,2021.0,2020
+Fort Collins city,CO,1998,Appointed,N,N,N,Y,Not specified,Not specified,fort collins,CO,False,False,False,False,False,131.0,Fort_Collins_city_CO.pdf,review_only,0,-1,0,1998.0,1990
+Fort Lauderdale city,FL,1994,Appointed,N,N,N,Not specified,Volunteer/Unfunded,Not specified,fort lauderdale,FL,False,False,False,False,False,247.0,Fort_Lauderdale_city_FL.pdf,review_only,0,-1,0,1994.0,1990
+Fremont city,CA,1994,Appointed,N,N,N,Y (advisory capacity),Not specified,Not specified,fremont,CA,False,False,False,False,False,797.0,Fremont_city_CA.pdf,review_only,0,-1,0,1994.0,1990
+Fresno city,CA,2017,Not specified,N,N,N,Y,Not specified,Not specified,fresno,CA,False,False,False,False,False,2786.0,Fresno_city_CA.pdf,review_only,0,-1,0,2017.0,2010
+Gainesville city,FL,2010,Appointed (Council),N,N,N,Y,City-funded,Y (implied),gainesville,FL,False,False,False,False,False,3680.0,Gainesville_city_FL.pdf,review_only,0,-1,0,2010.0,2010
+Grand Rapids city,MI,2019,Not specified,Y,N,N,Not specified,Not specified,Not specified,grand rapids,MI,False,False,False,False,False,1359.0,Grand_Rapids_city_MI.pdf,investigative,0,-1,1,2019.0,2010
+Green Bay city,WI,1895,Appointed (Mayor),N,N,Y,Not specified,Not specified,Not specified,green bay,WI,False,False,False,False,False,4579.0,Green_Bay_city_WI.pdf,disciplinary,0,-1,2,1895.0,1890
+Hartford city,CT,2020,Appointed (Mayor & Council),Y,Y,Y,Y,Not specified,Y,hartford,CT,False,False,True,False,True,3981.0,Hartford_city_CT.pdf,disciplinary,1,-1,2,2020.0,2020
+Houston city,TX,2011,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,City-funded,Not specified,houston,TX,False,False,False,False,False,8295.0,Houston_city_TX.pdf,review_only,0,-1,0,2011.0,2010
+Huntsville city,AL,2010,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Not specified,Y,huntsville,AL,False,False,False,False,False,4948.0,Huntsville_city_AL.pdf,review_only,0,-1,0,2010.0,2010
+Jackson city,MS,2021,Appointed,N,N,N,Y,City-funded,Not specified,jackson,MS,False,False,False,False,False,4357.0,Jackson_city_MS.pdf,review_only,0,-1,0,2021.0,2020
+Jerseycity,NJ,2021,Not specified,Y,N,N,Y,City-funded,Y (implied),jersey,NJ,False,False,True,True,False,5413.0,Jerseycity_NJ.pdf,investigative,0,-2,1,2021.0,2020
+Kansascity,KS,2006,Appointed (Mayor),N,N,N,Y (advisory capacity),Not specified,Not specified,kansas,KS,False,False,False,False,False,3461.0,Kansascity_KS.pdf,review_only,0,-1,0,2006.0,2000
+Kansascity,MO,1939,Elected,Y,N,N,Not specified,Volunteer/Unfunded,Not specified,kansas,MO,False,False,False,False,False,5906.0,Kansascity_MO.pdf,investigative,0,-1,1,1939.0,1930
+Knoxville city,TN,1998,Not specified,N,N,N,Y,Volunteer/Unfunded,Y,knoxville,TN,False,False,False,False,False,21205.0,Knoxville_city_TN.pdf,review_only,0,-1,0,1998.0,1990
+Lakeland city,FL,2020,Appointed,N,Y,N,Y (advisory capacity),Not specified,Not specified,lakeland,FL,False,False,True,False,False,2872.0,Lakeland_city_FL.pdf,review_only,0,-2,0,2020.0,2020
+Lakewood city,CO,2025,Appointed,N,Y,N,Not specified,Not specified,Y (implied),lakewood,CO,False,False,True,False,False,2873.0,Lakewood_city_CO.pdf,review_only,0,-2,0,2025.0,2020
+Las Vegas city,NV,1999,Not specified,Y,N,N,Not specified,City-funded,Not specified,las vegas,NV,False,False,False,False,False,14444.0,Las_Vegas_city_NV.pdf,investigative,0,-1,1,1999.0,1990
+Lexington-Fayette urban county,KY,2021,Appointed,Not specified,N,N,Y,Not specified,Not specified,lexington-fayette urban county,KY,,,,,,,,review_only,0,-1,0,2021.0,2020
+Lincoln city,NB,1975,Appointed (Mayor),Y,N,N,Y,Not specified,Y (implied),lincoln,NB,False,False,False,False,False,3995.0,Lincoln_city_NB.pdf,investigative,0,-1,1,1975.0,1970
+Little Rock city,AR,2019,Elected,N,N,N,Y,Not specified,Y (implied),little rock,AR,False,False,False,False,False,1258.0,Little_Rock_city_AR.pdf,review_only,0,-1,0,2019.0,2010
+Long Beach city,CA,1990,"Appointed (Mayor, confirmed by Council)",Y,Y,N,Y,City-funded,Y (implied),long beach,CA,False,True,True,False,False,5991.0,Long_Beach_city_CA.pdf,investigative,1,-1,1,1990.0,1990
+Los Angeles city,CA,1995,Appointed,Y,N,N,Y,City-funded,Y,los angeles,CA,False,False,False,False,False,4776.0,Los_Angeles_city_CA.pdf,investigative,0,-1,1,1995.0,1990
+Louisville/Jefferson County metro government (balance),KY,2003,Not specified,N,N,N,Y,Dedicated budget,Not specified,louisville/jefferson county,KY,,,,,,,,review_only,0,-1,0,2003.0,2000
+Madison city,WI,2020,Not specified,Limited (review/audit),N,N,Y,Not specified,Y (implied),madison,WI,False,False,False,False,False,3114.0,Madison_city_WI.pdf,review_only,0,-1,0,2020.0,2020
+Memphis city,TN,1994,Not specified,Y,Y,N,Y,City-funded,Y,memphis,TN,True,False,True,True,False,49392.0,Memphis_city_TN.pdf,investigative,1,-1,1,1994.0,1990
+Mesa city,AZ,2020,Appointed (Council),Y,Y,N,Y,City-funded,Y (implied),mesa,AZ,False,True,True,False,False,11974.0,Mesa_city_AZ.pdf,investigative,1,-1,1,2020.0,2020
+Milwaukee city,WI,1911,"Appointed (Mayor, confirmed by Council)",N,N,Y,Y,City-funded,Y,milwaukee,WI,True,True,True,True,True,1531005.0,Milwaukee_city_WI.pdf,disciplinary,3,1,2,1911.0,1910
+Mobile city,AL,2015,Appointed (Mayor),N,N,N,Y (advisory capacity),Not specified,Y (implied),mobile,AL,False,False,False,False,False,3140.0,Mobile_city_AL.pdf,review_only,0,-1,0,2015.0,2010
+Modesto city,CA,2021,Not specified,N,N,N,Y,Not specified,Y (implied),modesto,CA,True,False,False,False,False,3618.0,Modesto_city_CA.pdf,review_only,1,0,0,2021.0,2020
+Nashville-Davidson metropolitan government (balance),TN,2019,Elected,Y,N,N,Y,Not specified,Y (implied),nashville-davidson,TN,,,,,,,,investigative,0,-1,1,2019.0,2010
+New Haven city,CT,2021,Appointed (Mayor),N,N,N,Y,City-funded,Y (implied),new haven,CT,False,False,False,False,False,0.0,New_Haven_city_CT.pdf,review_only,0,-1,0,2021.0,2020
+New York city,NY,1993,"Appointed (Mayor, confirmed by Council)",Y,Y,Y,Y,City-funded,Y,new york,NY,False,False,True,True,False,5765.0,New_York_city_NY.pdf,disciplinary,0,-2,2,1993.0,1990
+Newark city,NJ,2016,Appointed,Y,N,N,Y,City-funded,Y,newark,NJ,False,False,True,False,False,1219.0,Newark_city_NJ.pdf,investigative,0,-2,1,2016.0,2010
+Oklahomacity,OK,1992,Elected,N,N,N,Y,City-funded,Y,oklahoma,OK,True,True,False,False,False,9098.0,Oklahomacity_OK.pdf,review_only,2,1,0,1992.0,1990
+Olathe city,KS,1995,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Not specified,Not specified,olathe,KS,False,False,False,False,False,2310.0,Olathe_city_KS.pdf,review_only,0,-1,0,1995.0,1990
+Omaha city,NB,2014,Appointed (Mayor),N,N,Y,Y,Not specified,Y,omaha,NB,False,False,True,False,True,5435.0,Omaha_city_NB.pdf,disciplinary,1,-1,2,2014.0,2010
+Orlando city,FL,1992,Appointed,N,N,N,Y,Not specified,Not specified,orlando,FL,False,False,True,False,False,4324.0,Orlando_city_FL.pdf,review_only,0,-2,0,1992.0,1990
+Overland Park city,KS,2017(?),Not specified,N,N,N,Y (advisory capacity),Not specified,Y,overland park,KS,False,False,False,False,False,2776.0,Overland_Park_city_KS.pdf,review_only,0,-1,0,2017.0,2010
+Oxnard city,CA,2010,Elected,N,N,N,Y,Not specified,Y (implied),oxnard,CA,False,False,False,False,False,1158.0,Oxnard_city_CA.pdf,review_only,0,-1,0,2010.0,2010
+Pasadena city,CA,2020,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,City-funded,Y (implied),pasadena,CA,False,False,False,False,False,3092.0,Pasadena_city_CA.pdf,review_only,0,-1,0,2020.0,2020
+Philadelphia city,PA,1993,Appointed,Y,Y,N,Y,City-funded,Y,philadelphia,PA,False,False,False,False,False,3152.0,Philadelphia_city_PA.pdf,investigative,0,-1,1,1993.0,1990
+Pittsburgh city,PA,1996,Elected,Y,Y,N,Y,Not specified,Y,pittsburgh,PA,False,False,False,False,False,1665.0,Pittsburgh_city_PA.pdf,investigative,0,-1,1,1996.0,1990
+Pomona city,CA,2023,Appointed (Council),Y,N,N,Y,Not specified,Y (implied),pomona,CA,False,False,False,False,False,2127.0,Pomona_city_CA.pdf,investigative,0,-1,1,2023.0,2020
+Portland city,OR,2010,Not specified,N,N,N,Y,Not specified,Y,portland,OR,False,False,False,False,True,20488.0,Portland_city_OR_2.pdf,review_only,1,0,0,2010.0,2010
+Providence city,RI,2002,"Appointed (Mayor, confirmed by Council)",Y,Y,Y,Y,City-funded,Y (implied),providence,RI,False,False,False,False,False,3130.0,Providence_city_RI.pdf,disciplinary,0,-1,2,2002.0,2000
+Provo city,UT,2015,Appointed,N,Y,N,Y (advisory capacity),City-funded,Y (implied),provo,UT,True,True,True,True,False,164929.0,Provo_city_UT.pdf,review_only,2,0,0,2015.0,2010
+Raleigh city,NC,2020,Not specified,Not specified,N,N,Y (advisory capacity),Not specified,Y,raleigh,NC,False,False,False,True,False,24750.0,Raleigh_city_NC.pdf,review_only,0,-1,0,2020.0,2020
+Richmond city,CA,1984,Appointed,Y,N,N,Y,City-funded,Not specified,richmond,CA,False,False,False,False,False,0.0,Richmond_city_CA.pdf,investigative,0,-1,1,1984.0,1980
+Richmond city,VA,2022,Not specified,N,N,N,Y,Not specified,Not specified,richmond,VA,False,False,False,False,False,909.0,Richmond_city_VA.pdf,review_only,0,-1,0,2022.0,2020
+Riverside city,CA,2018,Not specified,Y,Y,N,Y,Not specified,Not specified,riverside,CA,False,False,False,False,False,0.0,Riverside_city_CA_2.pdf,investigative,0,-1,1,2018.0,2010
+Rochester city,MN,2024,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Not specified,Y,rochester,MN,False,False,False,False,False,2832.0,Rochester_city_MN.pdf,review_only,0,-1,0,2024.0,2020
+Rochester city,NY,2019,Elected,Y,N,Y,Y,City-funded,Y (implied),rochester,NY,False,False,False,True,True,6842.0,Rochester_city_NY.pdf,disciplinary,1,0,2,2019.0,2010
+Rockford city,IL,2022,Appointed,N,N,N,Not specified,City-funded,Y,rockford,IL,False,False,False,False,False,0.0,Rockford_city_IL.pdf,review_only,0,-1,0,2022.0,2020
+Sacramento city,CA,2021,Not specified,Limited (review/audit),Y,N,Y,City-funded,Y (implied),sacramento,CA,False,False,False,True,False,4785.0,Sacramento_city_CA.pdf,review_only,0,-1,0,2021.0,2020
+Salem city,OR,2002,Appointed (Council),N,N,N,Y,Not specified,Y (implied),salem,OR,False,False,False,False,False,2171.0,Salem_city_OR.pdf,review_only,0,-1,0,2002.0,2000
+Salt Lakecity,UT,2003,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,City-funded,Not specified,salt lake,UT,False,False,False,True,False,4102.0,Salt_Lakecity_UT.pdf,review_only,0,-1,0,2003.0,2000
+San Diego city,CA,1991,Appointed,Y,N,N,Y,City-funded,Y (implied),san diego,CA,False,False,False,True,False,6262.0,San_Diego_city_CA.pdf,investigative,0,-1,1,1991.0,1990
+San Francisco city,CA,1982,Appointed (Mayor),Y,N,N,Y (advisory capacity),Volunteer/Unfunded,Y,san francisco,CA,False,False,False,False,False,7611.0,San_Francisco_city_CA.pdf,investigative,0,-1,1,1982.0,1980
+San Jose city,CA,1993,Appointed (Council),N,N,N,Y,Not specified,Not specified,san jose,CA,False,True,False,False,False,1684.0,San_Jose_city_CA.pdf,review_only,1,0,0,1993.0,1990
+Santa Ana city,CA,2022,Elected,Y,Y,N,Y,City-funded,Y (implied),santa ana,CA,False,False,True,True,False,10470.0,Santa_Ana_city_CA.pdf,investigative,0,-2,1,2022.0,2020
+Seattle city,WA,2017,Appointed (Mayor & Council),Y,N,N,Y,Dedicated budget,Y,seattle,WA,True,True,True,True,True,137059.0,Seattle_city_WA.pdf,investigative,3,1,1,2017.0,2010
+South Bend city,IN,2020,Appointed (Council),N,Y,N,Y,City-funded,Y,south bend,IN,True,False,True,True,False,11141.0,South_Bend_city_IN.pdf,review_only,1,-1,0,2020.0,2020
+South Fulton city,GA,2025,Appointed (Mayor & Council),N,N,N,Not specified,Not specified,Not specified,south fulton,GA,False,False,False,False,False,3163.0,South_Fulton_city_GA.pdf,review_only,0,-1,0,2025.0,2020
+Spokane Valley city,WA,2013,Appointed (Mayor & Council),Y,N,N,Y,Not specified,Not specified,spokane valley,WA,True,False,False,True,False,45706.0,Spokane_Valley_city_WA.pdf,investigative,1,0,1,2013.0,2010
+Spokane city,WA,2008,Elected,Y,N,N,Y,City-funded,Y (implied),spokane,WA,False,False,False,True,False,6544.0,Spokane_city_WA.pdf,investigative,0,-1,1,2008.0,2000
+Springfield city,IL,2005,Appointed,N,N,N,Y,Not specified,Not specified,springfield,IL,False,False,False,False,False,3077.0,Springfield_city_IL.pdf,review_only,0,-1,0,2005.0,2000
+Springfield city,MO,1999,Appointed (Council),N,N,N,Y,City-funded,Y (implied),springfield,MO,True,False,False,False,False,10297.0,Springfield_city_MO.pdf,review_only,1,0,0,1999.0,1990
+Springfield city,MS,2022,Appointed (Mayor & Council),Y,N,Y,Y,City-funded,Y,springfield,MS,True,False,True,True,True,66966.0,Springfield_city_MS_2.pdf,disciplinary,2,0,2,2022.0,2020
+St. Louis city,MO,2015,Not specified,Y,N,N,Y,Not specified,Not specified,st louis,MO,False,False,False,False,False,778.0,St__Louis_city_MO.pdf,investigative,0,-1,1,2015.0,2010
+St. Petersburg city,FL,1991,Appointed (Mayor),N,N,N,Y,City-funded,Y (implied),st petersburg,FL,False,False,False,False,False,5333.0,St__Petersburg_city_FL.pdf,review_only,0,-1,0,1991.0,1990
+Stamford city,CT,1969,Appointed (Mayor),Y,N,Y,Y,Not specified,Y (implied),stamford,CT,False,False,False,False,False,2347.0,Stamford_city_CT.pdf,disciplinary,0,-1,2,1969.0,1960
+Syracuse city,NY,1993,Appointed (Mayor),Y,Y,N,Y,Not specified,Y (implied),syracuse,NY,False,False,True,False,False,3079.0,Syracuse_city_NY.pdf,investigative,0,-2,1,1993.0,1990
+Tacoma city,WA,2013,Appointed,N,N,N,Y,City-funded,Y,tacoma,WA,False,False,False,True,False,9780.0,Tacoma_city_WA.pdf,review_only,0,-1,0,2013.0,2010
+Tallahassee city,FL,2020,Appointed,N,N,N,Y,Not specified,Y (implied),tallahassee,FL,False,False,False,False,False,3161.0,Tallahassee_city_FL.pdf,review_only,0,-1,0,2020.0,2020
+Tempe city,AZ,1999,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Not specified,Not specified,tempe,AZ,False,False,False,False,False,3880.0,Tempe_city_AZ.pdf,review_only,0,-1,0,1999.0,1990
+Toledo city,OH,1991,Appointed,N,N,N,Y (advisory capacity),Volunteer/Unfunded,Y,toledo,OH,False,False,False,False,False,1504.0,Toledo_city_OH.pdf,review_only,0,-1,0,1991.0,1990
+Urban Honolulu,HI,2018,Elected,Y,N,Y,Y (advisory capacity),City-funded,Y (implied),urban honolulu,HI,True,True,True,True,True,457019.0,Urban_Honolulu_HI.pdf,disciplinary,3,1,2,2018.0,2010
+Vallejo city,CA,2024,Appointed,Y,N,N,Y,Not specified,Y (implied),vallejo,CA,False,False,False,False,False,557.0,Vallejo_city_CA.pdf,investigative,0,-1,1,2024.0,2020
+Virginia Beach city,VA,2022,Appointed (Council),N,Y,N,Y,Volunteer/Unfunded,Y (implied),virginia beach,VA,False,False,True,False,False,5801.0,Virginia_Beach_city_VA.pdf,review_only,0,-2,0,2022.0,2020
+Washington city,DC,1999,Not specified,N,N,N,Y,City-funded,Y (implied),washington,DC,False,False,False,False,False,1018.0,Washington_city_DC.pdf,review_only,0,-1,0,1999.0,1990
+Waterbury city,CT,2004,"Appointed (Mayor, confirmed by Council)",N,N,Y,Y,City-funded,Y (implied),waterbury,CT,True,True,True,True,True,570813.0,Waterbury_city_CT.pdf,disciplinary,3,1,2,2004.0,2000
+West Valleycity,UT,2013,Appointed (Council),N,N,N,Y,City-funded,Y,west valley,UT,False,False,True,False,False,12755.0,West_Valleycity_UT.pdf,review_only,0,-2,0,2013.0,2010
+Wichita city,KS,,"Appointed (Mayor, confirmed by Council)",N,N,N,Y,Not specified,Y (implied),wichita,KS,False,False,False,False,False,4868.0,Wichita_city_KS_2.pdf,review_only,0,-1,0,,
+Winston-Salem city,NC,1993,Elected,N,N,N,Y,City-funded,Y,winston-salem,NC,,,,,,,,review_only,0,-1,0,1993.0,1990
