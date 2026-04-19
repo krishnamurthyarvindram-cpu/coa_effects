@@ -1,0 +1,66 @@
+## Deeper inspection: ranges, key cols, missingness
+suppressPackageStartupMessages({ library(data.table); library(haven); library(readxl); library(dplyr) })
+raw <- "C:/Users/arvind/Desktop/coa_effects/raw_data"
+sink("C:/Users/arvind/Desktop/coa_effects/dev/01_inspect2.txt", split = TRUE)
+
+panel <- readRDS(file.path(raw, "data_panel_post1990.rds"))
+panel <- as.data.table(panel)
+cat("panel year range:", range(panel$year, na.rm=TRUE), "\n")
+cat("unique place_fips:", uniqueN(panel$place_fips), "\n")
+cat("unique cities (city,abb):", uniqueN(paste(panel$city, panel$abb)), "\n")
+cat("place_fips sample:\n"); print(head(unique(panel$place_fips)))
+cat("number_of_months_reported summary:\n"); print(summary(panel$number_of_months_reported))
+cat("expenditure cols:\n"); print(grep("expend|police|polic|spend", names(panel), ignore.case=TRUE, value=TRUE))
+cat("officer/lemas cols:\n"); print(grep("lemas|FTE|officer", names(panel), value=TRUE))
+cat("ori cols:\n"); print(grep("ori|ORI", names(panel), value=TRUE))
+cat("city/fips/state cols:\n"); print(grep("city|fips|state|abb|place|GEOID", names(panel), value=TRUE)[1:30])
+
+cat("\n--- Austerity ranges ---\n")
+aust <- read_dta(file.path(raw, "Austerity.dta")) |> as.data.table()
+cat("year range:", range(aust$year, na.rm=TRUE), "\n")
+cat("unique fips:", uniqueN(aust$fips), "\n")
+cat("unique cities:", uniqueN(paste(aust$name, aust$state)), "\n")
+
+cat("\n--- vote share more detail ---\n")
+vs <- fread(file.path(raw, "demVoteShareAllYearsFIPS.csv"))
+cat("offices:\n"); print(table(vs$office))
+cat("year range:", range(vs$year, na.rm=TRUE), "\n")
+cat("unique counties:", uniqueN(vs$county_fips), "\n")
+
+cat("\n--- county councils more detail ---\n")
+cc <- readRDS(file.path(raw, "countycouncils_comp.rds")) |> as.data.table()
+cat("year range:", range(cc$year, na.rm=TRUE), "\n")
+cat("offices:\n"); print(table(cc$office_consolidated))
+cat("unique fips:", uniqueN(cc$fips), "\n")
+cat("sample fips:\n"); print(head(unique(cc$fips)))
+
+cat("\n--- demographics ranges ---\n")
+dem <- readRDS(file.path(raw, "cities_historical_demographics.rds")) |> as.data.table()
+cat("year range:", range(dem$year, na.rm=TRUE), "\n")
+cat("unique place_fips:", uniqueN(dem$place_fips), "\n")
+cat("sample:\n"); print(head(dem))
+
+cat("\n--- police killings xlsx detail ---\n")
+pk <- read_excel(file.path(raw, "police_killings.xlsx")) |> as.data.table()
+cat("year range:", range(format(pk[[grep("Date of injury", names(pk), value=TRUE)[1]]], "%Y") |> as.integer(), na.rm=TRUE), "\n")
+cat("colnames:\n"); print(names(pk))
+
+cat("\n--- city_data.tab (LEAR_ID -> place fips) ---\n")
+cd <- fread(file.path(raw, "city_data.tab"), quote="")
+cat("rows:", nrow(cd), "cols:", ncol(cd), "\n")
+cat("colnames:\n"); print(names(cd))
+cat("sample of GEOID/FIPS/ORI:\n"); print(head(cd[, .(NAME, STATE, GEOID, FIPS, ORI9, ORI7, LEAR_ID)]))
+
+cat("\n--- arrests yearly file structure (sample 2000) ---\n")
+a2000 <- fread(file.path(raw, "arrests_csv_1974_2024_year/arrests_yearly_2000.csv"))
+cat("rows:", nrow(a2000), " cols:", ncol(a2000), "\n")
+cat("colnames (first 60):\n"); print(head(names(a2000), 60))
+cat("ORI/state/place cols:\n"); print(grep("ori|state|fips|place|city", names(a2000), ignore.case=TRUE, value=TRUE)[1:20])
+cat("race/sex breakdown cols:\n"); print(grep("white|black|hispanic|asian|race", names(a2000), ignore.case=TRUE, value=TRUE)[1:30])
+
+cat("\n--- already cleaned coa_treatment.rds ---\n")
+coa_clean <- readRDS("C:/Users/arvind/Desktop/coa_effects/cleaned_data/coa_treatment.rds") |> as.data.table()
+cat("rows:", nrow(coa_clean), " cols:", ncol(coa_clean), "\n")
+print(coa_clean)
+
+sink()

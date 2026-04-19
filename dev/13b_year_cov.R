@@ -1,0 +1,6 @@
+library(data.table)
+m <- readRDS("C:/Users/arvind/Desktop/coa_effects/merged_data/coa_master_panel.rds") |> as.data.table()
+cat("Cities w/ arrests by year (post-backfill):\n")
+print(m[, .(N = sum(!is.na(total_tot_arrests))), by = year][order(year)], nrows=40)
+cat("\nDetroit (already in panel) sample, post-backfill:\n")
+print(m[coa_id == "detroit_mi", .(year, total_tot_arrests, vio_tot_arrests, drug_tot_arrests, ucr_reporting_months)] |> head(8))

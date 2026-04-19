@@ -1,0 +1,15 @@
+===== BUILD MASTER =====
+COA cities: 336 
+Base panel rows: 11760   cities: 336 
+After UCR panel merge: rows= 11760  any panel hit:  6957 
+After Austerity merge: any aust hit:  8062 
+After demographics merge: any dem hit:  9548 
+After LEOKA employee merge: any hit:  3307 
+After police-killings merge: cities with any killings:  328 
+After vote-share merge: any hit:  6574 
+After council merge: any hit:  2434 
+
+=== FINAL master rows: 11760   cols: 139  ===
+Wrote: C:/Users/arvind/Desktop/coa_effects/merged_data/coa_master_panel.csv 
+Elapsed: 2.9 s
+

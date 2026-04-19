@@ -1,0 +1,130 @@
+# COA cities missing UCR arrests in master panel: 56 
+
+=== Classification breakdown ===
+                            
+                             by_name_state by_name_state_largepop by_ori9
+  MERGE_GAP_in_UCR_with_data            12                      1      27
+  NOT_IN_UCR                             0                      0       0
+                            
+                             by_place_fips NONE
+  MERGE_GAP_in_UCR_with_data             1    0
+  NOT_IN_UCR                             0   15
+
+=== MERGE GAP cities (in UCR with arrests data, missed by panel) ===
+                        coa_id                         agency_found agency_pop
+                        <char>                               <char>      <int>
+ 1:               arlington_va      arlington | arlington county pd     243149
+ 2:    athens clarke county_ga         athens | athens-clark county     129765
+ 3:            broken arrow_ok                         broken arrow     108088
+ 4:                 burbank_ca                              burbank     105865
+ 5:               charlotte_nc charlotte | charlotte-mecklenburg pd    1003130
+ 6:                 concord_ca                              concord     130855
+ 7:                honolulu_hi                             honolulu     999307
+ 8:            indianapolis_in                         indianapolis     895826
+ 9:              sugar land_tx                           sugar land     119944
+10:             west covina_ca                          west covina     109500
+11:           wichita falls_tx                        wichita falls     108834
+12:                  clovis_ca                               clovis     127560
+13:                  corona_ca                               corona     171848
+14:                    daly_ca                            daly city     107928
+15:                  downey_ca                               downey     114754
+16:               fullerton_ca                            fullerton     141968
+17:                glendale_ca                             glendale     204724
+18:        huntington beach_ca                     huntington beach     204071
+19:                 norwalk_ca                              norwalk     108391
+20:               roseville_ca                            roseville     162841
+21:        san buenaventura_ca                              ventura     111596
+22:               san mateo_ca                            san mateo     106020
+23:              santa rosa_ca                           santa rosa     177884
+24:                savannah_ga    savannah | savannah-chatham metro     242941
+25:           thousand oaks_ca                        thousand oaks     129976
+26:             victorville_ca                          victorville     138534
+27:                 visalia_ca                              visalia     146090
+28:                   chico_ca                                chico     105355
+29:           santa clarita_ca                        santa clarita     221932
+30: augusta richmond county_ga          richmond | augusta-richmond     204564
+31:                murrieta_ca                             murrieta     117835
+32:                temecula_ca                             temecula     116630
+33:                   macon_ga                                macon     116521
+34:              centennial_co                           centennial     112129
+35:          spokane valley_wa                       spokane valley     109852
+36:                  lowell_ma                               lowell     116062
+37:               cambridge_ma                            cambridge     121699
+38:           sandy springs_ga                        sandy springs     111533
+39:                 menifee_ca                              menifee      96837
+40:           jurupa valley_ca                        jurupa valley     111198
+41:           miami gardens_fl                        miami gardens     110649
+                        coa_id                         agency_found agency_pop
+                        <char>                               <char>      <int>
+    n_yrs_w_arrests_1990_2021           match_method
+                        <int>                 <char>
+ 1:                        32          by_name_state
+ 2:                        32                by_ori9
+ 3:                        32                by_ori9
+ 4:                        32                by_ori9
+ 5:                        32 by_name_state_largepop
+ 6:                        32                by_ori9
+ 7:                        32                by_ori9
+ 8:                        32                by_ori9
+ 9:                        32                by_ori9
+10:                        32                by_ori9
+11:                        32                by_ori9
+12:                        31                by_ori9
+13:                        31                by_ori9
+14:                        31                by_ori9
+15:                        31                by_ori9
+16:                        31                by_ori9
+17:                        31                by_ori9
+18:                        31                by_ori9
+19:                        31          by_name_state
+20:                        31                by_ori9
+21:                        31          by_name_state
+22:                        31                by_ori9
+23:                        31                by_ori9
+24:                        31                by_ori9
+25:                        31          by_name_state
+26:                        31          by_name_state
+27:                        31                by_ori9
+28:                        30                by_ori9
+29:                        30          by_name_state
+30:                        29          by_place_fips
+31:                        29                by_ori9
+32:                        29          by_name_state
+33:                        24          by_name_state
+34:                        20          by_name_state
+35:                        19          by_name_state
+36:                        18                by_ori9
+37:                        15                by_ori9
+38:                        15                by_ori9
+39:                        12          by_name_state
+40:                        10          by_name_state
+41:                         1                by_ori9
+    n_yrs_w_arrests_1990_2021           match_method
+                        <int>                 <char>
+
+=== REPORTS_BUT_ZERO_ARRESTS ===
+Empty data.table (0 rows and 4 cols): coa_id,agency_found,agency_pop,n_yrs_w_months_1990_2021
+
+=== GENUINE NON-REPORTERS ===
+Empty data.table (0 rows and 3 cols): coa_id,agency_found,agency_pop
+
+=== NOT IN UCR ===
+                 coa_id ori9_input place_fips_input
+                 <char>     <char>           <char>
+ 1:          brandon_fl       <NA>             <NA>
+ 2:         columbia_md       <NA>             <NA>
+ 3: east los angeles_ca       <NA>             <NA>
+ 4:       enterprise_nv       <NA>             <NA>
+ 5:  highlands ranch_co       <NA>             <NA>
+ 6:     lehigh acres_fl       <NA>             <NA>
+ 7:         metairie_la       <NA>             <NA>
+ 8:         paradise_nv       <NA>             <NA>
+ 9:        riverview_fl       <NA>             <NA>
+10:   san tan valley_az       <NA>             <NA>
+11:     south fulton_ga       <NA>             <NA>
+12:      spring hill_fl       <NA>             <NA>
+13:    spring valley_nv       <NA>             <NA>
+14:    sunrise manor_nv       <NA>             <NA>
+15:    the woodlands_tx       <NA>             <NA>
+
+Wrote dev/ucr_missing_classification.csv

@@ -1,0 +1,131 @@
+Merge-gap cities w/ resolved ORI: 41 
+                        coa_id ori9_matched
+                        <char>       <char>
+ 1:               arlington_va    VA0070100
+ 2:    athens clarke county_ga    GA0290100
+ 3: augusta richmond county_ga    GA1210000
+ 4:            broken arrow_ok    OK0720100
+ 5:                 burbank_ca    CA0191200
+ 6:               cambridge_ma    MA0091100
+ 7:              centennial_co    CO0031100
+ 8:               charlotte_nc    NC0600100
+ 9:                   chico_ca    CA0040200
+10:                  clovis_ca    CA0100100
+11:                 concord_ca    CA0070400
+12:                  corona_ca    CA0331500
+13:                    daly_ca    CA0410600
+14:                  downey_ca    CA0192000
+15:               fullerton_ca    CA0300800
+16:                glendale_ca    CA0192500
+17:                honolulu_hi    HI0020000
+18:        huntington beach_ca    CA0301000
+19:            indianapolis_in    IN0494900
+20:           jurupa valley_ca    CA033A000
+21:                  lowell_ma    MA0092600
+22:                   macon_ga    GA0110100
+23:                 menifee_ca    CA0337800
+24:           miami gardens_fl    FL0139700
+25:                murrieta_ca    CA0334200
+26:                 norwalk_ca    CA0194900
+27:               roseville_ca    CA0310500
+28:        san buenaventura_ca    CA0560800
+29:               san mateo_ca    CA0411600
+30:           sandy springs_ga    GA0605600
+31:           santa clarita_ca    CA0191R00
+32:              santa rosa_ca    CA0490500
+33:                savannah_ga    GA0250300
+34:          spokane valley_wa    WA0321500
+35:              sugar land_tx    TX0790500
+36:                temecula_ca    CA0333800
+37:           thousand oaks_ca    CA0560700
+38:             victorville_ca    CA0361200
+39:                 visalia_ca    CA0540700
+40:             west covina_ca    CA0197500
+41:           wichita falls_tx    TX2430500
+                        coa_id ori9_matched
+                        <char>       <char>
+                            agency_found
+                                  <char>
+ 1:      arlington | arlington county pd
+ 2:         athens | athens-clark county
+ 3:          richmond | augusta-richmond
+ 4:                         broken arrow
+ 5:                              burbank
+ 6:                            cambridge
+ 7:                           centennial
+ 8: charlotte | charlotte-mecklenburg pd
+ 9:                                chico
+10:                               clovis
+11:                              concord
+12:                               corona
+13:                            daly city
+14:                               downey
+15:                            fullerton
+16:                             glendale
+17:                             honolulu
+18:                     huntington beach
+19:                         indianapolis
+20:                        jurupa valley
+21:                               lowell
+22:                                macon
+23:                              menifee
+24:                        miami gardens
+25:                             murrieta
+26:                              norwalk
+27:                            roseville
+28:                              ventura
+29:                            san mateo
+30:                        sandy springs
+31:                        santa clarita
+32:                           santa rosa
+33:    savannah | savannah-chatham metro
+34:                       spokane valley
+35:                           sugar land
+36:                             temecula
+37:                        thousand oaks
+38:                          victorville
+39:                              visalia
+40:                          west covina
+41:                        wichita falls
+                            agency_found
+                                  <char>
+  1990 : 120 agency-cat-rows for 30 cities, 0.6s
+  1991 : 124 agency-cat-rows for 31 cities, 0.6s
+  1992 : 128 agency-cat-rows for 32 cities, 0.6s
+  1993 : 136 agency-cat-rows for 34 cities, 0.6s
+  1994 : 136 agency-cat-rows for 34 cities, 0.6s
+  1995 : 136 agency-cat-rows for 34 cities, 0.6s
+  1996 : 132 agency-cat-rows for 33 cities, 0.6s
+  1997 : 132 agency-cat-rows for 33 cities, 0.6s
+  1998 : 132 agency-cat-rows for 33 cities, 0.5s
+  1999 : 132 agency-cat-rows for 33 cities, 0.6s
+  2000 : 132 agency-cat-rows for 33 cities, 0.6s
+  2001 : 132 agency-cat-rows for 33 cities, 0.6s
+  2002 : 136 agency-cat-rows for 34 cities, 0.6s
+  2003 : 140 agency-cat-rows for 35 cities, 0.6s
+  2004 : 140 agency-cat-rows for 35 cities, 0.6s
+  2005 : 140 agency-cat-rows for 35 cities, 0.6s
+  2006 : 140 agency-cat-rows for 35 cities, 0.6s
+  2007 : 152 agency-cat-rows for 38 cities, 0.7s
+  2008 : 148 agency-cat-rows for 37 cities, 0.6s
+  2009 : 156 agency-cat-rows for 39 cities, 0.7s
+  2010 : 156 agency-cat-rows for 39 cities, 0.3s
+  2011 : 160 agency-cat-rows for 40 cities, 0.7s
+  2012 : 160 agency-cat-rows for 40 cities, 0.7s
+  2013 : 160 agency-cat-rows for 40 cities, 0.7s
+  2014 : 156 agency-cat-rows for 39 cities, 0.7s
+  2015 : 152 agency-cat-rows for 38 cities, 0.7s
+  2016 : 156 agency-cat-rows for 39 cities, 0.7s
+  2017 : 156 agency-cat-rows for 39 cities, 0.7s
+  2018 : 156 agency-cat-rows for 39 cities, 0.6s
+  2019 : 156 agency-cat-rows for 39 cities, 0.7s
+  2020 : 148 agency-cat-rows for 37 cities, 0.7s
+  2021 : 76 agency-cat-rows for 19 cities, 0.6s
+  2022 : 152 agency-cat-rows for 38 cities, 0.7s
+  2023 : 148 agency-cat-rows for 37 cities, 0.7s
+  2024 : 124 agency-cat-rows for 31 cities, 0.7s
+Total long rows: 4940 
+Backfill rows: 1235   unique cities: 41 
+Master before backfill rows: 11760  cities w/ arrests: 280 
+Master after backfill rows: 11760  cities w/ arrests: 321 
+Wrote updated master to merged_data/coa_master_panel.{rds,csv} (also _v2)

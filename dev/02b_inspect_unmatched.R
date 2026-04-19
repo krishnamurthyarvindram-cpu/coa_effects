@@ -1,0 +1,8 @@
+library(data.table)
+coa <- fread("C:/Users/arvind/Desktop/coa_effects/raw_data/coa_creation_data.csv")
+setnames(coa, names(coa), c("ORI","city_num","Name","State","Population","STATE_ABB","has_oversight","oversight_powers","charter_found","Link","Year_created","invest","discipline","via_election","selection"))
+problems <- c("Brandon","Centennial city","Cincinnati city","Columbia","Dalycity","East Los Angeles","Enterprise","Fort Wayne city","Greensboro city","Highlands Ranch","Jurupa Valley city","Kansascity","Lafayette city","Leaguecity","Lee's Summit city","Lehigh Acres","Lynn city","Macon-Bibb County","Menifee city","Metairie","Miami city","Minneapolis city","New Bedford city","New Orleans city","Oakland city","Paradise","Quincy city","Anchorage municipality","Athens-Clarke County unified government (balance)","Augusta-Richmond County consolidated government (balance)")
+cat("--- problem rows ---\n")
+print(coa[Name %in% problems, .(city_num, Name, State, STATE_ABB)])
+cat("\n--- empty STATE_ABB ---\n")
+print(coa[is.na(STATE_ABB) | STATE_ABB == "", .(city_num, Name, State, STATE_ABB)])

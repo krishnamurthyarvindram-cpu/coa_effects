@@ -1,0 +1,547 @@
+Master panel: 11760 rows x 139 cols
+Unique COA cities: 336 
+Year range: 1990 2024 
+
+
+========================================================
+COVERAGE BY VARIABLE GROUP — share of 336 COA cities with any non-missing value 1990-2021
+========================================================
+Variable group                               cities w/ data city-yr % filled
+Arrests x race x offense (UCR)                  280 ( 83.3%)    64.7%
+UCR reporting compliance (months)               280 ( 83.3%)    64.7%
+Police killings (MPV)                           328 ( 97.6%)    38.2%
+Police employees (LEOKA)                        290 ( 86.3%)    30.8%
+Police officers (LEMAS)                         273 ( 81.2%)    73.5%
+Police FTEs (Census)                            279 ( 83.0%)    67.4%
+Police spending (per capita)                    307 ( 91.4%)    82.3%
+Total municipal spending                        307 ( 91.4%)    82.0%
+City demographics (race/gender)                 308 ( 91.7%)    88.8%
+City economic (poverty/unemp)                   279 ( 83.0%)    79.7%
+Presidential vote share (county)                319 ( 94.9%)    64.5%
+City Dem/Rep in power (panel)                   284 ( 84.5%)    82.5%
+City council composition (county)               269 ( 80.1%)    22.6%
+Police chief identity                           276 ( 82.1%)    36.2%
+
+--- Missing all UCR arrest data: 56 cities ---
+arlington_va
+brandon_fl
+centennial_co
+columbia_md
+east los angeles_ca
+enterprise_nv
+highlands ranch_co
+indianapolis_in
+jurupa valley_ca
+lehigh acres_fl
+macon_ga
+menifee_ca
+metairie_la
+norwalk_ca
+paradise_nv
+riverview_fl
+san buenaventura_ca
+san tan valley_az
+santa clarita_ca
+south fulton_ga
+spokane valley_wa
+spring hill_fl
+spring valley_nv
+sunrise manor_nv
+temecula_ca
+the woodlands_tx
+thousand oaks_ca
+victorville_ca
+visalia_ca
+athens clarke county_ga
+augusta richmond county_ga
+charlotte_nc
+savannah_ga
+chico_ca
+concord_ca
+clovis_ca
+burbank_ca
+downey_ca
+glendale_ca
+west covina_ca
+fullerton_ca
+huntington beach_ca
+roseville_ca
+corona_ca
+murrieta_ca
+daly_ca
+san mateo_ca
+santa rosa_ca
+miami gardens_fl
+sandy springs_ga
+honolulu_hi
+cambridge_ma
+lowell_ma
+broken arrow_ok
+sugar land_tx
+wichita falls_tx 
+
+--- Missing all UCR reporting data: 56 cities ---
+arlington_va
+brandon_fl
+centennial_co
+columbia_md
+east los angeles_ca
+enterprise_nv
+highlands ranch_co
+indianapolis_in
+jurupa valley_ca
+lehigh acres_fl
+macon_ga
+menifee_ca
+metairie_la
+norwalk_ca
+paradise_nv
+riverview_fl
+san buenaventura_ca
+san tan valley_az
+santa clarita_ca
+south fulton_ga
+spokane valley_wa
+spring hill_fl
+spring valley_nv
+sunrise manor_nv
+temecula_ca
+the woodlands_tx
+thousand oaks_ca
+victorville_ca
+visalia_ca
+athens clarke county_ga
+augusta richmond county_ga
+charlotte_nc
+savannah_ga
+chico_ca
+concord_ca
+clovis_ca
+burbank_ca
+downey_ca
+glendale_ca
+west covina_ca
+fullerton_ca
+huntington beach_ca
+roseville_ca
+corona_ca
+murrieta_ca
+daly_ca
+san mateo_ca
+santa rosa_ca
+miami gardens_fl
+sandy springs_ga
+honolulu_hi
+cambridge_ma
+lowell_ma
+broken arrow_ok
+sugar land_tx
+wichita falls_tx 
+
+--- Missing all police killings data: 8 cities ---
+highlands ranch_co
+lexington fayette urban county_ky
+paradise_nv
+san buenaventura_ca
+sunrise manor_nv
+athens clarke county_ga
+augusta richmond county_ga
+nashville davidson county_tn 
+
+--- Missing all LEOKA employee data: 46 cities ---
+arlington_va
+brandon_fl
+centennial_co
+columbia_md
+east los angeles_ca
+enterprise_nv
+highlands ranch_co
+jurupa valley_ca
+lehigh acres_fl
+macon_ga
+menifee_ca
+metairie_la
+norwalk_ca
+paradise_nv
+riverview_fl
+san tan valley_az
+santa clarita_ca
+south fulton_ga
+spokane valley_wa
+spring hill_fl
+spring valley_nv
+sunrise manor_nv
+temecula_ca
+the woodlands_tx
+thousand oaks_ca
+victorville_ca
+augusta richmond county_ga
+louisville_ky
+tuscaloosa_al
+chico_ca
+lancaster_ca
+palmdale_ca
+roseville_ca
+moreno valley_ca
+murrieta_ca
+rancho cucamonga_ca
+vacaville_ca
+pompano beach_fl
+miami gardens_fl
+honolulu_hi
+meridian_id
+quincy_ma
+concord_nc
+winston salem_nc
+sugar land_tx
+richmond_va 
+
+--- Missing all LEMAS officer data: 63 cities ---
+arlington_va
+brandon_fl
+centennial_co
+columbia_md
+east los angeles_ca
+enterprise_nv
+highlands ranch_co
+indianapolis_in
+jurupa valley_ca
+lehigh acres_fl
+lexington fayette urban county_ky
+macon_ga
+menifee_ca
+metairie_la
+norwalk_ca
+paradise_nv
+riverview_fl
+san buenaventura_ca
+san tan valley_az
+santa clarita_ca
+south fulton_ga
+spokane valley_wa
+spring hill_fl
+spring valley_nv
+sunrise manor_nv
+temecula_ca
+the woodlands_tx
+thousand oaks_ca
+victorville_ca
+visalia_ca
+athens clarke county_ga
+augusta richmond county_ga
+las vegas_nv
+chico_ca
+concord_ca
+clovis_ca
+burbank_ca
+downey_ca
+glendale_ca
+lancaster_ca
+palmdale_ca
+west covina_ca
+fullerton_ca
+huntington beach_ca
+roseville_ca
+corona_ca
+moreno valley_ca
+murrieta_ca
+rancho cucamonga_ca
+daly_ca 
+  ... and 13 more
+
+--- Missing all Census-of-Govts police spending data: 53 cities ---
+arlington_va
+brandon_fl
+centennial_co
+columbia_md
+east los angeles_ca
+enterprise_nv
+highlands ranch_co
+indianapolis_in
+jurupa valley_ca
+lehigh acres_fl
+macon_ga
+menifee_ca
+metairie_la
+norwalk_ca
+paradise_nv
+riverview_fl
+san buenaventura_ca
+san tan valley_az
+santa clarita_ca
+south fulton_ga
+spokane valley_wa
+spring hill_fl
+spring valley_nv
+sunrise manor_nv
+temecula_ca
+the woodlands_tx
+thousand oaks_ca
+victorville_ca
+visalia_ca
+athens clarke county_ga
+chico_ca
+concord_ca
+clovis_ca
+burbank_ca
+downey_ca
+glendale_ca
+west covina_ca
+fullerton_ca
+huntington beach_ca
+roseville_ca
+corona_ca
+murrieta_ca
+daly_ca
+san mateo_ca
+santa rosa_ca
+miami gardens_fl
+sandy springs_ga
+honolulu_hi
+cambridge_ma
+lowell_ma
+broken arrow_ok
+sugar land_tx
+wichita falls_tx 
+
+--- Missing all Austerity fiscal data: 58 cities ---
+arlington_va
+brandon_fl
+centennial_co
+columbia_md
+east los angeles_ca
+enterprise_nv
+highlands ranch_co
+jurupa valley_ca
+lehigh acres_fl
+menifee_ca
+metairie_la
+paradise_nv
+riverview_fl
+san tan valley_az
+south fulton_ga
+spokane valley_wa
+spring hill_fl
+spring valley_nv
+sunrise manor_nv
+temecula_ca
+the woodlands_tx
+victorville_ca
+athens clarke county_ga
+augusta richmond county_ga
+elk grove_ca
+north las vegas_nv
+gilbert_az
+surprise_az
+chico_ca
+roseville_ca
+murrieta_ca
+davie_fl
+miramar_fl
+miami gardens_fl
+columbus_ga
+honolulu_hi
+meridian_id
+nampa_id
+lee s summit_mo
+rio rancho_nm
+concord_nc
+cary_nc
+hillsboro_or
+nashville davidson county_tn
+murfreesboro_tn
+pearland_tx
+allen_tx
+frisco_tx
+mckinney_tx
+lewisville_tx
+sugar land_tx
+league_tx
+edinburg_tx
+round rock_tx
+west jordan_ut
+vancouver_wa
+kent_wa
+renton_wa 
+
+--- Missing all city demographics data: 28 cities ---
+arlington_va
+brandon_fl
+centennial_co
+columbia_md
+east los angeles_ca
+enterprise_nv
+highlands ranch_co
+jurupa valley_ca
+lehigh acres_fl
+menifee_ca
+metairie_la
+paradise_nv
+riverview_fl
+san tan valley_az
+south fulton_ga
+spokane valley_wa
+spring hill_fl
+spring valley_nv
+sunrise manor_nv
+temecula_ca
+the woodlands_tx
+victorville_ca
+chico_ca
+roseville_ca
+murrieta_ca
+miami gardens_fl
+honolulu_hi
+sugar land_tx 
+
+--- Missing all presidential vote share data: 17 cities ---
+athens clarke county_ga
+augusta richmond county_ga
+brockton_ma
+charlotte_nc
+elk grove_ca
+las vegas_nv
+louisville_ky
+north las vegas_nv
+savannah_ga
+south bend_in
+worcester_ma
+tuscaloosa_al
+quincy_ma
+concord_nc
+winston salem_nc
+philadelphia_pa
+richmond_va 
+
+--- Missing all county council comp data: 67 cities ---
+arlington_va
+brandon_fl
+centennial_co
+columbia_md
+east los angeles_ca
+enterprise_nv
+highlands ranch_co
+indianapolis_in
+jurupa valley_ca
+lehigh acres_fl
+lexington fayette urban county_ky
+macon_ga
+menifee_ca
+metairie_la
+norwalk_ca
+paradise_nv
+riverview_fl
+san buenaventura_ca
+san tan valley_az
+santa clarita_ca
+south fulton_ga
+spokane valley_wa
+spring hill_fl
+spring valley_nv
+sunrise manor_nv
+temecula_ca
+the woodlands_tx
+thousand oaks_ca
+victorville_ca
+visalia_ca
+athens clarke county_ga
+augusta richmond county_ga
+brockton_ma
+charlotte_nc
+elk grove_ca
+las vegas_nv
+louisville_ky
+north las vegas_nv
+savannah_ga
+south bend_in
+worcester_ma
+bridgeport_ct
+stamford_ct
+hartford_ct
+new haven_ct
+waterbury_ct
+washington_dc
+columbus_ga
+new orleans_la
+boston_ma 
+  ... and 17 more
+
+--- Missing all police chief data: 60 cities ---
+arlington_va
+brandon_fl
+centennial_co
+columbia_md
+east los angeles_ca
+enterprise_nv
+highlands ranch_co
+indianapolis_in
+jurupa valley_ca
+lehigh acres_fl
+macon_ga
+menifee_ca
+metairie_la
+norwalk_ca
+paradise_nv
+riverview_fl
+san buenaventura_ca
+san tan valley_az
+santa clarita_ca
+south fulton_ga
+spokane valley_wa
+spring hill_fl
+spring valley_nv
+sunrise manor_nv
+temecula_ca
+the woodlands_tx
+thousand oaks_ca
+victorville_ca
+visalia_ca
+augusta richmond county_ga
+las vegas_nv
+chico_ca
+concord_ca
+clovis_ca
+burbank_ca
+downey_ca
+glendale_ca
+lancaster_ca
+palmdale_ca
+west covina_ca
+fullerton_ca
+huntington beach_ca
+roseville_ca
+corona_ca
+moreno valley_ca
+murrieta_ca
+rancho cucamonga_ca
+daly_ca
+san mateo_ca
+santa rosa_ca
+pompano beach_fl
+jacksonville_fl
+miami gardens_fl
+sandy springs_ga
+honolulu_hi
+cambridge_ma
+lowell_ma
+broken arrow_ok
+sugar land_tx
+wichita falls_tx 
+
+
+========================================================
+YEAR-BY-YEAR COVERAGE (% of 336 COA cities with non-missing) for key variables
+========================================================
+Variable                          1990  1992  1994  1996  1998  2000  2002  2004  2006  2008  2010  2012  2014  2016  2018  2020  2022  2024 
+UCR arrests (any)                   72    75    71    60    62    62    64    62    67    68    68    68    69    71    71    68     0     0
+UCR months reported                 72    75    71    60    62    62    64    62    67    68    68    68    69    71    71    68     0     0
+LEMAS officers                      60    60    72    72    76    76    76    78    78    79    79    79    80    79    79    70     0     0
+LEOKA officers                       0     0     0     0     0     0     0     0     0    85    85    83    78    82    81     0     0     0
+Police spend/capita (CoG)           84    80    81    81    81    82    84    83    83    83    84    84    77    76    77     0     0     0
+Police spend/capita (Austerity)     82    82    81    81    81    82    82    82    82    82    82    82    72    72    72     0     0     0
+City pct white                      92    92    92    92    92    92    92    92    92    92    92    92    92    92    92    92     0     0
+Pres Dem vote share (county)         0     0     0     0     0    86    86    86    86    86    86    95    95    95    95    82     0     0
+Council size (county)                4    15    17    18    30    36    43    44    42    47    47    47    49    53    64    70     0     0
+Police killings (MPV)                0     0     0     0     0    42    46    46    54    53    52    59    58    63    63    67     0     0
+
+Wrote summary to C:/Users/arvind/Desktop/coa_effects/merged_data/coverage_summary.csv 
